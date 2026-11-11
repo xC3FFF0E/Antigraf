@@ -1,7 +1,23 @@
+<p align="center">
+  <img src="assets/antigraf.png" width="160" height="160" alt="Antigraf icon: an engraved profile of a laurel-crowned figure on a green tile">
+</p>
+
 <h1 align="center">Antigraf</h1>
 
 <p align="center">
-  <b>From the Greek <i>antígrafo</i> (αντίγραφο) — a copy that answers the original.</b><br>
+  <b>English</b> ·
+  <a href="README.ja.md">日本語</a> ·
+  <a href="README.zh.md">简体中文</a> ·
+  <a href="README.zh-hant.md">繁體中文</a> ·
+  <a href="README.ko.md">한국어</a> ·
+  <a href="README.es.md">Español</a> ·
+  <a href="README.fr.md">Français</a> ·
+  <a href="README.vi.md">Tiếng Việt</a> ·
+  <a href="README.pt.md">Português</a>
+</p>
+
+<p align="center">
+  <b>From the Greek <i>antígrafo</i> (αντίγραφο), a copy that answers the original.</b><br>
   A skill that studies a source, builds your own version of it,<br>
   and <b>proves</b> how close it is with commands you can re-run.
 </p>
@@ -14,6 +30,16 @@
   <img alt="Proven on 0 real pairs" src="https://img.shields.io/badge/proven%20on-0%20real%20pairs-d69e2e?style=flat-square">
 </p>
 
+<p align="center">
+  <a href="#how-it-works">How it works</a> ·
+  <a href="#four-jobs">Four jobs</a> ·
+  <a href="#what-sets-it-apart">What sets it apart</a> ·
+  <a href="#install">Install</a> ·
+  <a href="#how-to-use">How to use</a> ·
+  <a href="#honest-status">Status</a> ·
+  <a href="#the-line-we-do-not-cross">The line we do not cross</a>
+</p>
+
 <br>
 
 Antigraf sits inside your agent as an instruction pack plus a set of small tools. It walks a website,
@@ -22,6 +48,45 @@ both sides answer the same checks until nothing fails and nothing is unknown.
 
 The point is not to say "it looks the same". The point is to show the row that still differs, and the
 command that shows it.
+
+<br>
+
+<table>
+  <tr>
+    <td width="25%" valign="top">
+      <h3>Study anything</h3>
+      Pages, screens, menus, controls and what sits behind a click. Every number carries where it
+      came from, so a guess can never pass itself off as a measurement.
+    </td>
+    <td width="25%" valign="top">
+      <h3>Build your own</h3>
+      Your copy lives in your project, in the stack you choose. Nothing of the source ships with it
+      except what you have the right to use.
+    </td>
+    <td width="25%" valign="top">
+      <h3>Checked, not guessed</h3>
+      27 gates run on both sides every round. A gate that never ran, or answered unknown, blocks the
+      lock and never counts as a pass.
+    </td>
+    <td width="25%" valign="top">
+      <h3>Agent-ready</h3>
+      A skill file plus plain scripts, so any model or harness can drive the same checks. No AI is
+      needed to measure.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+## How it works
+
+Point Antigraf at a source, pick a job, and it works in five stages:
+
+1. **Study:** walk the source, open what hides behind a press, and record it as numbers.
+2. **Plan:** one row per page, section, control, state and route, each with the check that judges it.
+3. **Build:** write your copy, front end first. Server pieces are named, never copied.
+4. **Check:** the same gates run on the original and on your copy, round after round.
+5. **Refine:** every failing row goes back as the next build message, until the lock closes.
 
 ## Four jobs
 
@@ -34,7 +99,7 @@ command that shows it.
 | **3 Improve** | Put a source against your own project, show what it does better, and end with a short list of what to do next. |
 | **4 Study** | Read only, nothing executed, secrets redacted. What it is built with, front to back. |
 
-Every finished job ends with an honest 1–100 table per area, what holds each area down, and your
+Every finished job ends with an honest 1 to 100 table per area, what holds each area down, and your
 options for what to do next.
 
 ## What sets it apart
@@ -49,7 +114,7 @@ options for what to do next.
 | What it claims about itself | A progress block generated from real run ledgers | Whatever the page says |
 
 No single overall score hides which row failed. Pictures never pass anything on their own. A weaker
-model, or one that cannot see images, never lowers a bar — it spends less and says so.
+model, or one that cannot see images, never lowers a bar. It spends less and says so.
 
 ## Where things live
 
@@ -59,12 +124,13 @@ model, or one that cannot see images, never lowers a bar — it spends less and 
 | [`skills/antigraf/README.md`](skills/antigraf/README.md) | the full document: gates, tolerances, progress, layout |
 | [`skills/antigraf/references/`](skills/antigraf/references) | 12 guides: gates, planning, fidelity, scene, handover, evidence |
 | [`skills/antigraf/scripts/`](skills/antigraf/scripts) | 46 tools: 39 Python, 7 browser, one device list |
+| [`assets/`](assets) | the icon, in 512 and 128 pixels |
 
 ## Install
 
 No package manager, no `pip install`, no account. The pack is a folder of text and plain scripts.
 
-**Option 1 - copy the folder (recommended)**
+**Option 1: copy the folder (recommended)**
 
 ```bash
 git clone https://github.com/xC3FFF0E/Antigraf.git
@@ -79,13 +145,13 @@ name, keeps `SKILL.md` at its top, and travels with its `references/` and `scrip
 | Every project on the machine | `~/.claude/skills/antigraf/` |
 | Anything else | the skills directory your harness reads |
 
-**Option 2 - no folder access**
+**Option 2: no folder access**
 
 Paste the text of `skills/antigraf/SKILL.md` into your agent's custom-instructions field. The skill then
-runs from that text alone, without the tools: the checks become things the model does by hand, and the
+runs from that text alone, without the tools. The checks become things the model does by hand, and the
 closing table says which ones were done that way.
 
-**Option 3 - no agent at all**
+**Option 3: no agent at all**
 
 The tools are ordinary scripts. From the repo folder:
 
@@ -141,7 +207,7 @@ The lock closes at **100%** and only then: every row passing, nothing unknown, n
 unexplained. Until that happens the table says what is open, by gate and by row, for example
 `G5 @1440 hero pad 16 12 -4 +-4`.
 
-## The honest status
+## Honest status
 
 **The measuring half works. The building half has not yet produced a copy that passed every gate.**
 
@@ -163,3 +229,10 @@ reproducing anyone's content, brand or assets without permission.** Use Antigraf
 is openly licensed, or what you have leave to study. Artwork, fonts, logos and copy you have no rights
 to are replaced with your own, and a licence nobody cleared holds the lock until you clear it or swap
 it out. What you build is yours only if what you put in it is yours to put in.
+
+<br>
+
+<p align="center">
+  <img src="assets/antigraf-128.png" width="36" height="36" alt="Antigraf"><br>
+  <sub>Antigraf. A copy that answers the original.</sub>
+</p>
