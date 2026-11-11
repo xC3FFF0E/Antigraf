@@ -246,19 +246,19 @@ Dois numeros diferentes aparecem aqui de proposito: a pontuacao e o que os porto
 
 <!-- ANTIGRAF:SCORE (written by scripts/antigraf_registry.py - do not edit by hand) -->
 
-**Measured: 54.0% out of 100 - the three-page test pair (round 1)**
+**Measured: 54.6% out of 100 - the three-page test pair (round 2)**
 
 | Area | Score | Passing | Failing | Not measured | What holds it down |
 |---|---|---|---|---|---|
 | Words & layout | 100% | 3 | 0 | 0 | - |
-| Design, icons | 100% | 2 | 0 | 0 | - |
-| Behaviour, flows | 0% | 0 | 5 | 0 | failing: G6, G7, G23, G24, G19 |
-| Phone & PWA | 0% | 0 | 2 | 0 | failing: G14, G18 |
+| Design, icons | 50% | 1 | 1 | 0 | failing: G4 |
+| Behaviour, flows | 20% | 1 | 4 | 0 | failing: G6, G7, G23, G19 |
+| Phone & PWA | 50% | 1 | 1 | 0 | failing: G18 |
 | Motion & 3D | 33% | 1 | 2 | 0 | failing: G25, G26 |
 | Media & speed | 100% | 2 | 0 | 0 | - |
 | Sources, repairs | 50% | 2 | 1 | 1 | failing: G16 |
-| Evidence, proof, pages | 60% | 3 | 2 | 0 | failing: G1, G12 |
-| **Total** | **54.0%** | 13 | 13 | 1 | 14 gate(s) not passing |
+| Evidence, proof, pages | 40% | 2 | 3 | 0 | failing: G1, G11, G12 |
+| **Total** | **54.6%** | 13 | 13 | 1 | 14 gate(s) not passing |
 
 The lock needs 100%: every gate passing, nothing unknown. A gate that never ran counts as zero, not as a pass.
 
@@ -272,24 +272,24 @@ The lock needs 100%: every gate passing, nothing unknown. A gate that never ran 
 
 | What the gates check | Gates | State | Where it was measured |
 |---|---|---|---|
-| Look: sections, words, colours, spacing | G2, G3, G4, G5 | measured | the three-page test pair round 1 |
-| Icons and pictures, one partner each | G8, G17 | measured | the three-page test pair round 1 |
-| Every page walked, planned and shipped | G11 | measured | the three-page test pair round 1 |
-| Behaviour: pressed, and the same result | G7, G23, G24 | measured | the three-page test pair round 1 |
-| States: hover, focus, open, empty, error | G6 | measured | the three-page test pair round 1 |
-| Motion: durations, easings, scroll | G13 | measured | the three-page test pair round 1 |
-| Phone, install and offline (PWA) | G9, G14, G18 | measured | the three-page test pair round 1 |
-| Speed and weight budgets | G15 | measured | the three-page test pair round 1 |
-| Logic: same input, same answer, no secrets | G19 | measured | the three-page test pair round 1 |
-| Defects found, and the copy repaired | G20, G21 | measured | the three-page test pair round 1 |
-| 3D scene read as numbers | G25 | measured | the three-page test pair round 1 |
-| 3D motion compared frame by frame | G26 | measured | the three-page test pair round 1 |
-| Server seams listed for you to hook up | G16 | measured | the three-page test pair round 1 |
-| Evidence, proof and a frozen plan | G0, G1, G10, G12 | measured | the three-page test pair round 1 |
+| Look: sections, words, colours, spacing | G2, G3, G4, G5 | measured | the three-page test pair round 2 |
+| Icons and pictures, one partner each | G8, G17 | measured | the three-page test pair round 2 |
+| Every page walked, planned and shipped | G11 | measured | the three-page test pair round 2 |
+| Behaviour: pressed, and the same result | G7, G23, G24 | measured | the three-page test pair round 2 |
+| States: hover, focus, open, empty, error | G6 | measured | the three-page test pair round 2 |
+| Motion: durations, easings, scroll | G13 | measured | the three-page test pair round 2 |
+| Phone, install and offline (PWA) | G9, G14, G18 | measured | the three-page test pair round 2 |
+| Speed and weight budgets | G15 | measured | the three-page test pair round 2 |
+| Logic: same input, same answer, no secrets | G19 | measured | the three-page test pair round 2 |
+| Defects found, and the copy repaired | G20, G21 | measured | the three-page test pair round 2 |
+| 3D scene read as numbers | G25 | measured | the three-page test pair round 2 |
+| 3D motion compared frame by frame | G26 | measured | the three-page test pair round 2 |
+| Server seams listed for you to hook up | G16 | measured | the three-page test pair round 2 |
+| Evidence, proof and a frozen plan | G0, G1, G10, G12 | measured | the three-page test pair round 2 |
 
 | Target | Family | Kind | Gates passed | Failed | Unknown | Verdict |
 |---|---|---|---|---|---|---|
-| the three-page test pair | unknown | round 1 | 13 of 27 | 13 | 0 | measured |
+| the three-page test pair | unknown | round 2 | 13 of 27 | 13 | 0 | measured |
 
 `proven` means every gate ran, passed, and nothing was unknown. `measured` means the gates ran and left a real exit code. Anything else is `not proven`, and is not being claimed.
 
