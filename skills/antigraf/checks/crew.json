@@ -1,0 +1,14 @@
+{
+  "at": "2026-11-11T01:21:13Z",
+  "mode": "",
+  "target": "",
+  "cost": 0,
+  "routes": 0,
+  "controls": 0,
+  "states": 0,
+  "lanes": [],
+  "crew": 0,
+  "ceiling": 3,
+  "fresh_minutes": 60,
+  "rule": "a lane older than 60 minutes is stale and redone, never resumed"
+}

@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "why": "Real devices, real numbers. A copy is judged on the phones and tablets people actually hold, not only on three desktop-ish widths. Every field here is a published device measurement, so both sides are captured with the same viewport, the same pixel ratio and the same safe insets.",
+  "how": [
+    "The run takes one shot per device, per route, on both sides, named shot-<device>.png.",
+    "Each shot is taken with the browser's own device emulation at exactly width, height and dpr below, and with animations frozen (gate G10 needs that).",
+    "The device shot pages are kept in shots/<device>/ so a person can open the folder and see, side by side, exactly what that phone would show.",
+    "A device with no paired shot is unknown, and unknown blocks the lock."
+  ],
+  "devices": [
+    {"id": "iphone-se",    "name": "iPhone SE (2nd/3rd gen)", "width": 375, "height": 667,  "dpr": 2, "notch": false, "insets": [0, 0, 0, 0],     "platform": "ios",     "touch": true},
+    {"id": "iphone-14",    "name": "iPhone 14",              "width": 390, "height": 844,  "dpr": 3, "notch": true,  "insets": [47, 0, 34, 0],  "platform": "ios",     "touch": true},
+    {"id": "iphone-14pm",  "name": "iPhone 14 Pro Max",      "width": 430, "height": 932,  "dpr": 3, "notch": true,  "insets": [59, 0, 34, 0],  "platform": "ios",     "touch": true},
+    {"id": "pixel-7",      "name": "Pixel 7",                "width": 412, "height": 915,  "dpr": 2.625, "notch": true, "insets": [24, 0, 16, 0], "platform": "android", "touch": true},
+    {"id": "galaxy-s21",   "name": "Galaxy S21",             "width": 360, "height": 800,  "dpr": 3, "notch": true,  "insets": [24, 0, 0, 0],   "platform": "android", "touch": true},
+    {"id": "small-android", "name": "Android small (320)",    "width": 320, "height": 640,  "dpr": 2, "notch": false, "insets": [0, 0, 0, 0],     "platform": "android", "touch": true},
+    {"id": "ipad-mini",    "name": "iPad mini",              "width": 744, "height": 1133, "dpr": 2, "notch": false, "insets": [0, 0, 0, 0],     "platform": "ios",     "touch": true},
+    {"id": "tablet",       "name": "Android tablet",         "width": 800, "height": 1280, "dpr": 2, "notch": false, "insets": [0, 0, 0, 0],     "platform": "android", "touch": true},
+    {"id": "desktop",      "name": "Desktop",                "width": 1440, "height": 900, "dpr": 1, "notch": false, "insets": [0, 0, 0, 0],     "platform": "desktop", "touch": false},
+    {"id": "desktop-wide", "name": "Desktop wide",           "width": 1920, "height": 1080, "dpr": 1, "notch": false, "insets": [0, 0, 0, 0],     "platform": "desktop", "touch": false}
+  ],
+  "profiles": {
+    "phone-first": ["small-android", "iphone-se", "iphone-14", "pixel-7", "galaxy-s21", "iphone-14pm"],
+    "tablet-first": ["ipad-mini", "tablet", "iphone-14"],
+    "web-default": ["desktop", "desktop-wide", "ipad-mini", "iphone-14", "pixel-7"],
+    "everything": ["small-android", "iphone-se", "iphone-14", "pixel-7", "galaxy-s21", "iphone-14pm", "ipad-mini", "tablet", "desktop", "desktop-wide"]
+  },
+  "rules": [
+    "The device list is chosen once, before the first build, and never shrinks mid-run.",
+    "Both sides use the same list: a device on one side only is unknown, never a pass.",
+    "Phone-first targets start at the narrowest phone and fail earliest there; desktop-first targets still have to survive the phone.",
+    "Safe insets are honoured: content under the notch is a G14 failure, not a taste choice.",
+    "Each device shot is kept in shots/<device>/<route>.png, so the person can open the folder and compare phone to phone, not screenshot to screenshot."
+  ]
+}

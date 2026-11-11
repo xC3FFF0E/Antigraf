@@ -1,0 +1,14 @@
+# Build noise
+__pycache__/
+*.pyc
+*.pyo
+
+# Evidence from real runs: large, and belongs on the machine that made it
+runs/
+.tmp/
+.tmp-*
+
+# Local scratch and app-internal logs
+.hormachuelos/
+*.log
+access-check.txt
