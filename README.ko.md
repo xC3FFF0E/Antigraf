@@ -250,17 +250,17 @@ The lock needs 100%: every gate passing, nothing unknown. A gate that never ran 
 | Look: sections, words, colours, spacing | G2, G3, G4, G5 | proven | nothing yet |
 | Icons and pictures, one partner each | G8, G17 | proven | nothing yet |
 | Every page walked, planned and shipped | G11 | proven | nothing yet |
-| Behaviour: pressed, and the same result | G7, G23, G24 | measured | test-pair-3page checks\round-1 |
-| States: hover, focus, open, empty, error | G6 | measured | test-pair-3page checks\round-1 |
+| Behaviour: pressed, and the same result | G7, G23, G24 | measured | test-pair-3page checks/round-1 |
+| States: hover, focus, open, empty, error | G6 | measured | test-pair-3page checks/round-1 |
 | Motion: durations, easings, scroll | G13 | proven | nothing yet |
-| Phone, install and offline (PWA) | G9, G14, G18 | measured | test-pair-3page checks\round-1 |
+| Phone, install and offline (PWA) | G9, G14, G18 | measured | test-pair-3page checks/round-1 |
 | Speed and weight budgets | G15 | proven | nothing yet |
-| Logic: same input, same answer, no secrets | G19 | measured | test-pair-3page checks\round-1 |
+| Logic: same input, same answer, no secrets | G19 | measured | test-pair-3page checks/round-1 |
 | Defects found, and the copy repaired | G20, G21 | proven | nothing yet |
-| 3D scene read as numbers | G25 | measured | test-pair-3page checks\round-1 |
-| 3D motion compared frame by frame | G26 | measured | test-pair-3page checks\round-1 |
-| Server seams listed for you to hook up | G16 | measured | test-pair-3page checks\round-1 |
-| Evidence, proof and a frozen plan | G0, G1, G10, G12 | measured | test-pair-3page checks\round-1 |
+| 3D scene read as numbers | G25 | measured | test-pair-3page checks/round-1 |
+| 3D motion compared frame by frame | G26 | measured | test-pair-3page checks/round-1 |
+| Server seams listed for you to hook up | G16 | measured | test-pair-3page checks/round-1 |
+| Evidence, proof and a frozen plan | G0, G1, G10, G12 | measured | test-pair-3page checks/round-1 |
 
 | Target | Family | Kind | Gates passed | Failed | Unknown | Verdict |
 |---|---|---|---|---|---|---|
