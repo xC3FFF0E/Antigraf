@@ -71,3 +71,20 @@ Gate G9: unknown contrast row made a pass, now fails
 - Emoji, marketing claims, or a score with no ledger behind it.
 - Anything that copies credentials, payments, accounting, or private data, or bypasses a paywall,
   a login or DRM. That is out of scope, permanently.
+
+## Incomplete reports are closed
+
+Antigraf is judged by evidence, so the same rule applies to what arrives here. Every issue
+and pull request is checked by a workflow the moment it opens, and it is closed without
+discussion when any of these is true:
+
+- The description is shorter than a real report (150 characters for an issue, 200 for a pull request).
+- Template placeholder comments are still in it, which means the form was not filled in.
+- There is no proof block with the command and its real output inside triple backticks.
+- There is no exit code, so nobody can tell a pass from a failure.
+- It does not refer to Antigraf, a gate, a script or a document.
+- One pull request carries unrelated work.
+
+That is not a way to keep people out. It is the same rule the skill holds itself to: a
+claim without a measurement is not accepted, no matter who makes it. Fix the gaps and
+the item can be reopened.

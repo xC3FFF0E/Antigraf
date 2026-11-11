@@ -1,46 +1,53 @@
 ---
-name: Something did not work
-about: A gate, a tool or a run gave the wrong answer
-labels: bug
+name: Bug report
+about: A gate, a script or the run crashed, or gave the wrong answer
+title: "bug: "
+labels: ["bug"]
+assignees: ""
 ---
+
+<!--
+Read this first, because it decides whether this issue survives triage.
+
+An issue is closed without discussion when any of these is true:
+- The report is under 150 characters.
+- "What you ran" has no command in it.
+- "Command output" has no code block.
+- "Exit code" is missing, or is not a number.
+- Nothing here is about Antigraf.
+
+Do not open an issue to ask a question, to suggest a feature, or to report a
+security hole. There are links for those. This form is only for a defect.
+-->
+
+## What happened
+
+<!-- One or two sentences. What did you expect, and what did you get instead? -->
 
 ## What you ran
 
-Paste the exact command, with the real paths.
-
-```bash
+<!-- The exact command, flags included, on its own line. Not a summary. -->
 
 ```
-
-## What it printed
-
-Paste the output as it appeared. If it was long, keep the verdict line and the failing rows.
-
+python skills/antigraf/scripts/...
 ```
 
+## Command output
+
+<!-- The last 20 lines of real output. Not "it did not work". Not a screenshot. -->
+
+```
 ```
 
-## The exit code
+## Exit code
 
-Run `echo $?` straight after (or `echo %errorlevel%` on Windows) and paste the number.
+<!-- The number the command ended with. 0 pass, 1 a real finding, 2 could not run. -->
 
-- 0 means the tool said pass
-- 1 means it said fail
-- 2 means it could not judge
+## Antigraf version and environment
 
-An "it said pass but it should have failed" report is the most valuable bug this project can get.
-
-## What you expected instead
-
-One or two lines.
-
-## What it read
-
-If you can share them, attach the small files the tool read (a capture, a plan row, a proof entry).
-A tiny pair that still shows the problem is better than a whole real run. Do not attach anything
-with a key, a token, a password or someone's private data in it.
+<!-- The commit you are on, plus the operating system and the Python and Node
+versions. For example: commit a67e3ce, Windows 11, Python 3.14, Node 25. -->
 
 ## Anything else
 
-Python version, Node version, browser name, operating system. Add a line if the problem only
-happens on one of them.
+<!-- Optional. If you already know which line is wrong, say which file and line. -->

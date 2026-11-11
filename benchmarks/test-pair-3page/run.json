@@ -2,7 +2,7 @@
   "mode": "clone",
   "title": "Clone a source",
   "at": "2026-11-10T07:21:07Z",
-  "target": "http://private-target/index.html",
+  "target": "private-target",
   "project": "",
   "want": "",
   "focus": "",

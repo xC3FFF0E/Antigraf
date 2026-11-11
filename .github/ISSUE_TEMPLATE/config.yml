@@ -3,3 +3,6 @@ contact_links:
   - name: A security hole
     url: https://github.com/xC3FFF0E/Antigraf/security/advisories/new
     about: Please report a vulnerability privately, never in a public issue.
+  - name: A question, or an idea
+    url: https://github.com/xC3FFF0E/Antigraf/discussions
+    about: Ideas and questions go to Discussions. Issues are only for defects.

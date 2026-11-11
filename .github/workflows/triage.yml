@@ -1,0 +1,108 @@
+name: triage
+
+# An incomplete report is closed, not argued with. This action reads every new
+# issue and pull request and closes the ones that do not follow the template.
+on:
+  issues:
+    types: [opened, edited]
+  pull_request_target:
+    types: [opened, edited]
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the report is complete
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const MIN_BODY = 150;
+            const MIN_PR_BODY = 200;
+
+            const item = context.payload.issue || context.payload.pull_request;
+            if (!item) return;
+            if (item.user && item.user.type === "Bot") return;
+
+            const isPr = "pull_request" in item;
+            const body = (item.body || "").trim();
+            const problems = [];
+
+            // 1. Too short to be a report at all.
+            if (body.length < (isPr ? MIN_PR_BODY : MIN_BODY)) {
+              problems.push(`The description is ${body.length} characters; it needs at least ${isPr ? MIN_PR_BODY : MIN_BODY}.`);
+            }
+
+            // 2. The template was never filled in: placeholders still present.
+            if (/<!--/.test(body)) {
+              problems.push("Template placeholder comments are still in the description, so the form was not filled in.");
+            }
+
+            // 3. No proof: a code block is the only accepted shape of evidence.
+            if (!/```[\s\S]*?```/.test(body)) {
+              problems.push("No proof block. Paste the command and its real output inside triple backticks.");
+            }
+
+            // 4. No exit code, so nobody can tell a pass from a failure.
+            if (!/exit code/i.test(body)) {
+              problems.push("No exit code. A result without an exit code cannot be checked.");
+            }
+
+            // 5. An issue that talks about nothing in this project.
+            if (!/antigraf|gate|script|skill/i.test(item.title + " " + body)) {
+              problems.push("Nothing here refers to Antigraf, a gate, a script or a document.");
+            }
+
+            // 6. Several unrelated things in one pull request.
+            if (isPr && /unrelated/i.test(body)) {
+              problems.push("The scope section names unrelated work. Split it into separate pull requests.");
+            }
+
+            if (!problems.length) {
+              if (isPr) {
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner, repo: context.repo.repo,
+                  issue_number: item.number, labels: ["needs-review"],
+                });
+              }
+              return;
+            }
+
+            const text = [
+              "Closed automatically, because this report does not follow the template.",
+              "",
+              "What is missing:",
+              "",
+              ...problems.map(p => `- ${p}`),
+              "",
+              "How to open it again:",
+              "",
+              "1. Fill in every section of the template. Do not leave the placeholder comments in.",
+              "2. Paste the exact command you ran, and its real output, inside triple backticks.",
+              "3. Give the exit code. `0` means pass, `1` means a real finding, `2` means it could not run.",
+              "4. Keep it about one thing. Bug reports, gate changes and pull requests are separate forms.",
+              "5. Report a security hole privately through the Security tab, never as an issue.",
+              "",
+              "The rules are the same as `CONTRIBUTING.md`. Anyone can reopen this once every section is real.",
+            ].join("\n");
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: item.number, body: text,
+            });
+
+            if (isPr) {
+              await github.rest.pulls.update({
+                owner: context.repo.owner, repo: context.repo.repo,
+                pull_number: item.number, state: "closed",
+              });
+            } else {
+              await github.rest.issues.update({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: item.number, state: "closed",
+                state_reason: "not_planned",
+              });
+            }

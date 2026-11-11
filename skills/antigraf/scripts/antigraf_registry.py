@@ -114,8 +114,16 @@ def pick_ledger(paths):
     return paths[0], "study"
 
 
-URL_RE = re.compile(r"https?://[^\s\"'<>\\)\],;]+")
-PATH_RE = re.compile(r"(?:(?:[A-Za-z]:\\|/)\\?[^\s\"'<>\\)\],;]+)")
+URL_RE = re.compile(r"https?://[^\s\"'<>;,)]+")
+# A Windows path is matched from the drive letter to the end of the token, so a
+# scrub can never stop halfway at a backslash and leave the rest of a folder
+# name on the page. A posix path is only matched when it starts a token, which
+# keeps ordinary text like `capture/capture.json` readable.
+WIN_PATH_RE = re.compile(r"[A-Za-z]:[\\/][^\s\"'<>|;,)]*")
+POSIX_PATH_RE = re.compile(r"(?<![A-Za-z0-9_.:-])/[^\s\"'<>|;,)]+")
+# A folder name that survives inside a longer token is still a leak, but the
+# command text of a proof is how someone reproduces the run, so relative paths
+# like `capture/capture.json` stay exactly as they were.
 
 
 def scrub(value):
@@ -126,12 +134,16 @@ def scrub(value):
     with the page, so nobody reading the repo learns what was benchmarked.
     """
     if isinstance(value, dict):
-        return dict((scrub(k), scrub(v)) for k, v in value.items())
+        # The folder a gate was run from says nothing about the result and
+        # everything about whose machine it was, so it is never dated back.
+        return dict((scrub(k), "private-path" if k == "cwd" else scrub(v))
+                    for k, v in value.items())
     if isinstance(value, list):
         return [scrub(v) for v in value]
     if isinstance(value, str):
         out = URL_RE.sub("private-target", value)
-        return PATH_RE.sub("private-path", out)
+        out = WIN_PATH_RE.sub("private-path", out)
+        return POSIX_PATH_RE.sub("private-path", out)
     return value
 
 
