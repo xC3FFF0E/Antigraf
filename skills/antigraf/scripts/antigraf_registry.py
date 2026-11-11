@@ -114,7 +114,62 @@ def pick_ledger(paths):
     return paths[0], "study"
 
 
-def target_row(run_dir, ledger, kind):
+URL_RE = re.compile(r"https?://[^\s\"'<>\\)\],;]+")
+PATH_RE = re.compile(r"(?:(?:[A-Za-z]:\\|/)\\?[^\s\"'<>\\)\],;]+)")
+
+
+def scrub(value):
+    """Remove every address and every local path from what the skill writes.
+
+    The one rule this file exists to keep: a run's real address is private.
+    It is never printed, never written into the registry and never committed
+    with the page, so nobody reading the repo learns what was benchmarked.
+    """
+    if isinstance(value, dict):
+        return dict((scrub(k), scrub(v)) for k, v in value.items())
+    if isinstance(value, list):
+        return [scrub(v) for v in value]
+    if isinstance(value, str):
+        out = URL_RE.sub("private-target", value)
+        return PATH_RE.sub("private-path", out)
+    return value
+
+
+def public_name(run_dir):
+    """The label a run is known by in public, or None if it has none yet.
+
+    A file inside the run folder wins. The folder name is deliberately never
+    used: a folder named after a real site would leak the very thing that has
+    to stay private.
+    """
+    marker = os.path.join(run_dir, ".antigraf-public-name")
+    if os.path.isfile(marker):
+        try:
+            with io.open(marker, "r", encoding="utf-8-sig") as fh:
+                name = fh.read().strip()
+            if name:
+                return name.splitlines()[0].strip()
+        except (IOError, OSError, UnicodeDecodeError):
+            pass
+    return None
+
+
+def scrub_ledgers(paths):
+    """Rewrite every proof ledger so it carries no address and no local path."""
+    changed = []
+    for path in paths:
+        data = read_json(path)
+        if data is None:
+            continue
+        clean = scrub(data)
+        if clean != data:
+            io.open(path, "w", encoding="utf-8").write(
+                json.dumps(clean, indent=1, ensure_ascii=False) + "\n")
+            changed.append(path)
+    return changed
+
+
+def target_row(run_dir, ledger, kind, label):
     entries = read_json(ledger) or []
     states = gate_states(entries)
     profile = read_json(os.path.join(run_dir, "capture", "profile.json")) or {}
@@ -128,11 +183,13 @@ def target_row(run_dir, ledger, kind):
 
     proven = not failed and not unknown and not never
     return {
-        "run": os.path.relpath(os.path.dirname(ledger), run_dir) or ".",
-        "target": os.path.basename(os.path.normpath(run_dir)),
+        # The run is named by what kind of round it was, never by a folder:
+        # a folder named after a site would put that site on the page.
+        "run": kind,
+        "target": label,
         "family": family,
         "kind": kind,
-        "ledger": os.path.relpath(ledger, run_dir),
+        "ledger": kind,
         "at": (entries[0].get("at") if entries and isinstance(entries[0], dict) else ""),
         "gates_ran": len(ran),
         "gates_passed": len(passed),
@@ -157,7 +214,9 @@ def claim_rows(targets):
                 continue
             states = t["per_gate"]
             ran = [states.get(g) for g in gates]
-            if all(s == "pass" for s in ran):
+            # A claim is never called proven on the back of a pair that failed
+            # elsewhere: the pair has to be proven first, then the claim rides it.
+            if t["state"] == "proven" and all(s == "pass" for s in ran):
                 proven_in.append(t["target"] + " " + t["run"])
             elif any(s in ("pass", "fail", "unknown") for s in ran):
                 measured_in.append(t["target"] + " " + t["run"])
@@ -280,7 +339,7 @@ def render_table(registry):
             families[t] = True
 
     rows = []
-    rows.append("**{} gates · {} proven on a real original-to-copy pair · {} measured so far**".format(
+    rows.append("**{} gates  ·  {} proven on a real original-to-copy pair  ·  {} measured so far**".format(
         total, len(proven), len(measured)))
     rows.append("")
     rows.append("| What the gates check | Gates | State | Where it was measured |")
@@ -346,16 +405,20 @@ def main():
         chosen, kind = pick_ledger(ledgers)
         if chosen != ledger:
             continue
-        targets.append(target_row(run_dir, chosen, kind))
+        label = public_name(run_dir) or "unlabelled pair"
+        targets.append(target_row(run_dir, chosen, kind, label))
 
     registry = {
         "at": C.now() if hasattr(C, "now") else "",
         "gates": list(C.GATES),
         "gate_count": len(C.GATES),
-        "runs": os.path.abspath(runs),
+        "runs": "benchmarks" if os.path.basename(os.path.normpath(runs)) == "benchmarks" else os.path.abspath(runs),
         "targets": targets,
     }
     registry["claims"] = claim_rows(targets)
+    # A run folder can be named after the real site, so the folder name never
+    # leaves this function: labels come from the run itself, addresses are cut.
+    registry = scrub(registry)
     registry["readme_table"] = render_table(registry)
 
     # The score block shows the best-evidenced round, so the page reports what
@@ -375,6 +438,9 @@ def main():
         C.table(rows, ["target", "family", "kind", "pass", "fail", "unknown", "verdict"])
     print("{} gate(s) in the list, {} target(s) read, {} proven".format(
         len(C.GATES), len(targets), len(proven)))
+    cleaned = scrub_ledgers(find_ledgers(runs))
+    if cleaned:
+        print("ledger scrubbed of addresses and paths: {} file(s)".format(len(cleaned)))
 
     if readme:
         for path in readme:

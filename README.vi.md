@@ -28,7 +28,6 @@
   <img alt="46 scripts, no installs" src="https://img.shields.io/badge/scripts-46%2C%20no%20installs-2d81ff?style=flat-square">
   <img alt="4 jobs" src="https://img.shields.io/badge/jobs-clone%20%C2%B7%20recreate%20%C2%B7%20improve%20%C2%B7%20study-2d81ff?style=flat-square">
   <img alt="Any model" src="https://img.shields.io/badge/works%20with-any%20model%20%C2%B7%20any%20harness-3a3a3a?style=flat-square">
-  <img alt="Proven on 0 real pairs" src="https://img.shields.io/badge/proven%20on-0%20real%20pairs-d69e2e?style=flat-square">
 
   <img alt="Antigraf skill" src="https://img.shields.io/badge/skill-antigraf-1f883d?style=flat-square">
   <img alt="License: Apache-2.0 or MIT" src="https://img.shields.io/badge/license-Apache--2.0%20or%20MIT-2d81ff?style=flat-square">
@@ -245,7 +244,7 @@ Hai con so khac nhau duoc hien thi co chu dich: diem la nhung gi cac cong kiem n
 
 <!-- ANTIGRAF:SCORE (written by scripts/antigraf_registry.py - do not edit by hand) -->
 
-**Measured: 54.0% out of 100 - test-pair-3page (round 1)**
+**Measured: 54.0% out of 100 - the three-page test pair (round 1)**
 
 | Area | Score | Passing | Failing | Not measured | What holds it down |
 |---|---|---|---|---|---|
@@ -267,28 +266,28 @@ The lock needs 100%: every gate passing, nothing unknown. A gate that never ran 
 
 <!-- ANTIGRAF:PROGRESS (written by scripts/antigraf_registry.py - do not edit by hand) -->
 
-**27 gates · 0 proven on a real original-to-copy pair · 1 measured so far**
+**27 gates  ·  0 proven on a real original-to-copy pair  ·  1 measured so far**
 
 | What the gates check | Gates | State | Where it was measured |
 |---|---|---|---|
-| Look: sections, words, colours, spacing | G2, G3, G4, G5 | proven | test-pair-3page checks/round-1 |
-| Icons and pictures, one partner each | G8, G17 | proven | test-pair-3page checks/round-1 |
-| Every page walked, planned and shipped | G11 | proven | test-pair-3page checks/round-1 |
-| Behaviour: pressed, and the same result | G7, G23, G24 | measured | test-pair-3page checks/round-1 |
-| States: hover, focus, open, empty, error | G6 | measured | test-pair-3page checks/round-1 |
-| Motion: durations, easings, scroll | G13 | proven | test-pair-3page checks/round-1 |
-| Phone, install and offline (PWA) | G9, G14, G18 | measured | test-pair-3page checks/round-1 |
-| Speed and weight budgets | G15 | proven | test-pair-3page checks/round-1 |
-| Logic: same input, same answer, no secrets | G19 | measured | test-pair-3page checks/round-1 |
-| Defects found, and the copy repaired | G20, G21 | proven | test-pair-3page checks/round-1 |
-| 3D scene read as numbers | G25 | measured | test-pair-3page checks/round-1 |
-| 3D motion compared frame by frame | G26 | measured | test-pair-3page checks/round-1 |
-| Server seams listed for you to hook up | G16 | measured | test-pair-3page checks/round-1 |
-| Evidence, proof and a frozen plan | G0, G1, G10, G12 | measured | test-pair-3page checks/round-1 |
+| Look: sections, words, colours, spacing | G2, G3, G4, G5 | measured | the three-page test pair round 1 |
+| Icons and pictures, one partner each | G8, G17 | measured | the three-page test pair round 1 |
+| Every page walked, planned and shipped | G11 | measured | the three-page test pair round 1 |
+| Behaviour: pressed, and the same result | G7, G23, G24 | measured | the three-page test pair round 1 |
+| States: hover, focus, open, empty, error | G6 | measured | the three-page test pair round 1 |
+| Motion: durations, easings, scroll | G13 | measured | the three-page test pair round 1 |
+| Phone, install and offline (PWA) | G9, G14, G18 | measured | the three-page test pair round 1 |
+| Speed and weight budgets | G15 | measured | the three-page test pair round 1 |
+| Logic: same input, same answer, no secrets | G19 | measured | the three-page test pair round 1 |
+| Defects found, and the copy repaired | G20, G21 | measured | the three-page test pair round 1 |
+| 3D scene read as numbers | G25 | measured | the three-page test pair round 1 |
+| 3D motion compared frame by frame | G26 | measured | the three-page test pair round 1 |
+| Server seams listed for you to hook up | G16 | measured | the three-page test pair round 1 |
+| Evidence, proof and a frozen plan | G0, G1, G10, G12 | measured | the three-page test pair round 1 |
 
 | Target | Family | Kind | Gates passed | Failed | Unknown | Verdict |
 |---|---|---|---|---|---|---|
-| test-pair-3page | unknown | round 1 | 13 of 27 | 13 | 0 | measured |
+| the three-page test pair | unknown | round 1 | 13 of 27 | 13 | 0 | measured |
 
 `proven` means every gate ran, passed, and nothing was unknown. `measured` means the gates ran and left a real exit code. Anything else is `not proven`, and is not being claimed.
 

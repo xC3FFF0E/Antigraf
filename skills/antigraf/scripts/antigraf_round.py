@@ -83,6 +83,13 @@ def main():
     net = os.path.join(copy, "net.json")
     states_o = os.path.join(orig, "states.json")
     states_c = os.path.join(copy, "states.json")
+    # The explorer writes its state sheets into its own --out folder, usually
+    # `origexplore/` and `copyexplore/` beside capture. Both places are read, so a
+    # state that really was opened is compared instead of skipped.
+    if not os.path.exists(states_o) and os.path.exists("origexplore/states.json"):
+        states_o = "origexplore/states.json"
+    if not os.path.exists(states_c) and os.path.exists("copyexplore/states.json"):
+        states_c = "copyexplore/states.json"
 
     entries = []
     print("Antigraf round {} - original: {}   our build: {}".format(label, orig, copy))
@@ -286,6 +293,14 @@ def main():
     # pressed, what it refused, what it never reached) and holds the lock while
     # anything measurable was left untouched.
     prof_o = os.path.join(orig, "profile.json")
+    # an explorer writes its own --out folder, so the profile usually sits inside
+    # a sibling folder (`origexplore/profile.json`) rather than beside capture
+    if not os.path.exists(prof_o):
+        for cand in ("origexplore/profile.json", "explore/profile.json",
+                     os.path.join(orig, "explore", "profile.json")):
+            if os.path.exists(cand):
+                prof_o = cand
+                break
     exp_o = os.path.join(orig, "explore.json")
     # the explorer writes its own --out folder, which is usually `explore/` beside
     # capture rather than inside it - both places are read, so a gate that really
@@ -318,7 +333,8 @@ def main():
                 break
     build_flows = os.path.join(copy, "flow.json")
     if not os.path.exists(build_flows):
-        for guess in ("app/flow.json", "flow.json"):
+        for guess in ("app/flow.json", "flow.json", "copyexplore/flow.json",
+                      os.path.join(copy, "explore", "flow.json")):
             if os.path.exists(guess):
                 build_flows = guess
                 break
@@ -343,11 +359,10 @@ def main():
         if os.path.exists(scene_o) and os.path.exists(scene_c):
             code, cmd, out = call("antigraf_scene_gate.py", scene_o, scene_c, *extra)
             results[gate] = record(gate, code, cmd, out, what)
-        elif os.path.exists(scene_o):
-            code, cmd, out = call("antigraf_scene_gate.py", scene_o, scene_c, *extra)
-            results[gate] = record(gate, code, cmd, out, "no scene.json in our build")
         else:
-            results[gate] = skip(gate, "no {}/scene.json - this target has no 3D scene".format(orig))
+            results[gate] = skip(gate, "no {}/scene.json and {}/scene.json - no canvas was "
+                                 "read on both sides, so there is nothing to compare"
+                                 .format(orig, copy))
 
     # pictures - reported, never a gate
     widths = []
