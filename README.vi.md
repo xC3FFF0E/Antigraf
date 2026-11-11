@@ -17,9 +17,10 @@
 </p>
 
 <p align="center">
-  <b>Từ tiếng Hy Lạp <i>antígrafo</i> (αντίγραφο): một bản sao biết trả lời bản gốc.</b><br>
-  Một kỹ năng nghiên cứu nguồn, dựng phiên bản của riêng bạn,<br>
-  và <b>chứng minh</b> nó gần đến đâu bằng những lệnh bạn có thể chạy lại.
+  <b>Từ tiếng Hy Lạp <i>antígrafo</i> (αντίγραφο): một bản sao đáp lại bản gốc.</b><br>
+  Kỹ năng nhân bản, sao chép hoặc nghiên cứu cho các tác nhân lập trình AI.<br>
+  Nó nghiên cứu nguồn, dựng phiên bản của bạn,
+  và <b>chứng minh</b> độ gần bằng những lệnh bạn chạy lại được.
 </p>
 
 <p align="center">
@@ -28,7 +29,24 @@
   <img alt="4 jobs" src="https://img.shields.io/badge/jobs-clone%20%C2%B7%20recreate%20%C2%B7%20improve%20%C2%B7%20study-2d81ff?style=flat-square">
   <img alt="Any model" src="https://img.shields.io/badge/works%20with-any%20model%20%C2%B7%20any%20harness-3a3a3a?style=flat-square">
   <img alt="Proven on 0 real pairs" src="https://img.shields.io/badge/proven%20on-0%20real%20pairs-d69e2e?style=flat-square">
+
+  <img alt="Antigraf skill" src="https://img.shields.io/badge/skill-antigraf-1f883d?style=flat-square">
 </p>
+
+<p align="center">
+  <a href="#cách-hoạt-động">Cách hoạt động</a> ·
+  <a href="#bốn-công-việc">Bốn công việc</a> ·
+  <a href="#điều-làm-nó-khác-biệt">Điều làm nó khác</a> ·
+  <a href="#chỗ-nào-có-gì">Cài đặt</a> ·
+  <a href="#cài-đặt">Cách dùng</a> ·
+  <a href="#câu-hỏi-mọi-người-hay-đặt">Câu hỏi</a> ·
+  <a href="#cách-dùng">Tình trạng thật</a> ·
+  <a href="#tình-trạng-trung-thực">Ranh giới không vượt</a>
+</p>
+
+<br>
+
+
 
 <br>
 
@@ -40,6 +58,10 @@ biết.
 Điểm mấu chốt không phải là nói "trông giống nhau". Mà là chỉ ra dòng còn khác, và lệnh cho thấy nó.
 
 <br>
+
+<br>
+
+<b>Nói gọn:</b> Antigraf là kỹ năng nhân bản 1:1 cho các tác nhân lập trình AI. Dùng để sao chép một website, nhân bản một ứng dụng web hay trò chơi, làm lại thiết kế thành của bạn, hoặc nghiên cứu cách một trang được dựng từ đầu đến cuối. Nó phủ toàn bộ trang, không chỉ trang đầu: mọi tuyến, khu, điều khiển, trạng thái mở, chuyển động, bố cục điện thoại, hành vi ngoại tuyến và cảnh 3D, mỗi thứ đều so với bản gốc và đều giữ khóa 100% cho đến khi khớp.
 
 <table>
   <tr>
@@ -106,6 +128,18 @@ giữ chân lĩnh vực đó, và các lựa chọn tiếp theo của bạn.
 Không có điểm tổng nào che dòng nào đã thất bại. Hình ảnh tự nó không bao giờ làm đạt bất cứ điều gì.
 Một mô hình yếu hơn, hoặc không nhìn được hình, không bao giờ hạ chuẩn: nó tiêu ít hơn và nói ra.
 
+## Chỗ nào có gì
+
+| Đường dẫn | Nội dung |
+|---|---|
+| `skills/antigraf/SKILL.md` | bản thân kỹ năng: công việc, giai đoạn, bậc, không gian làm việc, vòng, luật |
+| `skills/antigraf/README.md` | tài liệu đầy đủ: các bước kiểm, dung sai, tiến độ, bố trí |
+| `skills/antigraf/references/` | 12 hướng dẫn: kiểm, lập kế hoạch, độ trung thực, cảnh, bàn giao, bằng chứng |
+| `skills/antigraf/scripts/` | 46 công cụ: 39 Python, 7 trình duyệt, một danh sách thiết bị |
+| `assets/` | biểu tượng, 512 và 128 pixel |
+
+Trang này nói nó hứa gì. Tài liệu đầy đủ nói dung sai chính xác của từng bước kiểm.
+
 ## Cài đặt
 
 Không trình quản lý gói, không `pip install`, không tài khoản. Đây là một thư mục văn bản và script
@@ -144,6 +178,29 @@ python scripts/antigraf_mode.py --choose 1 --target https://example.com
 Yêu cầu: **Python 3.8 trở lên** (chỉ thư viện chuẩn), **Node 18 trở lên** cho công cụ trình duyệt, và
 trình duyệt dựa trên Chromium (Edge hoặc Chrome) để đi và nhấp. Mọi phần đều tuỳ chọn: thiếu một
 phần, kỹ năng xuống một bậc và nói rõ trong bảng cuối thay vì phỏng đoán.
+
+## Câu hỏi mọi người hay đặt
+
+**Nó sao chép được cả trang web hay chỉ trang đầu?**
+Nó đi theo mọi liên kết cùng trang và ghi mỗi trang ở ba bề rộng, trên điện thoại và máy tính bảng. Những gì chưa tới, trang chưa đi và điều khiển chưa bấm đều được ghi là *chưa khảo sát* và giữ khóa. Bạn luôn thấy con số: trang tìm được so với trang đã đi.
+
+**Nó có đưa cho tôi mã nguồn của bản gốc không?**
+Không. Nó đo bản gốc và bạn dựng bản của mình bằng công nghệ bạn chọn. Thứ nhận được là mã của bạn, không phải bản sao mã của họ.
+
+**Mô hình không nhìn được ảnh có dùng được không?**
+Được. Thiết kế truyền bằng con số: kích thước, màu, khoảng cách, cỡ chữ, vùng bấm. Ảnh chỉ dùng để so, không dùng để học, nên mô hình chỉ đọc chữ vẫn dựng từ số đo.
+
+**Nó từ chối sao chép những gì?**
+Logic phía máy chủ, thông tin đăng nhập, mã phiên, thanh toán và dữ liệu kế toán. Gặp trường có dạng đó là dừng ngay và ghi vào `HANDOVER.md`, để bạn biết mình phải nối gì.
+
+**Làm sao biết nó thật sự xong?**
+Mỗi bước kiểm để lại một tệp kèm mã thoát, và bảng cuối được tính từ các sổ đó. Bước kiểm chưa chạy, hoặc trả lời không rõ, tính là không điểm. Mô hình không tự ghi điểm cho mình được.
+
+**Nó xử lý được những loại nguồn nào?**
+Website và ứng dụng web nhiều trang, ứng dụng ưu tiên điện thoại và hành vi PWA, giao diện phát trực tuyến có trình phát, cửa hàng và danh mục, trang tài liệu, và cảnh 3D gồm lệnh vẽ, shader và chuyển động.
+
+**Chạy nó cần gì?**
+Python 3.8 trở lên chỉ với thư viện chuẩn, Node 18 trở lên cho công cụ trình duyệt, và trình duyệt Chromium. Không cần cài gói, không tài khoản, không khóa.
 
 ## Cách dùng
 
@@ -208,3 +265,10 @@ nhập, thu thập dữ liệu riêng tư, hay sao chép nội dung, thương hi
 chưa được phép.** Hãy dùng Antigraf với thứ bạn sở hữu, thứ có giấy phép mở, hoặc thứ bạn được phép
 nghiên cứu. Hình ảnh, phông chữ, logo và câu chữ bạn không có quyền sẽ được thay bằng của bạn, và một
 giấy phép chưa ai làm rõ sẽ giữ khoá đóng cho đến khi bạn làm rõ hoặc thay nó.
+
+<br>
+
+<p align="center">
+  <img src="assets/antigraf-128.png" width="36" height="36" alt="Antigraf"><br>
+  <sub>Antigraf. Sao chép nó, chứng minh nó, hoặc nghiên cứu nó.</sub>
+</p>

@@ -17,8 +17,9 @@
 </p>
 
 <p align="center">
-  <b>Del grieego <i>antígrafo</i> (αντίγραφο): una copia que responde al original.</b><br>
-  Una habilidad que estudia una fuente, construye tu propia versión<br>
+  <b>Del griego <i>antígrafo</i> (αντίγραφο): una copia que responde al original.</b><br>
+  Una habilidad de duplicado, clonado o estudio para agentes de código con IA.<br>
+  Estudia una fuente, construye tu propia versión<br>
   y <b>demuestra</b> cuánto se acerca con comandos que puedes repetir.
 </p>
 
@@ -28,7 +29,24 @@
   <img alt="4 jobs" src="https://img.shields.io/badge/jobs-clone%20%C2%B7%20recreate%20%C2%B7%20improve%20%C2%B7%20study-2d81ff?style=flat-square">
   <img alt="Any model" src="https://img.shields.io/badge/works%20with-any%20model%20%C2%B7%20any%20harness-3a3a3a?style=flat-square">
   <img alt="Proven on 0 real pairs" src="https://img.shields.io/badge/proven%20on-0%20real%20pairs-d69e2e?style=flat-square">
+
+  <img alt="Antigraf skill" src="https://img.shields.io/badge/skill-antigraf-1f883d?style=flat-square">
 </p>
+
+<p align="center">
+  <a href="#cómo-funciona">Cómo funciona</a> ·
+  <a href="#cuatro-trabajos">Cuatro trabajos</a> ·
+  <a href="#qué-lo-distingue">Qué lo distingue</a> ·
+  <a href="#dónde-está-cada-cosa">Instalación</a> ·
+  <a href="#instalación">Cómo usarla</a> ·
+  <a href="#preguntas-que-hace-la-gente">Preguntas</a> ·
+  <a href="#cómo-usarla">Estado honesto</a> ·
+  <a href="#estado-honesto">La línea que no cruzamos</a>
+</p>
+
+<br>
+
+
 
 <br>
 
@@ -41,6 +59,10 @@ La idea no es decir "se ve igual". La idea es mostrar la fila que aún difiere, 
 muestra.
 
 <br>
+
+<br>
+
+<b>En palabras llanas:</b> Antigraf es una habilidad de replicación 1:1 para agentes de código con IA. Úsala para clonar un sitio web, copiar una app web o un juego, recrear un diseño como tuyo, o estudiar cómo está construido un sitio, de la interfaz al interior. Cubre todo el conjunto de páginas, no solo la portada: cada ruta, sección, control, estado abierto, animación, diseño de móvil, comportamiento sin conexión y escena 3D, cada uno comparado con el original y cada uno manteniendo el cierre al 100% hasta que coincida.
 
 <table>
   <tr>
@@ -107,6 +129,18 @@ opciones para seguir.
 Ningún puntaje global esconde qué fila falló. Las imágenes nunca aprueban nada por sí solas. Un modelo
 más débil, o que no puede ver imágenes, nunca baja el listón: gasta menos y lo dice.
 
+## Dónde está cada cosa
+
+| Ruta | Qué es |
+|---|---|
+| `skills/antigraf/SKILL.md` | la habilidad misma: trabajos, etapas, niveles, espacio de trabajo, rondas, reglas |
+| `skills/antigraf/README.md` | el documento completo: comprobaciones, tolerancias, progreso, disposición |
+| `skills/antigraf/references/` | 12 guías: comprobaciones, planificación, fidelidad, escena, entrega, evidencia |
+| `skills/antigraf/scripts/` | 46 herramientas: 39 Python, 7 de navegador, una lista de dispositivos |
+| `assets/` | el icono, en 512 y 128 píxeles |
+
+Lee esta página para saber qué promete. Lee el documento completo para la tolerancia exacta de cada comprobación.
+
 ## Instalación
 
 Sin gestor de paquetes, sin `pip install`, sin cuenta. Es una carpeta de texto y scripts simples.
@@ -145,6 +179,29 @@ Requisitos: **Python 3.8 o superior** (solo librería estándar), **Node 18 o su
 herramientas de navegador, y un navegador basado en Chromium (Edge o Chrome) para recorrer y pulsar.
 Cada pieza es opcional: si falta una, la habilidad baja un nivel y lo dice en la tabla final en vez de
 adivinar.
+
+## Preguntas que hace la gente
+
+**¿Puede copiar un sitio entero, o solo la portada?**
+Recorre todos los enlaces del mismo sitio y captura cada página en tres anchos, móviles y tabletas. Lo que no alcanzó, las páginas que no recorrió y los controles que no pulsó, queda escrito como *no explorado* y mantiene el cierre. Siempre ves la cuenta: páginas encontradas frente a páginas recorridas.
+
+**¿Me entrega el código fuente del original?**
+No. Mide el original y tú construyes tu propia copia con tu tecnología. Lo que se entrega es tu código, no una copia del suyo.
+
+**¿Funciona con un modelo que no ve imágenes?**
+Sí. El diseño viaja como números: tamaños, colores, espaciado, tipografía, zonas pulsables. Las imágenes se usan para comparar, nunca para aprender, así que un modelo solo de texto igual construye desde medidas.
+
+**¿Qué se niega a copiar?**
+Lógica de servidor, credenciales, tokens de sesión, pagos y datos contables. Un campo con esa forma detiene la ejecución y se escribe en `HANDOVER.md`, para que sepas qué conectar tú.
+
+**¿Cómo sé que de verdad funcionó?**
+Cada comprobación deja un archivo con su propio código de salida, y la tabla final se calcula de esos registros. Una comprobación que nunca corrió, o que respondió sin saber, vale cero. El modelo no puede escribir su propia nota.
+
+**¿Qué tipos de fuentes maneja?**
+Sitios web y apps web de varias páginas, apps de móvil y comportamiento PWA, interfaces de streaming con reproductor, tiendas y catálogos, sitios de documentación, y escenas 3D con sus llamadas de dibujo, shaders y movimiento.
+
+**¿Qué necesita para funcionar?**
+Python 3.8 o superior solo con la librería estándar, Node 18 o superior para las herramientas de navegador, y un navegador Chromium. Sin instalar paquetes, sin cuenta, sin clave.
 
 ## Cómo usarla
 
@@ -211,3 +268,10 @@ extraer datos privados, ni reproducir el contenido, la marca o los recursos de o
 Usa Antigraf con lo que es tuyo, lo que tiene licencia abierta, o lo que tienes permiso de estudiar.
 Las imágenes, fuentes, logos y textos sin derechos se reemplazan por los tuyos, y una licencia que
 nadie aclaró mantiene el cierre bloqueado hasta que la aclares o la cambies.
+
+<br>
+
+<p align="center">
+  <img src="assets/antigraf-128.png" width="36" height="36" alt="Antigraf"><br>
+  <sub>Antigraf. Clónalo, pruébalo o estúdialo.</sub>
+</p>

@@ -36,11 +36,11 @@
   <a href="#how-it-works">How it works</a> ·
   <a href="#four-jobs">Four jobs</a> ·
   <a href="#what-sets-it-apart">What sets it apart</a> ·
-  <a href="#install">Install</a> ·
-  <a href="#how-to-use">How to use</a> ·
-  <a href="#questions-people-ask">Questions</a> ·
-  <a href="#honest-status">Status</a> ·
-  <a href="#the-line-we-do-not-cross">The line we do not cross</a>
+  <a href="#where-things-live">Install</a> ·
+  <a href="#install">How to use</a> ·
+  <a href="#how-to-use">Questions</a> ·
+  <a href="#questions-people-ask">Status</a> ·
+  <a href="#honest-status">The line we do not cross</a>
 </p>
 
 <br>
