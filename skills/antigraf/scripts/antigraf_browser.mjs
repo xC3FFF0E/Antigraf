@@ -67,14 +67,18 @@ export function findPlaywright(explicit = null) {
     path.join(process.cwd(), "node_modules", "playwright-core"),
   ].filter(Boolean);
 
-  const npmCache = path.join(os.homedir(), "AppData", "Local", "npm-cache", "_npx");
+  // Playwright can live in npm's own cache on Windows and in a global prefix
+  // anywhere else, so both are probed from the user profile, not a fixed path.
+  const npmCache = path.join(os.homedir(), ...(process.platform === "win32"
+    ? ["AppData", "Local", "npm-cache", "_npx"] : [".npm", "_npx"]));
   if (fs.existsSync(npmCache)) {
     for (const d of fs.readdirSync(npmCache)) {
       roots.push(path.join(npmCache, d, "node_modules", "playwright"));
       roots.push(path.join(npmCache, d, "node_modules", "playwright-core"));
     }
   }
-  const npmGlobal = path.join(os.homedir(), "AppData", "Roaming", "npm", "node_modules");
+  const npmGlobal = path.join(os.homedir(), ...(process.platform === "win32"
+    ? ["AppData", "Roaming", "npm", "node_modules"] : ["lib", "node_modules"]));
   roots.push(path.join(npmGlobal, "playwright"), path.join(npmGlobal, "playwright-core"));
 
   for (const r of roots) {
