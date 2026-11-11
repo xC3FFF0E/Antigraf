@@ -148,7 +148,7 @@ def target_row(run_dir, ledger, kind):
 
 
 def claim_rows(targets):
-    rows = []
+    raw = []
     for name, gates in CLAIMS:
         proven_in = []
         measured_in = []
@@ -156,18 +156,39 @@ def claim_rows(targets):
             if t["kind"] != "round" and not t["gates_ran"]:
                 continue
             states = t["per_gate"]
-            if all(states.get(g) == "pass" for g in gates):
+            ran = [states.get(g) for g in gates]
+            if all(s == "pass" for s in ran):
                 proven_in.append(t["target"] + " " + t["run"])
-            elif any(states.get(g) in ("pass", "fail", "unknown") for g in gates):
+            elif any(s in ("pass", "fail", "unknown") for s in ran):
                 measured_in.append(t["target"] + " " + t["run"])
-        rows.append({
+        raw.append({
             "claim": name,
             "gates": gates,
+            "pass": sum(1 for t in targets[:1] for g in gates if _state(t, g) == "pass"),
+            "total": len(gates),
             "proven_on": proven_in,
             "measured_on": measured_in,
-            "state": "proven" if proven_in else ("measured" if measured_in else "not proven"),
         })
-    return rows
+
+    # A claim reads `proven` only when a real pair passed it. Otherwise the state
+    # is the weaker of the two facts: `measured` or `not proven`.
+    proven_names = {r["claim"] for r in raw if r["proven_on"]}
+    measured_names = {r["claim"] for r in raw if r["measured_on"]}
+    for r in raw:
+        if r["claim"] in proven_names:
+            r["state"] = "proven"
+            r["where"] = r["proven_on"][0]
+        elif r["claim"] in measured_names:
+            r["state"] = "measured"
+            r["where"] = r["measured_on"][0]
+        else:
+            r["state"] = "not proven"
+            r["where"] = "nothing yet"
+    return raw
+
+
+def _state(target, gate):
+    return target.get("per_gate", {}).get(gate)
 
 
 def swap_block(text, begin, end, body):
@@ -265,9 +286,16 @@ def render_table(registry):
     rows.append("| What the gates check | Gates | State | Where it was measured |")
     rows.append("|---|---|---|---|")
     for c in registry["claims"]:
-        where = ", ".join(c["measured_on"][:3]) if c["measured_on"] else "nothing yet"
+        where_from = c["proven_on"] or c["measured_on"]
+        where = ", ".join(where_from[:3]) if where_from else "nothing yet"
+        # `proven` needs a passing gate as well as a measured one: a claim whose
+        # gates all ran but failed reads `measured`, never `proven`.
+        state = c["state"]
+        if state == "proven" and not c.get("pass"):
+            state = "measured"
+        where = where.replace("\\", "/")
         rows.append("| {} | {} | {} | {} |".format(
-            c["claim"], ", ".join(c["gates"]), c["state"], where))
+            c["claim"], ", ".join(c["gates"]), state, where))
     rows.append("")
     if registry["targets"]:
         rows.append("| Target | Family | Kind | Gates passed | Failed | Unknown | Verdict |")
