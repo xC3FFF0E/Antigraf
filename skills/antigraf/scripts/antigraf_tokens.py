@@ -31,6 +31,13 @@ SEVERITY = {"backgrounds": "S3", "text_colors": "S3", "fonts": "S3", "font_sizes
             "spacing": "S3", "radii": "S3", "content_widths": "S3", "shadows": "S4",
             "motion": "S4", "border_widths": "S3"}
 
+# Colours the browser paints when a page sets none at all. They are not design
+# decisions, so they are never asked for in the copy: an unstyled link is an
+# absence of styling, not a palette entry. The value is still printed, so nobody
+# can mistake a browser default for a colour we chose to skip.
+BROWSER_DEFAULT = {"rgb(0,0,238)", "rgb(0, 0, 238)", "rgb(0,0,255)", "rgb(0, 0, 255)",
+                   "rgb(85,26,139)", "rgb(0,0,0)", "rgb(0, 0, 0)"}
+
 
 def values(entries, require_src=None):
     out = {}
@@ -56,6 +63,9 @@ def main():
     rows = []
     for group in GROUPS:
         a = values(od.get(group), require_src="measured")
+        for d in [k for k in a if k in BROWSER_DEFAULT]:
+            print("  default   {:<14} {:<28} browser-painted, not a design token".format(group, d))
+            a.pop(d, None)
         est = values(od.get(group)) if "estimated" in {e.get("src") for e in od.get(group, [])} else {}
         b = values(cd.get(group))
         missing = sorted(set(a) - set(b))

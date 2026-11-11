@@ -89,8 +89,29 @@ def states_in_capture(cap):
 
 
 def states_in_plan(plan):
+    """Every state the plan claims, by the name the explorer gave it.
+
+    A plan row is written by a person or generated from the sheet, so it may
+    carry the measured id (`state-01`) or a plan id (`st-01`). Both are read:
+    the measured name is what the sheet holds, and pairing on a plan id alone
+    reported every state as unplanned while the plan plainly named it.
+    """
     rows = units(plan)
-    out = set(ids_of(rows, ("state",)))
+    measured, plan_ids = set(), set()
+    for r in rows:
+        if str(r.get("kind") or "").lower() == "state":
+            uid = r.get("unit_id") or r.get("id")
+            if uid:
+                plan_ids.add(str(uid))
+            for key in ("state_id", "target", "label"):
+                v = str(r.get(key) or "").strip()
+                if v.startswith("state-"):
+                    measured.add(v)
+    # The sheet holds the name the explorer gave the state. When the plan also
+    # carries it, that name is the pair. The plan's own id (`st-01`) is a
+    # numbering, not a measurement, so it is only used when the row has no
+    # measured name at all - otherwise it reads as a state nobody ever opened.
+    out = set(measured) | (plan_ids if not measured else set())
     if isinstance(plan, dict):
         for s in (plan.get("states") or []):
             if isinstance(s, str):

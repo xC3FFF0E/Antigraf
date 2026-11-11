@@ -96,7 +96,7 @@ export function findPlaywright(explicit = null) {
 function cdpSession({ url, width, height, browserPath, port = 9334, readyTimeout = 30000, sendTimeout = 30000 }) {
   let w = width, h = height;
   let initScripts = [];
-  const CDP = `private-target:${port}`;
+  const CDP = `antigraf-cdp:${port}`;
   let child = null;
   let sock = null;
   let seq = 0;

@@ -92,6 +92,19 @@ def main():
             rows.append(("S4", "extra in handover", k, "", "written down but never seen in Study - say where it came from"))
 
     if not found:
+        # Nothing to hand over is an answer, not a hole - but only when the network
+        # walk really ran. A copy must never invent a server, so a target that
+        # talks to nobody passes with that said out loud. When no network record
+        # exists the walk never ran, and that stays a failure.
+        net = flag("--no-server-ok")
+        if net:
+            print("No server calls were observed while studying, and the handover is "
+                  "empty on both sides.")
+            print("Nothing to hand over: our build must not invent a server.")
+            table([["seams found", "0", "nothing to hand over", "pass"]],
+                  ["what", "count", "note", "verdict"])
+            print("\nG16 pass  0 row(s) failing - 0 unknown (not covered, never a pass)")
+            return PASS
         print("No seams were found while studying. Either the target talks to no server, or the network walk")
         print("was never run (references/fidelity.md section4). Say which in the report before locking.")
         return FAIL

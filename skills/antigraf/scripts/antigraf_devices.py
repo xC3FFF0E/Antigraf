@@ -57,6 +57,23 @@ def shots_in(folder, device, route=None):
     return None
 
 
+def devices_of(data):
+    """The device sheet in either shape the walker can write it.
+
+    An older walk wrote `devices` as a map keyed by id; the current one writes the
+    ids it walked plus a `rows` sheet of measurements. Both are read here, so a
+    real walk is never thrown away as "no devices".
+    """
+    got = data.get("devices")
+    if isinstance(got, dict):
+        return got
+    out = {}
+    for row in (data.get("rows") or []):
+        if isinstance(row, dict) and row.get("device"):
+            out[str(row["device"])] = row
+    return out
+
+
 def main():
     pos = positional()
     if len(pos) < 2:
@@ -64,7 +81,7 @@ def main():
                    "[--matrix scripts/antigraf_devices.json] [--profile phone-first]")
     need([pos[0], pos[1]])
     o, c = load(pos[0]), load(pos[1])
-    dev_o, dev_c = o.get("devices") or {}, c.get("devices") or {}
+    dev_o, dev_c = devices_of(o), devices_of(c)
     if not dev_o:
         raise Stop("the original has no devices{} - run the device walk with the matrix on both sides")
 

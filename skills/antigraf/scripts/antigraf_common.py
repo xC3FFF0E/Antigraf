@@ -66,6 +66,9 @@ BOOLEAN_FLAGS = {
     "--json", "--append", "--print", "--report-only", "--allow-unreachable",
     "--visitor-only", "--noise", "--mask-transparent", "--keep-transparency",
     "--redact", "--hard-push", "--skip-pictures", "--quiet", "--strict",
+    # Modes that select a job rather than carry a value: `--compare a.json b.json`
+    # reads two files, and `--idle` takes nothing at all.
+    "--compare", "--idle", "--force", "--css", "--frames", "--idle-free",
 }
 
 

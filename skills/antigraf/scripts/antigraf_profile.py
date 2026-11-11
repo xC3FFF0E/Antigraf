@@ -23,6 +23,7 @@ Exit 0 profile written, 1 nothing to read, 2 misuse.
 from __future__ import annotations
 
 import os
+import re
 
 from antigraf_common import (
     ERROR, PASS, Stop, arg, flag, load, need, now, positional, run, save, table, verdict,
@@ -144,7 +145,14 @@ def score_family(name, spec, buckets):
         for item in buckets.get(kind, []):
             field = text_of(item)
             for w in words:
-                if w in field:
+                # A short word like "u" or "ts" is a whole word or nothing: plain
+                # substring matching let "u" fire on /about.html and misread a
+                # brochure site as a feed. Long words still match inside words.
+                if len(w) <= 3 and w.isalnum():
+                    found = re.search(r"\b" + re.escape(w) + r"\b", field) is not None
+                else:
+                    found = w in field
+                if found:
                     hits.append({"kind": kind, "word": w,
                                  "on": (item.get("label") or item.get("path") or item.get("route")
                                         or item.get("tag") or item.get("name") or "")[:60],
@@ -264,10 +272,9 @@ def main():
         print("warning: {} page(s) were found but never walked - the profile only saw the "
               "pages that were walked".format(len(pages_unwalked)))
     ok = bool(top) or chosen == "general"
-    print("PROFILE {}  family {}{}".format(verdict(not ok), chosen,
+    print("PROFILE {}  family {}{}".format(verdict(ok), chosen,
                                            "" if top else "  (no strong signal)"))
     return PASS if ok or flag("--strict") is False else ERROR
-
 
 def _main():
     try:

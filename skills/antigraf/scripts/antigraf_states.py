@@ -22,7 +22,12 @@ import os
 
 from antigraf_common import FAIL, PASS, Stop, gate_ok, load, need, positional, run, table, verdict
 
-FIELDS = ("kind", "opened_by", "closes_by", "contents", "masked")
+FIELDS = ("kind", "opened_by", "closes_by", "contents", "masked", "hud")
+
+# Fields a state carries that are worth comparing one by one. `hud` and
+# `overlays` are the measured contents of a player or a drawer: comparing the
+# whole list says "different", while naming what is missing says what to fix.
+LIST_FIELDS = ("hud", "overlays", "videos")
 
 
 def keyed(sheet, key="width"):
@@ -77,6 +82,22 @@ def main():
             missing = [c for c in s["contents"] if c not in (t.get("contents") or [])]
             if missing:
                 problems.append("missing contents " + ", ".join(map(str, missing[:4])))
+        for field_name in LIST_FIELDS:
+            want = s.get(field_name) or []
+            if not want:
+                continue
+            if field_name == "hud":
+                # A HUD entry is an object: pair it on its label, so a bar that
+                # changed size reads as a size difference, not as a missing bar.
+                def names(rows):
+                    return [str((r or {}).get("label") or (r or {}).get("name") or "")
+                            for r in rows if isinstance(r, dict)]
+                gone = [n for n in names(want) if n and n not in names(t.get(field_name) or [])]
+            else:
+                gone = [c for c in want if c not in (t.get(field_name) or [])]
+            if gone:
+                problems.append("missing {} {}".format(field_name,
+                                                       ", ".join(map(str, gone[:4]))))
         rows.append([key, s.get("kind", "-"), "; ".join(problems) or "same",
                      verdict(not problems)])
         fails += 0 if not problems else 1

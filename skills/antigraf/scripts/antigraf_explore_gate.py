@@ -90,7 +90,7 @@ def main():
 
     def add(what, found, note, ok, unknown_row=False):
         nonlocal fails, unknown
-        rows.append([what, found, note, verdict(not ok, 1 if unknown_row else 0)])
+        rows.append([what, found, note, verdict(ok, 1 if unknown_row else 0)])
         if unknown_row:
             unknown += 1
         elif not ok:

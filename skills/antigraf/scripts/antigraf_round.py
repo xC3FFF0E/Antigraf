@@ -173,8 +173,13 @@ def main():
     # lists a state nobody ever opened
     if os.path.exists(states_o) and os.path.exists(states_c):
         code, cmd, out = call("antigraf_states.py", states_o, states_c)
+        # The opener a state was measured with lives in the STATE sheet, not in
+        # the walk's capture: the walk reads the page before anything was
+        # pressed, so `capture.json` has no states block at all. Handing the
+        # finder the sheet is the honest input - it is the same measurement the
+        # states gate just compared.
         found_code, found_cmd, found_out = call(
-            "antigraf_finder.py", "states", cap_o, plan)
+            "antigraf_finder.py", "states", states_o, plan)
         out = out + "\n" + found_out
         code = FAIL if (code == FAIL or found_code == FAIL) else (
             UNKNOWN if (code == UNKNOWN or found_code == UNKNOWN) else PASS)
@@ -223,6 +228,11 @@ def main():
 
     # G18 device matrix - the phones people actually hold
     dev_o, dev_c = os.path.join(orig, "devices.json"), os.path.join(copy, "devices.json")
+    # the device walk writes its measurements beside capture, named for what it is.
+    if not os.path.exists(dev_o) and os.path.exists(os.path.join(orig, "devices-walk.json")):
+        dev_o = os.path.join(orig, "devices-walk.json")
+    if not os.path.exists(dev_c) and os.path.exists(os.path.join(copy, "devices-walk.json")):
+        dev_c = os.path.join(copy, "devices-walk.json")
     if os.path.exists(dev_o) and os.path.exists(dev_c):
         args = [dev_o, dev_c]
         prof = arg("--profile")
@@ -251,7 +261,15 @@ def main():
     seams = os.path.join(orig, "seams.json")
     hand = os.path.join("app", "handover.json")
     if os.path.exists(seams):
-        code, cmd, out = call("antigraf_seams.py", seams, hand)
+        sargs = [seams, hand]
+        # an empty seams list on both sides means the target talks to no server,
+        # which is an answer; the gate says so and passes instead of failing.
+        try:
+            if not (load(seams, default=[]) or []):
+                sargs.append("--no-server-ok")
+        except Stop:
+            pass
+        code, cmd, out = call("antigraf_seams.py", *sargs)
         results["G16"] = record("G16", code, cmd, out)
     else:
         results["G16"] = skip("G16", "no {}/seams.json (run the network walk)".format(orig))
@@ -286,6 +304,19 @@ def main():
     else:
         results["G21"] = skip("G21", "no copy capture to check yet")
 
+    # G22 sources - what the original is built from, and the rule that our copy
+    # rests on the same libraries, the same versions and the same licences.
+    src_o = os.path.join(orig, "sources.json")
+    src_c = os.path.join(copy, "sources.json")
+    if os.path.exists(src_o) and os.path.exists(src_c):
+        code, cmd, out = call("antigraf_sources.py", "--compare", src_o, src_c)
+        results["G22"] = record("G22", code, cmd, out, "same libraries, versions and licences")
+    else:
+        missing = [p for p in (src_o, src_c) if not os.path.exists(p)]
+        results["G22"] = skip("G22", "no {} - the source ledger was never read on that side "
+                                   .format(" or ".join(missing))
+                               + "(run antigraf_sources.py --fetch on it)")
+
     # G23 exploration - what the site needed pressed, and what was never pressed
     #
     # A page nobody pressed is a page nobody compared. This gate reads the
@@ -306,8 +337,14 @@ def main():
     # capture rather than inside it - both places are read, so a gate that really
     # did run is never skipped
     if not os.path.exists(exp_o):
-        for cand in (os.path.join(orig, "explore", "explore.json"),
-                     os.path.join("explore", "explore.json")):
+        # the explorer's --out folder is named by the run (`origexplore/`,
+        # `copyexplore/`, `explore/` ...), so look beside capture, inside it,
+        # and in any folder that holds an explore.json
+        cands = [os.path.join(orig, "explore", "explore.json"),
+                 os.path.join("explore", "explore.json")]
+        for name in ("origexplore", "copyexplore"):
+            cands.append(os.path.join(name, "explore.json"))
+        for cand in cands:
             if os.path.exists(cand):
                 exp_o = cand
                 break
@@ -327,7 +364,8 @@ def main():
     contract = os.path.join(orig, "flow-contract.json")
     if not os.path.exists(contract):
         for cand in (os.path.join(orig, "explore", "flow-contract.json"),
-                     os.path.join("explore", "flow-contract.json")):
+                     os.path.join("explore", "flow-contract.json"),
+                     os.path.join("origexplore", "flow-contract.json")):
             if os.path.exists(cand):
                 contract = cand
                 break
@@ -357,6 +395,13 @@ def main():
     for gate, extra, what in (("G25", (), "the scene itself"),
                               ("G26", ("--frames",), "how the scene moves")):
         if os.path.exists(scene_o) and os.path.exists(scene_c):
+            # A page with no canvas on either side has nothing to judge, and that
+            # is an answer, not a hole: the gate says so and exits 2 (not applicable).
+            has_o = (load(scene_o, default={}) or {}).get("found")
+            has_c = (load(scene_c, default={}) or {}).get("found")
+            if has_o is False and has_c is False:
+                results[gate] = skip(gate, "no canvas on either side - nothing to compare")
+                continue
             code, cmd, out = call("antigraf_scene_gate.py", scene_o, scene_c, *extra)
             results[gate] = record(gate, code, cmd, out, what)
         else:
@@ -399,11 +444,18 @@ def main():
     # regression, and a regression is never allowed to close the lock.
     prev_pass = set(seen.get("passing", []))
     regressions = sorted(prev_pass & set(failed))
+
+    # One entry per round, not one per run: the round number IS the identity, so
+    # re-running round 3 replaces its own entry instead of appending a twin.
+    # `rounds` counts the distinct rounds reached, so the budget below measures
+    # real rounds and not how many times a command was typed.
+    history = [e for e in seen.get("failing_history", []) if e.get("round") != round_no]
+    history.append({"round": round_no, "gates": sorted(failed)})
+    history = sorted(history, key=lambda e: e.get("round") or 0)[-12:]
+    seen["failing_history"] = history
+    seen["rounds"] = max(len(history), round_no)
     seen["passing"] = sorted(passing)
-    seen["rounds"] = seen.get("rounds", 0) + 1
     seen["last_round"] = max(round_no, seen.get("last_round", 0))
-    seen.setdefault("failing_history", []).append({"round": round_no, "gates": sorted(failed)})
-    seen["failing_history"] = seen["failing_history"][-12:]
     save(history_path, seen)
 
     if regressions:

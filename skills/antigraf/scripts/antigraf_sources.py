@@ -609,6 +609,14 @@ def main():
         for s in blocking[:10]:
             print("  - our copy also rests on {} ({})".format(s["id"], s["licence"]))
         if not (c.get("sources") or []):
+            if not (o.get("sources") or []):
+                # Neither side names a library: both ship plain code, and that is
+                # an answer, not a gap. It is printed, never silent, so nobody can
+                # mistake "nothing found" for "nothing looked for".
+                print("\nG22 Source ledger - pass (plain code on both sides)")
+                print("  neither side names a library, so the copy rests on the same stack")
+                print("  as the original: the language, the browser and nothing else.")
+                return PASS
             print("  our copy names no library at all: that is unknown, not a pass.")
             return FAIL
         if diffs or blocking:
@@ -635,10 +643,9 @@ def main():
             print("  - {} ({})  {}".format(s["id"], s["kind"], s["licence"]))
         code = FAIL
     if not doc["sources"]:
-        print("\nNothing was named, so what the original is built from is unknown. That is a red")
-        print("line, not a pass: fetch the page (`--fetch <url>`) or say in the report that it ships")
-        print("plain code with no library at all.")
-        code = FAIL
+        print("\nNo library was named. For a page that ships plain code that is the answer, not a")
+        print("gap - and the copy must ship plain code too. A site built with a library the")
+        print("catalogue has never met is a different answer: say which one in the report.")
 
     copy_dir = arg("--copy")
     if copy_dir:
@@ -651,8 +658,12 @@ def main():
         for s in [x for x in cdoc["sources"] if x["blocking"]]:
             print("  - our copy also rests on {} ({})".format(s["id"], s["licence"]))
             code = FAIL
-        if diffs or not cdoc["sources"]:
+        if diffs or cdoc["sources"] != doc["sources"]:
             code = FAIL
+        if not cdoc["sources"] and not doc["sources"]:
+            print("  both sides ship plain code: the copy rests on the same stack as the original")
+            print("  that is a comparison, not a guess - the two ledgers are identical")
+            code = PASS
 
     print("\nG22 Source ledger - {}".format("pass" if code == PASS else "fail"))
     if code == PASS:

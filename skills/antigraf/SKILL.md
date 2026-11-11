@@ -130,7 +130,7 @@ to accept. Nothing silently slides.
 | Stage | What happens | Done when |
 |---|---|---|
 | **S1 Study** | Record the original as evidence: pictures, exact measurements, text, states, behaviour. | `capture/` is complete and every value has a source tag |
-| **S1.5 Plan** | Pair the original with the copy **unit by unit**, and say how each unit is judged before any code is written. | `plan.json` has a row for every section, state, route and control, each with a pass rule |
+| **S1.5 Plan** | Write `plan.json` **from the inventory**, one row per measured item, so plan ids and inventory ids are the same numbers. | `python scripts/antigraf_autoplan.py capture/inventory.json --states origexplore/states.json --out plan.json` writes a row for every route, section, control, state, icon and word |
 | **S2 Build** | Write our own copy in `app/` in the chosen stack, from the evidence and the plan. | the project builds from a clean checkout |
 | **S3 Compare** | Measure the copy the same way, then compare **one-to-one**: every unit on the left with its own partner on the right. | every unit and every gate reports pass, fail or unknown |
 | **S4 Refine** | Send the failing differences back as the next build message. | gates pass, or the round budget runs out |

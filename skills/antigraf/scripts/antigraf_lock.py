@@ -75,7 +75,9 @@ def main():
     if gates_path and os.path.exists(gates_path):
         gdata = load(gates_path, default={}) or {}
         for gname, gv in sorted(gdata.items()):
-            u = int((gv or {}).get("unknown") or 0)
+            if not isinstance(gv, dict):
+                continue
+            u = int(gv.get("unknown") or 0)
             if u:
                 holds.append("gate {} has {} unknown row(s) - not compared, not passed".format(
                     gname, u))
