@@ -79,7 +79,7 @@ that turns out to be unnecessary is marked *skip* with a reason, never deleted.
 
 ### Every run ends with the honest score table
 
-Modes 1 and 2 always end with `scripts/antigraf_score.py`: eight areas, each a percentage
+Modes 1 and 2 always end with `scripts/antigraf_score.py`: nine areas, each a percentage
 computed from recorded proof — pass, fail, or **unknown**. Unknown counts as zero: a gate
 that never ran cannot lift a number, and a picture nobody compared is not 100%.
 

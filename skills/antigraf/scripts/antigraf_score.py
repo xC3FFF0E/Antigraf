@@ -27,12 +27,15 @@ from antigraf_common import (ERROR, FAIL, GATES, PASS, Stop, arg, flag, load, ne
 # Which gates answer for which area of the copy. An area with no passing gate is
 # a hole the person can see, not a hole the score hides.
 AREAS = [
+    # Every gate that can fail belongs to one area: a gate sitting outside the
+    # list was judged and then scored as nothing, which is a free pass.
     ("Words & layout", 18, ["G2", "G3", "G5"]),
     ("Design, icons", 14, ["G4", "G17"]),
     ("Behaviour, flows", 18, ["G6", "G7", "G23", "G24", "G19"]),
     ("Phone & PWA", 12, ["G14", "G18"]),
     ("Motion & 3D", 12, ["G13", "G25", "G26"]),
     ("Media & speed", 8, ["G8", "G15"]),
+    ("Accessibility", 8, ["G9"]),
     ("Sources, repairs", 8, ["G22", "G20", "G21", "G16"]),
     ("Evidence, proof, pages", 10, ["G0", "G1", "G10", "G11", "G12"]),
 ]

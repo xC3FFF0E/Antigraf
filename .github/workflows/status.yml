@@ -39,6 +39,9 @@ jobs:
       # The prose count of tools is written by hand, so it is checked against the
       # folder here instead of being silently regenerated.
 
+      - name: Every page must agree with the ledger
+        run: python .github/readme-check.py
+
       - name: Fail if a page lost its markers
         run: |
           python - <<'PY'

@@ -172,16 +172,22 @@ python scripts/antigraf_mode.py --choose 1 --target https://example.com
 | **3. 写下你能看见的计划** | 最多七步，用你自己的话，其中一步标为“在此停下”，存到磁盘，别的模型可从同一步接上。 |
 | **4. 研究、计划、构建、测量** | 同一套检查在原件和副本上反复运行。 |
 | **5. 关闭差距** | 失败的行作为下一条构建指令返回；原先通过而现在失败的行会标为回退。 |
-| **6. 给出表格** | 八个领域，各按 100 计分，并指出拖住它的原因，然后给出选项。 |
+| **6. 给出表格** | 九个领域，各按 100 计分，并指出拖住它的原因，然后给出选项。 |
 
 最后的表格长这样，由记录计算得出，绝不是模型手打的：
 
 ```
 Area                    Score  pass  fail  unknown  What holds it
-----------------------  -----  ----  ----  -------  -----------------------------------
+----------------------  -----  ----  ----  -------  ----------------------
 Words & layout           100%     3     0        0
-Design, icons             50%     1     1        0  failing: G4 contrast
-Behaviour, flows           0%     0     0        5  not measured: G6, G7, G23, G24, G19
+Design, icons             50%     1     1        0  failing: G4
+Behaviour, flows          20%     1     3        1  failing: G6, G7, G23
+Phone & PWA              100%     2     0        0
+Motion & 3D               33%     1     0        2  not measured: G25, G26
+Media & speed            100%     2     0        0
+Accessibility              0%     0     1        0  failing: G9
+Sources, repairs          75%     3     0        1  not measured: G22
+Evidence, proof, pages    40%     2     2        1  failing: G11, G12
 ```
 
 没有运行、或回答未知的检查计为 **零分**，所以总分绝不会替副本说好话。每项工作都以这张表与三种提议结束：继续推进、以签署的豁免接受差异、或者停下。
@@ -219,19 +225,20 @@ Python 3.8 以上（只用标准库）、浏览器工具需要 Node 18 以上，
 
 <!-- ANTIGRAF:SCORE (written by scripts/antigraf_registry.py - do not edit by hand) -->
 
-**Measured: 62.6% out of 100 - the three-page test pair (round 3)**
+**Measured: 58.0% out of 100 - the three-page test pair (round 3)**
 
 | Area | Score | Passing | Failing | Not measured | What holds it down |
 |---|---|---|---|---|---|
 | Words & layout | 100% | 3 | 0 | 0 | - |
 | Design, icons | 50% | 1 | 1 | 0 | failing: G4 |
-| Behaviour, flows | 20% | 1 | 4 | 0 | failing: G6, G7, G23, G19 |
+| Behaviour, flows | 20% | 1 | 3 | 1 | failing: G6, G7, G23 |
 | Phone & PWA | 100% | 2 | 0 | 0 | - |
-| Motion & 3D | 33% | 1 | 2 | 0 | failing: G25, G26 |
+| Motion & 3D | 33% | 1 | 0 | 2 | not measured: G25, G26 |
 | Media & speed | 100% | 2 | 0 | 0 | - |
-| Sources, repairs | 75% | 3 | 1 | 0 | failing: G22 |
-| Evidence, proof, pages | 40% | 2 | 3 | 0 | failing: G1, G11, G12 |
-| **Total** | **62.6%** | 15 | 12 | 0 | 12 gate(s) not passing |
+| Accessibility | 0% | 0 | 1 | 0 | failing: G9 |
+| Sources, repairs | 75% | 3 | 0 | 1 | not measured: G22 |
+| Evidence, proof, pages | 40% | 2 | 2 | 1 | failing: G11, G12 |
+| **Total** | **58.0%** | 15 | 7 | 5 | 12 gate(s) not passing |
 
 The lock needs 100%: every gate passing, nothing unknown. A gate that never ran counts as zero, not as a pass.
 
@@ -262,7 +269,7 @@ The lock needs 100%: every gate passing, nothing unknown. A gate that never ran 
 
 | Target | Family | Kind | Gates passed | Failed | Unknown | Verdict |
 |---|---|---|---|---|---|---|
-| the three-page test pair | unknown | round 3 | 15 of 27 | 12 | 0 | measured |
+| the three-page test pair | unknown | round 3 | 15 of 27 | 7 | 5 | measured |
 
 `proven` means every gate ran, passed, and nothing was unknown. `measured` means the gates ran and left a real exit code. Anything else is `not proven`, and is not being claimed.
 

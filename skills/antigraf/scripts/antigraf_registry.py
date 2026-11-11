@@ -81,8 +81,13 @@ def gate_states(entries):
             state = "unknown"
         elif code == 0:
             state = "pass"
-        elif isinstance(code, int):
+        elif code == 1:
             state = "fail"
+        elif isinstance(code, int):
+            # Exit 2 is the tools refusing to run on what they were given - no
+            # capture, no partner file, a stage skipped. That is work nobody has
+            # done yet, and calling it a failure would overstate what was judged.
+            state = "unknown"
         else:
             state = "not run"
         out[g] = state

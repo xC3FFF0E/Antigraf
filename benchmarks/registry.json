@@ -1,5 +1,5 @@
 {
- "at": "2026-11-11T06:32:16Z",
+ "at": "2026-11-11T06:47:14Z",
  "gates": [
   "G0",
   "G1",
@@ -41,12 +41,12 @@
    "at": "2026-11-11T05:43:38Z",
    "gates_ran": 27,
    "gates_passed": 15,
-   "gates_failed": 12,
-   "gates_unknown": 0,
+   "gates_failed": 7,
+   "gates_unknown": 5,
    "gates_never": 0,
    "state": "measured",
    "per_gate": {
-    "G1": "fail",
+    "G1": "unknown",
     "G0": "pass",
     "G10": "pass",
     "G11": "fail",
@@ -64,31 +64,32 @@
     "G14": "pass",
     "G15": "pass",
     "G16": "pass",
-    "G19": "fail",
+    "G19": "unknown",
     "G20": "pass",
     "G21": "pass",
-    "G22": "fail",
+    "G22": "unknown",
     "G23": "fail",
     "G24": "pass",
-    "G25": "fail",
-    "G26": "fail",
+    "G25": "unknown",
+    "G26": "unknown",
     "G12": "fail"
    },
    "failed": [
-    "G1",
     "G4",
     "G6",
     "G7",
     "G9",
     "G11",
     "G12",
+    "G23"
+   ],
+   "unknown": [
+    "G1",
     "G19",
     "G22",
-    "G23",
     "G25",
     "G26"
    ],
-   "unknown": [],
    "never": []
   }
  ],
@@ -307,7 +308,7 @@
   "python": 40,
   "browser": 7
  },
- "readme_table": "**27 gates  ·  0 proven on a real original-to-copy pair  ·  1 measured so far**\n\n| What the gates check | Gates | State | Where it was measured |\n|---|---|---|---|\n| Look: sections, words, colours, spacing | G2, G3, G4, G5 | measured | the three-page test pair round 3 |\n| Icons and pictures, one partner each | G8, G17 | measured | the three-page test pair round 3 |\n| Every page walked, planned and shipped | G11 | measured | the three-page test pair round 3 |\n| Behaviour: pressed, and the same result | G7, G23, G24 | measured | the three-page test pair round 3 |\n| States: hover, focus, open, empty, error | G6 | measured | the three-page test pair round 3 |\n| Motion: durations, easings, scroll | G13 | measured | the three-page test pair round 3 |\n| Phone, install and offline (PWA) | G9, G14, G18 | measured | the three-page test pair round 3 |\n| Speed and weight budgets | G15 | measured | the three-page test pair round 3 |\n| Logic: same input, same answer, no secrets | G19 | measured | the three-page test pair round 3 |\n| Defects found, and the copy repaired | G20, G21 | measured | the three-page test pair round 3 |\n| 3D scene read as numbers | G25 | measured | the three-page test pair round 3 |\n| 3D motion compared frame by frame | G26 | measured | the three-page test pair round 3 |\n| Server seams listed for you to hook up | G16 | measured | the three-page test pair round 3 |\n| Evidence, proof and a frozen plan | G0, G1, G10, G12 | measured | the three-page test pair round 3 |\n\n| Target | Family | Kind | Gates passed | Failed | Unknown | Verdict |\n|---|---|---|---|---|---|---|\n| the three-page test pair | unknown | round 3 | 15 of 27 | 12 | 0 | measured |\n\n`proven` means every gate ran, passed, and nothing was unknown. `measured` means the gates ran and left a real exit code. Anything else is `not proven`, and is not being claimed.",
- "score_table": "**Measured: 62.6% out of 100 - the three-page test pair (round 3)**\n\n| Area | Score | Passing | Failing | Not measured | What holds it down |\n|---|---|---|---|---|---|\n| Words & layout | 100% | 3 | 0 | 0 | - |\n| Design, icons | 50% | 1 | 1 | 0 | failing: G4 |\n| Behaviour, flows | 20% | 1 | 4 | 0 | failing: G6, G7, G23, G19 |\n| Phone & PWA | 100% | 2 | 0 | 0 | - |\n| Motion & 3D | 33% | 1 | 2 | 0 | failing: G25, G26 |\n| Media & speed | 100% | 2 | 0 | 0 | - |\n| Sources, repairs | 75% | 3 | 1 | 0 | failing: G22 |\n| Evidence, proof, pages | 40% | 2 | 3 | 0 | failing: G1, G11, G12 |\n| **Total** | **62.6%** | 15 | 12 | 0 | 12 gate(s) not passing |\n\nThe lock needs 100%: every gate passing, nothing unknown. A gate that never ran counts as zero, not as a pass.",
+ "readme_table": "**27 gates  ·  0 proven on a real original-to-copy pair  ·  1 measured so far**\n\n| What the gates check | Gates | State | Where it was measured |\n|---|---|---|---|\n| Look: sections, words, colours, spacing | G2, G3, G4, G5 | measured | the three-page test pair round 3 |\n| Icons and pictures, one partner each | G8, G17 | measured | the three-page test pair round 3 |\n| Every page walked, planned and shipped | G11 | measured | the three-page test pair round 3 |\n| Behaviour: pressed, and the same result | G7, G23, G24 | measured | the three-page test pair round 3 |\n| States: hover, focus, open, empty, error | G6 | measured | the three-page test pair round 3 |\n| Motion: durations, easings, scroll | G13 | measured | the three-page test pair round 3 |\n| Phone, install and offline (PWA) | G9, G14, G18 | measured | the three-page test pair round 3 |\n| Speed and weight budgets | G15 | measured | the three-page test pair round 3 |\n| Logic: same input, same answer, no secrets | G19 | measured | the three-page test pair round 3 |\n| Defects found, and the copy repaired | G20, G21 | measured | the three-page test pair round 3 |\n| 3D scene read as numbers | G25 | measured | the three-page test pair round 3 |\n| 3D motion compared frame by frame | G26 | measured | the three-page test pair round 3 |\n| Server seams listed for you to hook up | G16 | measured | the three-page test pair round 3 |\n| Evidence, proof and a frozen plan | G0, G1, G10, G12 | measured | the three-page test pair round 3 |\n\n| Target | Family | Kind | Gates passed | Failed | Unknown | Verdict |\n|---|---|---|---|---|---|---|\n| the three-page test pair | unknown | round 3 | 15 of 27 | 7 | 5 | measured |\n\n`proven` means every gate ran, passed, and nothing was unknown. `measured` means the gates ran and left a real exit code. Anything else is `not proven`, and is not being claimed.",
+ "score_table": "**Measured: 58.0% out of 100 - the three-page test pair (round 3)**\n\n| Area | Score | Passing | Failing | Not measured | What holds it down |\n|---|---|---|---|---|---|\n| Words & layout | 100% | 3 | 0 | 0 | - |\n| Design, icons | 50% | 1 | 1 | 0 | failing: G4 |\n| Behaviour, flows | 20% | 1 | 3 | 1 | failing: G6, G7, G23 |\n| Phone & PWA | 100% | 2 | 0 | 0 | - |\n| Motion & 3D | 33% | 1 | 0 | 2 | not measured: G25, G26 |\n| Media & speed | 100% | 2 | 0 | 0 | - |\n| Accessibility | 0% | 0 | 1 | 0 | failing: G9 |\n| Sources, repairs | 75% | 3 | 0 | 1 | not measured: G22 |\n| Evidence, proof, pages | 40% | 2 | 2 | 1 | failing: G11, G12 |\n| **Total** | **58.0%** | 15 | 7 | 5 | 12 gate(s) not passing |\n\nThe lock needs 100%: every gate passing, nothing unknown. A gate that never ran counts as zero, not as a pass.",
  "score_target": "the three-page test pair round 3"
 }

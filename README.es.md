@@ -190,21 +190,22 @@ Desde ahí corre en seis pasos.
 | **3. Escribir un plan que ves** | Como mucho siete pasos en tus palabras, uno marcado *se detiene aquí*, guardado en disco para que otro modelo retome el mismo paso. |
 | **4. Estudiar, planear, construir, medir** | Las mismas comprobaciones corren en el original y en tu copia, ronda tras ronda. |
 | **5. Cerrar huecos** | Cada fila fallida vuelve como el siguiente mensaje, y una fila que antes pasaba y ahora falla se marca como regresión. |
-| **6. Mostrar la tabla** | Ocho áreas, cada una sobre 100, nombrando qué la frena. Luego tus opciones. |
+| **6. Mostrar la tabla** | Nueve áreas, cada una sobre 100, nombrando qué la frena. Luego tus opciones. |
 
 La tabla final se ve así, y se calcula con la prueba registrada, nunca la escribe el modelo:
 
 ```
 Area                    Score  pass  fail  unknown  What holds it
-----------------------  -----  ----  ----  -------  -----------------------------------
+----------------------  -----  ----  ----  -------  ----------------------
 Words & layout           100%     3     0        0
-Design, icons             50%     1     1        0  failing: G4 contrast
-Behaviour, flows           0%     0     0        5  not measured: G6, G7, G23, G24, G19
-Phone & PWA                0%     0     1        1  failing: G14 tap targets
+Design, icons             50%     1     1        0  failing: G4
+Behaviour, flows          20%     1     3        1  failing: G6, G7, G23
+Phone & PWA              100%     2     0        0
 Motion & 3D               33%     1     0        2  not measured: G25, G26
 Media & speed            100%     2     0        0
-Sources, repairs          50%     2     0        2  not measured: G22, G16
-Evidence, proof, pages    60%     3     1        1  failing: G12
+Accessibility              0%     0     1        0  failing: G9
+Sources, repairs          75%     3     0        1  not measured: G22
+Evidence, proof, pages    40%     2     2        1  failing: G11, G12
 ```
 
 Una comprobación que nunca corrió, o que respondió sin saber, cuenta como **cero**, así que el total
@@ -246,19 +247,20 @@ Aqui se muestran dos numeros distintos a proposito: la puntuacion es lo que las 
 
 <!-- ANTIGRAF:SCORE (written by scripts/antigraf_registry.py - do not edit by hand) -->
 
-**Measured: 62.6% out of 100 - the three-page test pair (round 3)**
+**Measured: 58.0% out of 100 - the three-page test pair (round 3)**
 
 | Area | Score | Passing | Failing | Not measured | What holds it down |
 |---|---|---|---|---|---|
 | Words & layout | 100% | 3 | 0 | 0 | - |
 | Design, icons | 50% | 1 | 1 | 0 | failing: G4 |
-| Behaviour, flows | 20% | 1 | 4 | 0 | failing: G6, G7, G23, G19 |
+| Behaviour, flows | 20% | 1 | 3 | 1 | failing: G6, G7, G23 |
 | Phone & PWA | 100% | 2 | 0 | 0 | - |
-| Motion & 3D | 33% | 1 | 2 | 0 | failing: G25, G26 |
+| Motion & 3D | 33% | 1 | 0 | 2 | not measured: G25, G26 |
 | Media & speed | 100% | 2 | 0 | 0 | - |
-| Sources, repairs | 75% | 3 | 1 | 0 | failing: G22 |
-| Evidence, proof, pages | 40% | 2 | 3 | 0 | failing: G1, G11, G12 |
-| **Total** | **62.6%** | 15 | 12 | 0 | 12 gate(s) not passing |
+| Accessibility | 0% | 0 | 1 | 0 | failing: G9 |
+| Sources, repairs | 75% | 3 | 0 | 1 | not measured: G22 |
+| Evidence, proof, pages | 40% | 2 | 2 | 1 | failing: G11, G12 |
+| **Total** | **58.0%** | 15 | 7 | 5 | 12 gate(s) not passing |
 
 The lock needs 100%: every gate passing, nothing unknown. A gate that never ran counts as zero, not as a pass.
 
@@ -289,7 +291,7 @@ The lock needs 100%: every gate passing, nothing unknown. A gate that never ran 
 
 | Target | Family | Kind | Gates passed | Failed | Unknown | Verdict |
 |---|---|---|---|---|---|---|
-| the three-page test pair | unknown | round 3 | 15 of 27 | 12 | 0 | measured |
+| the three-page test pair | unknown | round 3 | 15 of 27 | 7 | 5 | measured |
 
 `proven` means every gate ran, passed, and nothing was unknown. `measured` means the gates ran and left a real exit code. Anything else is `not proven`, and is not being claimed.
 
