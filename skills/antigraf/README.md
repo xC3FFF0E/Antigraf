@@ -84,6 +84,32 @@ This block is written by `scripts/antigraf_registry.py` from the proof ledgers o
 typed by hand, so it cannot drift from reality.
 
 <!-- ANTIGRAF:PROGRESS (written by scripts/antigraf_registry.py - do not edit by hand) -->
+
+**27 gates  ·  0 proven on a real original-to-copy pair  ·  1 measured so far**
+
+| What the gates check | Gates | State | Where it was measured |
+|---|---|---|---|
+| Look: sections, words, colours, spacing | G2, G3, G4, G5 | measured | the three-page test pair round 3 |
+| Icons and pictures, one partner each | G8, G17 | measured | the three-page test pair round 3 |
+| Every page walked, planned and shipped | G11 | measured | the three-page test pair round 3 |
+| Behaviour: pressed, and the same result | G7, G23, G24 | measured | the three-page test pair round 3 |
+| States: hover, focus, open, empty, error | G6 | measured | the three-page test pair round 3 |
+| Motion: durations, easings, scroll | G13 | measured | the three-page test pair round 3 |
+| Phone, install and offline (PWA) | G9, G14, G18 | measured | the three-page test pair round 3 |
+| Speed and weight budgets | G15 | measured | the three-page test pair round 3 |
+| Logic: same input, same answer, no secrets | G19 | measured | the three-page test pair round 3 |
+| Defects found, and the copy repaired | G20, G21 | measured | the three-page test pair round 3 |
+| 3D scene read as numbers | G25 | measured | the three-page test pair round 3 |
+| 3D motion compared frame by frame | G26 | measured | the three-page test pair round 3 |
+| Server seams listed for you to hook up | G16 | measured | the three-page test pair round 3 |
+| Evidence, proof and a frozen plan | G0, G1, G10, G12 | measured | the three-page test pair round 3 |
+
+| Target | Family | Kind | Gates passed | Failed | Unknown | Verdict |
+|---|---|---|---|---|---|---|
+| the three-page test pair | unknown | round 3 | 15 of 27 | 12 | 0 | measured |
+
+`proven` means every gate ran, passed, and nothing was unknown. `measured` means the gates ran and left a real exit code. Anything else is `not proven`, and is not being claimed.
+
 <!-- /ANTIGRAF:PROGRESS -->
 
 The honest position: **the measuring half works. The building half has not yet produced a copy that passed every gate.** A study of a real multi-page site recorded a set of pages, pressed a set of controls, and opened the player behind one of them; the gates answered eight passed and fifteen open. A scene gate read 28,116 triangles and 11 shaders from a page that never exposed its own scene, then compared a copy against itself at 98.9 per cent frame likeness. That proves the check, not the copy.
