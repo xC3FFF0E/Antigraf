@@ -269,17 +269,30 @@ def untagged(node, path="$", out=None):
 # ---------------------------------------------------------------- output shapes
 
 
-def table(rows, headers):
-    """Print a plain fixed-width table; wide values are not truncated."""
-    widths = [len(h) for h in headers]
+def table(rows, headers, align=None):
+    """Print a plain fixed-width table; wide values are not truncated.
+
+    `align` is one string the same length as `headers`: "l" pads a cell on the
+    right and "r" pads it on the left. Numbers read better right-aligned. The
+    dash row under a right-aligned column sits under its digits, so the table
+    stays level even when the numbers and the words disagree in width.
+    """
+    pads = align or ("l" * len(headers))
+    pads = (pads + "l" * len(headers))[:len(headers)]
+    widths = [len(str(h)) for h in headers]
     for r in rows:
         for i, c in enumerate(r):
             widths[i] = max(widths[i], len(str(c)))
-    line = "  ".join(h.ljust(widths[i]) for i, h in enumerate(headers))
-    print(line)
+
+    def cell(text, i):
+        text = str(text)
+        return text.ljust(widths[i]) if pads[i] == "l" else text.rjust(widths[i])
+
+    line = "  ".join(cell(h, i) for i, h in enumerate(headers))
+    print(line.rstrip())
     print("  ".join("-" * w for w in widths))
     for r in rows:
-        print("  ".join(str(c).ljust(widths[i]) for i, c in enumerate(r)))
+        print("  ".join(cell(c, i) for i, c in enumerate(r)).rstrip())
 
 
 def verdict(fails, unknown=0):

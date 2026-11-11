@@ -114,13 +114,18 @@ def interactive_in_plan(plan):
 
 
 def table(head, rows):
+    """Print the same table as antigraf_common.table, minus the trailing gap.
+
+    Kept as one flat rule on purpose: the columns here are words, and the
+    width comes from the widest cell in each column.
+    """
     widths = [max(len(head[i]), *(len(str(r[i])) for r in rows)) if rows else len(head[i])
               for i in range(len(head))]
     line = "  ".join(h.ljust(widths[i]) for i, h in enumerate(head))
-    print(line)
+    print(line.rstrip())
     print("  ".join("-" * widths[i] for i in range(len(head))))
     for r in rows:
-        print("  ".join(str(c).ljust(widths[i]) for i, c in enumerate(r)))
+        print("  ".join(str(c).ljust(widths[i]) for i, c in enumerate(r)).rstrip())
     print("")
 
 

@@ -141,7 +141,8 @@ def main():
 
     overall = weighted / weights if weights else 0.0
     print()
-    table(rows, ["Area", "Score", "pass", "fail", "unknown", "What holds it"])
+    table(rows, ["Area", "Score", "pass", "fail", "unknown", "What holds it"],
+          align="lrrrrl")
 
     pics = picture_rows(original, copy)
     if pics:

@@ -121,15 +121,16 @@ From there it runs in six steps.
 The closing table looks like this, and it is computed from recorded proof, never typed by the model:
 
 ```
-Area                  Score   pass  fail  unknown  What holds it
----------------------------------------------------------------
-Words & layout         100%      3     0        0
-Design, icons           50%      1     1        0  failing: G4 contrast
-Behaviour, flows         0%      0     0        5  not measured: G6 G7 G23
-Phone & PWA             0%      0     1        1  failing: G14 tap targets
-Media & speed          100%      2     0        0
----------------------------------------------------------------
-TOTAL                   54%      8     2        8
+Area                    Score  pass  fail  unknown  What holds it
+----------------------  -----  ----  ----  -------  -----------------------------------
+Words & layout           100%     3     0        0
+Design, icons             50%     1     1        0  failing: G4 contrast
+Behaviour, flows           0%     0     0        5  not measured: G6, G7, G23, G24, G19
+Phone & PWA                0%     0     1        1  failing: G14 tap targets
+Motion & 3D               33%     1     0        2  not measured: G25, G26
+Media & speed            100%     2     0        0
+Sources, repairs          50%     2     0        2  not measured: G22, G16
+Evidence, proof, pages    60%     3     1        1  failing: G12
 ```
 
 A gate that never ran, or reported unknown, counts as **zero**, so the total can never flatter the
