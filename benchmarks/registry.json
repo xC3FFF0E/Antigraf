@@ -1,5 +1,5 @@
 {
- "at": "2026-11-11T03:29:24Z",
+ "at": "2026-11-11T03:29:39Z",
  "gates": [
   "G0",
   "G1",
@@ -30,14 +30,14 @@
   "G26"
  ],
  "gate_count": 27,
- "runs": "benchmarks",
+ "runs": "/home/runner/work/Antigraf/Antigraf/benchmarks",
  "targets": [
   {
-   "run": "checks\\round-1",
+   "run": "checks/round-1",
    "target": "test-pair-3page",
    "family": "unknown",
    "kind": "round 1",
-   "ledger": "checks\\round-1\\proof.json",
+   "ledger": "checks/round-1/proof.json",
    "at": "2026-11-10T07:44:17Z",
    "gates_ran": 26,
    "gates_passed": 13,
@@ -106,11 +106,11 @@
    "pass": 4,
    "total": 4,
    "proven_on": [
-    "test-pair-3page checks\\round-1"
+    "test-pair-3page checks/round-1"
    ],
    "measured_on": [],
    "state": "proven",
-   "where": "test-pair-3page checks\\round-1"
+   "where": "test-pair-3page checks/round-1"
   },
   {
    "claim": "Icons and pictures, one partner each",
@@ -121,11 +121,11 @@
    "pass": 2,
    "total": 2,
    "proven_on": [
-    "test-pair-3page checks\\round-1"
+    "test-pair-3page checks/round-1"
    ],
    "measured_on": [],
    "state": "proven",
-   "where": "test-pair-3page checks\\round-1"
+   "where": "test-pair-3page checks/round-1"
   },
   {
    "claim": "Every page walked, planned and shipped",
@@ -135,11 +135,11 @@
    "pass": 1,
    "total": 1,
    "proven_on": [
-    "test-pair-3page checks\\round-1"
+    "test-pair-3page checks/round-1"
    ],
    "measured_on": [],
    "state": "proven",
-   "where": "test-pair-3page checks\\round-1"
+   "where": "test-pair-3page checks/round-1"
   },
   {
    "claim": "Behaviour: pressed, and the same result",
@@ -152,10 +152,10 @@
    "total": 3,
    "proven_on": [],
    "measured_on": [
-    "test-pair-3page checks\\round-1"
+    "test-pair-3page checks/round-1"
    ],
    "state": "measured",
-   "where": "test-pair-3page checks\\round-1"
+   "where": "test-pair-3page checks/round-1"
   },
   {
    "claim": "States: hover, focus, open, empty, error",
@@ -166,10 +166,10 @@
    "total": 1,
    "proven_on": [],
    "measured_on": [
-    "test-pair-3page checks\\round-1"
+    "test-pair-3page checks/round-1"
    ],
    "state": "measured",
-   "where": "test-pair-3page checks\\round-1"
+   "where": "test-pair-3page checks/round-1"
   },
   {
    "claim": "Motion: durations, easings, scroll",
@@ -179,11 +179,11 @@
    "pass": 1,
    "total": 1,
    "proven_on": [
-    "test-pair-3page checks\\round-1"
+    "test-pair-3page checks/round-1"
    ],
    "measured_on": [],
    "state": "proven",
-   "where": "test-pair-3page checks\\round-1"
+   "where": "test-pair-3page checks/round-1"
   },
   {
    "claim": "Phone, install and offline (PWA)",
@@ -196,10 +196,10 @@
    "total": 3,
    "proven_on": [],
    "measured_on": [
-    "test-pair-3page checks\\round-1"
+    "test-pair-3page checks/round-1"
    ],
    "state": "measured",
-   "where": "test-pair-3page checks\\round-1"
+   "where": "test-pair-3page checks/round-1"
   },
   {
    "claim": "Speed and weight budgets",
@@ -209,11 +209,11 @@
    "pass": 1,
    "total": 1,
    "proven_on": [
-    "test-pair-3page checks\\round-1"
+    "test-pair-3page checks/round-1"
    ],
    "measured_on": [],
    "state": "proven",
-   "where": "test-pair-3page checks\\round-1"
+   "where": "test-pair-3page checks/round-1"
   },
   {
    "claim": "Logic: same input, same answer, no secrets",
@@ -224,10 +224,10 @@
    "total": 1,
    "proven_on": [],
    "measured_on": [
-    "test-pair-3page checks\\round-1"
+    "test-pair-3page checks/round-1"
    ],
    "state": "measured",
-   "where": "test-pair-3page checks\\round-1"
+   "where": "test-pair-3page checks/round-1"
   },
   {
    "claim": "Defects found, and the copy repaired",
@@ -238,11 +238,11 @@
    "pass": 2,
    "total": 2,
    "proven_on": [
-    "test-pair-3page checks\\round-1"
+    "test-pair-3page checks/round-1"
    ],
    "measured_on": [],
    "state": "proven",
-   "where": "test-pair-3page checks\\round-1"
+   "where": "test-pair-3page checks/round-1"
   },
   {
    "claim": "3D scene read as numbers",
@@ -253,10 +253,10 @@
    "total": 1,
    "proven_on": [],
    "measured_on": [
-    "test-pair-3page checks\\round-1"
+    "test-pair-3page checks/round-1"
    ],
    "state": "measured",
-   "where": "test-pair-3page checks\\round-1"
+   "where": "test-pair-3page checks/round-1"
   },
   {
    "claim": "3D motion compared frame by frame",
@@ -267,10 +267,10 @@
    "total": 1,
    "proven_on": [],
    "measured_on": [
-    "test-pair-3page checks\\round-1"
+    "test-pair-3page checks/round-1"
    ],
    "state": "measured",
-   "where": "test-pair-3page checks\\round-1"
+   "where": "test-pair-3page checks/round-1"
   },
   {
    "claim": "Server seams listed for you to hook up",
@@ -281,10 +281,10 @@
    "total": 1,
    "proven_on": [],
    "measured_on": [
-    "test-pair-3page checks\\round-1"
+    "test-pair-3page checks/round-1"
    ],
    "state": "measured",
-   "where": "test-pair-3page checks\\round-1"
+   "where": "test-pair-3page checks/round-1"
   },
   {
    "claim": "Evidence, proof and a frozen plan",
@@ -298,13 +298,13 @@
    "total": 4,
    "proven_on": [],
    "measured_on": [
-    "test-pair-3page checks\\round-1"
+    "test-pair-3page checks/round-1"
    ],
    "state": "measured",
-   "where": "test-pair-3page checks\\round-1"
+   "where": "test-pair-3page checks/round-1"
   }
  ],
  "readme_table": "**27 gates · 0 proven on a real original-to-copy pair · 1 measured so far**\n\n| What the gates check | Gates | State | Where it was measured |\n|---|---|---|---|\n| Look: sections, words, colours, spacing | G2, G3, G4, G5 | proven | test-pair-3page checks/round-1 |\n| Icons and pictures, one partner each | G8, G17 | proven | test-pair-3page checks/round-1 |\n| Every page walked, planned and shipped | G11 | proven | test-pair-3page checks/round-1 |\n| Behaviour: pressed, and the same result | G7, G23, G24 | measured | test-pair-3page checks/round-1 |\n| States: hover, focus, open, empty, error | G6 | measured | test-pair-3page checks/round-1 |\n| Motion: durations, easings, scroll | G13 | proven | test-pair-3page checks/round-1 |\n| Phone, install and offline (PWA) | G9, G14, G18 | measured | test-pair-3page checks/round-1 |\n| Speed and weight budgets | G15 | proven | test-pair-3page checks/round-1 |\n| Logic: same input, same answer, no secrets | G19 | measured | test-pair-3page checks/round-1 |\n| Defects found, and the copy repaired | G20, G21 | proven | test-pair-3page checks/round-1 |\n| 3D scene read as numbers | G25 | measured | test-pair-3page checks/round-1 |\n| 3D motion compared frame by frame | G26 | measured | test-pair-3page checks/round-1 |\n| Server seams listed for you to hook up | G16 | measured | test-pair-3page checks/round-1 |\n| Evidence, proof and a frozen plan | G0, G1, G10, G12 | measured | test-pair-3page checks/round-1 |\n\n| Target | Family | Kind | Gates passed | Failed | Unknown | Verdict |\n|---|---|---|---|---|---|---|\n| test-pair-3page | unknown | round 1 | 13 of 27 | 13 | 0 | measured |\n\n`proven` means every gate ran, passed, and nothing was unknown. `measured` means the gates ran and left a real exit code. Anything else is `not proven`, and is not being claimed.",
  "score_table": "**Measured: 54.0% out of 100 - test-pair-3page (round 1)**\n\n| Area | Score | Passing | Failing | Not measured | What holds it down |\n|---|---|---|---|---|---|\n| Words & layout | 100% | 3 | 0 | 0 | - |\n| Design, icons | 100% | 2 | 0 | 0 | - |\n| Behaviour, flows | 0% | 0 | 5 | 0 | failing: G6, G7, G23, G24, G19 |\n| Phone & PWA | 0% | 0 | 2 | 0 | failing: G14, G18 |\n| Motion & 3D | 33% | 1 | 2 | 0 | failing: G25, G26 |\n| Media & speed | 100% | 2 | 0 | 0 | - |\n| Sources, repairs | 50% | 2 | 1 | 1 | failing: G16 |\n| Evidence, proof, pages | 60% | 3 | 2 | 0 | failing: G1, G12 |\n| **Total** | **54.0%** | 13 | 13 | 1 | 14 gate(s) not passing |\n\nThe lock needs 100%: every gate passing, nothing unknown. A gate that never ran counts as zero, not as a pass.",
- "score_target": "test-pair-3page checks\\round-1"
+ "score_target": "test-pair-3page checks/round-1"
 }
