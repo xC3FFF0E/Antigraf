@@ -1,5 +1,5 @@
 {
- "at": "2026-11-11T06:19:54Z",
+ "at": "2026-11-11T06:23:27Z",
  "gates": [
   "G0",
   "G1",
@@ -302,7 +302,11 @@
    "where": "the three-page test pair round 3"
   }
  ],
- "script_count": 47,
+ "script_count": {
+  "tools": 47,
+  "python": 40,
+  "browser": 7
+ },
  "readme_table": "**27 gates  ·  0 proven on a real original-to-copy pair  ·  1 measured so far**\n\n| What the gates check | Gates | State | Where it was measured |\n|---|---|---|---|\n| Look: sections, words, colours, spacing | G2, G3, G4, G5 | measured | the three-page test pair round 3 |\n| Icons and pictures, one partner each | G8, G17 | measured | the three-page test pair round 3 |\n| Every page walked, planned and shipped | G11 | measured | the three-page test pair round 3 |\n| Behaviour: pressed, and the same result | G7, G23, G24 | measured | the three-page test pair round 3 |\n| States: hover, focus, open, empty, error | G6 | measured | the three-page test pair round 3 |\n| Motion: durations, easings, scroll | G13 | measured | the three-page test pair round 3 |\n| Phone, install and offline (PWA) | G9, G14, G18 | measured | the three-page test pair round 3 |\n| Speed and weight budgets | G15 | measured | the three-page test pair round 3 |\n| Logic: same input, same answer, no secrets | G19 | measured | the three-page test pair round 3 |\n| Defects found, and the copy repaired | G20, G21 | measured | the three-page test pair round 3 |\n| 3D scene read as numbers | G25 | measured | the three-page test pair round 3 |\n| 3D motion compared frame by frame | G26 | measured | the three-page test pair round 3 |\n| Server seams listed for you to hook up | G16 | measured | the three-page test pair round 3 |\n| Evidence, proof and a frozen plan | G0, G1, G10, G12 | measured | the three-page test pair round 3 |\n\n| Target | Family | Kind | Gates passed | Failed | Unknown | Verdict |\n|---|---|---|---|---|---|---|\n| the three-page test pair | unknown | round 3 | 15 of 27 | 12 | 0 | measured |\n\n`proven` means every gate ran, passed, and nothing was unknown. `measured` means the gates ran and left a real exit code. Anything else is `not proven`, and is not being claimed.",
  "score_table": "**Measured: 62.6% out of 100 - the three-page test pair (round 3)**\n\n| Area | Score | Passing | Failing | Not measured | What holds it down |\n|---|---|---|---|---|---|\n| Words & layout | 100% | 3 | 0 | 0 | - |\n| Design, icons | 50% | 1 | 1 | 0 | failing: G4 |\n| Behaviour, flows | 20% | 1 | 4 | 0 | failing: G6, G7, G23, G19 |\n| Phone & PWA | 100% | 2 | 0 | 0 | - |\n| Motion & 3D | 33% | 1 | 2 | 0 | failing: G25, G26 |\n| Media & speed | 100% | 2 | 0 | 0 | - |\n| Sources, repairs | 75% | 3 | 1 | 0 | failing: G22 |\n| Evidence, proof, pages | 40% | 2 | 3 | 0 | failing: G1, G11, G12 |\n| **Total** | **62.6%** | 15 | 12 | 0 | 12 gate(s) not passing |\n\nThe lock needs 100%: every gate passing, nothing unknown. A gate that never ran counts as zero, not as a pass.",
  "score_target": "the three-page test pair round 3"

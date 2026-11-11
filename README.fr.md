@@ -112,7 +112,7 @@ domaine, et vos options pour la suite.
 
 | | **Antigraf** | Une compétence de clonage classique |
 |---|---|---|
-| Où il tourne | Tout environnement, tout modèle. Bibliothèques standard de Python 3 et Node | Lié à une boucle d'agent |
+| Où il tourne | Tout environnement, tout modèle. Bibliothèques standard de Python 40 et Node | Lié à une boucle d'agent |
 | Comment il décide « terminé » | 27 contrôles, chacun avec son code de sortie, tous à chaque tour | Le modèle dit que ça a l'air bon |
 | « Non comparé » | Bloque toujours le verrou | Souvent compté comme une réussite |
 | Différences que vous acceptez | Les vôtres seulement, écrites par vous, jamais écartées en silence | Non modélisé |
@@ -129,7 +129,7 @@ plus faible, ou qui ne voit pas les images, ne baisse jamais la barre : il dépe
 | `skills/antigraf/SKILL.md` | la compétence elle-même : travaux, étapes, niveaux, espace de travail, tours, règles |
 | `skills/antigraf/README.md` | le document complet : contrôles, tolérances, progression, disposition |
 | `skills/antigraf/references/` | 12 guides : contrôles, planification, fidélité, scène, remise, preuves |
-| `skills/antigraf/scripts/` | 46 outils : 39 Python, 7 navigateur, une liste d'appareils |
+| `skills/antigraf/scripts/` | 47 outils : 40 Python, 7 navigateur, une liste d'appareils |
 | `assets/` | l'icône, en 512 et 128 pixels |
 
 Lisez cette page pour ce qu'elle promet. Lisez le document complet pour la tolérance exacte de chaque contrôle.
@@ -169,7 +169,7 @@ cd skills/antigraf
 python scripts/antigraf_mode.py --choose 1 --target https://example.com
 ```
 
-Prérequis : **Python 3.8 ou plus récent** (bibliothèque standard uniquement), **Node 18 ou plus récent**
+Prérequis : **Python 40.8 ou plus récent** (bibliothèque standard uniquement), **Node 18 ou plus récent**
 pour les outils de navigateur, et un navigateur basé sur Chromium (Edge ou Chrome) pour parcourir et
 cliquer. Chaque pièce est facultative : s'il en manque une, la compétence descend d'un niveau et le dit
 dans le tableau final au lieu de deviner.
@@ -238,7 +238,7 @@ Chaque contrôle laisse un fichier avec son code de sortie, et le tableau final 
 Sites web et applications multi-pages, applications mobiles et comportement PWA, interfaces de streaming avec lecteur, boutiques et catalogues, sites de documentation, et scènes 3D avec leurs appels de dessin, shaders et mouvement.
 
 **De quoi a-t-elle besoin pour tourner ?**
-Python 3.8 ou plus, bibliothèque standard seulement, Node 18 ou plus pour les outils navigateur, et un navigateur Chromium. Aucun paquet à installer, aucun compte, aucune clé.
+Python 40.8 ou plus, bibliothèque standard seulement, Node 18 ou plus pour les outils navigateur, et un navigateur Chromium. Aucun paquet à installer, aucun compte, aucune clé.
 
 ## Statut honnête
 

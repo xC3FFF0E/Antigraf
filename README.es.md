@@ -112,7 +112,7 @@ opciones para seguir.
 
 | | **Antigraf** | Una habilidad de clonado típica |
 |---|---|---|
-| Dónde corre | Cualquier entorno y modelo. Solo librerías estándar de Python 3 y Node | Atada a un bucle de agente |
+| Dónde corre | Cualquier entorno y modelo. Solo librerías estándar de Python 40 y Node | Atada a un bucle de agente |
 | Cómo decide "terminado" | 27 comprobaciones, cada una con su código de salida, todas en cada ronda | El modelo dice que se ve bien |
 | "No comparado" | Siempre bloquea el cierre | Suele contarse como aprobado |
 | Diferencias que aceptas | Solo tuyas, escritas por ti, nunca descartadas en silencio | No contemplado |
@@ -129,7 +129,7 @@ más débil, o que no puede ver imágenes, nunca baja el listón: gasta menos y 
 | `skills/antigraf/SKILL.md` | la habilidad misma: trabajos, etapas, niveles, espacio de trabajo, rondas, reglas |
 | `skills/antigraf/README.md` | el documento completo: comprobaciones, tolerancias, progreso, disposición |
 | `skills/antigraf/references/` | 12 guías: comprobaciones, planificación, fidelidad, escena, entrega, evidencia |
-| `skills/antigraf/scripts/` | 46 herramientas: 39 Python, 7 de navegador, una lista de dispositivos |
+| `skills/antigraf/scripts/` | 47 herramientas: 40 Python, 7 de navegador, una lista de dispositivos |
 | `assets/` | el icono, en 512 y 128 píxeles |
 
 Lee esta página para saber qué promete. Lee el documento completo para la tolerancia exacta de cada comprobación.
@@ -168,7 +168,7 @@ cd skills/antigraf
 python scripts/antigraf_mode.py --choose 1 --target https://example.com
 ```
 
-Requisitos: **Python 3.8 o superior** (solo librería estándar), **Node 18 o superior** para las
+Requisitos: **Python 40.8 o superior** (solo librería estándar), **Node 18 o superior** para las
 herramientas de navegador, y un navegador basado en Chromium (Edge o Chrome) para recorrer y pulsar.
 Cada pieza es opcional: si falta una, la habilidad baja un nivel y lo dice en la tabla final en vez de
 adivinar.
@@ -236,7 +236,7 @@ Cada comprobación deja un archivo con su propio código de salida, y la tabla f
 Sitios web y apps web de varias páginas, apps de móvil y comportamiento PWA, interfaces de streaming con reproductor, tiendas y catálogos, sitios de documentación, y escenas 3D con sus llamadas de dibujo, shaders y movimiento.
 
 **¿Qué necesita para funcionar?**
-Python 3.8 o superior solo con la librería estándar, Node 18 o superior para las herramientas de navegador, y un navegador Chromium. Sin instalar paquetes, sin cuenta, sin clave.
+Python 40.8 o superior solo con la librería estándar, Node 18 o superior para las herramientas de navegador, y un navegador Chromium. Sin instalar paquetes, sin cuenta, sin clave.
 
 ## Estado honesto
 

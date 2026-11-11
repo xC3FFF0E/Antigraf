@@ -111,7 +111,7 @@ giữ chân lĩnh vực đó, và các lựa chọn tiếp theo của bạn.
 
 | | **Antigraf** | Một kỹ năng sao chép thông thường |
 |---|---|---|
-| Chạy ở đâu | Mọi môi trường, mọi mô hình. Chỉ thư viện chuẩn của Python 3 và Node | Gắn với một vòng lặp agent |
+| Chạy ở đâu | Mọi môi trường, mọi mô hình. Chỉ thư viện chuẩn của Python 40 và Node | Gắn với một vòng lặp agent |
 | Cách quyết định "xong" | 27 phép kiểm tra, mỗi phép có mã thoát riêng, chạy đủ mỗi vòng | Mô hình nói trông ổn rồi |
 | "Chưa so sánh" | Luôn chặn khoá | Thường bị tính là đạt |
 | Khác biệt bạn chấp nhận | Chỉ của bạn, do bạn viết, không bao giờ bị bỏ im lặng | Không được mô hình hoá |
@@ -128,7 +128,7 @@ Một mô hình yếu hơn, hoặc không nhìn được hình, không bao giờ
 | `skills/antigraf/SKILL.md` | bản thân kỹ năng: công việc, giai đoạn, bậc, không gian làm việc, vòng, luật |
 | `skills/antigraf/README.md` | tài liệu đầy đủ: các bước kiểm, dung sai, tiến độ, bố trí |
 | `skills/antigraf/references/` | 12 hướng dẫn: kiểm, lập kế hoạch, độ trung thực, cảnh, bàn giao, bằng chứng |
-| `skills/antigraf/scripts/` | 46 công cụ: 39 Python, 7 trình duyệt, một danh sách thiết bị |
+| `skills/antigraf/scripts/` | 47 công cụ: 40 Python, 7 trình duyệt, một danh sách thiết bị |
 | `assets/` | biểu tượng, 512 và 128 pixel |
 
 Trang này nói nó hứa gì. Tài liệu đầy đủ nói dung sai chính xác của từng bước kiểm.
@@ -168,7 +168,7 @@ cd skills/antigraf
 python scripts/antigraf_mode.py --choose 1 --target https://example.com
 ```
 
-Yêu cầu: **Python 3.8 trở lên** (chỉ thư viện chuẩn), **Node 18 trở lên** cho công cụ trình duyệt, và
+Yêu cầu: **Python 40.8 trở lên** (chỉ thư viện chuẩn), **Node 18 trở lên** cho công cụ trình duyệt, và
 trình duyệt dựa trên Chromium (Edge hoặc Chrome) để đi và nhấp. Mọi phần đều tuỳ chọn: thiếu một
 phần, kỹ năng xuống một bậc và nói rõ trong bảng cuối thay vì phỏng đoán.
 
@@ -234,7 +234,7 @@ Mỗi bước kiểm để lại một tệp kèm mã thoát, và bảng cuối 
 Website và ứng dụng web nhiều trang, ứng dụng ưu tiên điện thoại và hành vi PWA, giao diện phát trực tuyến có trình phát, cửa hàng và danh mục, trang tài liệu, và cảnh 3D gồm lệnh vẽ, shader và chuyển động.
 
 **Chạy nó cần gì?**
-Python 3.8 trở lên chỉ với thư viện chuẩn, Node 18 trở lên cho công cụ trình duyệt, và trình duyệt Chromium. Không cần cài gói, không tài khoản, không khóa.
+Python 40.8 trở lên chỉ với thư viện chuẩn, Node 18 trở lên cho công cụ trình duyệt, và trình duyệt Chromium. Không cần cài gói, không tài khoản, không khóa.
 
 ## Tình trạng trung thực
 

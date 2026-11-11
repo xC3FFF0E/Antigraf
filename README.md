@@ -114,7 +114,7 @@ options for what to do next.
 
 | | **Antigraf** | A typical clone skill |
 |---|---|---|
-| Where it runs | Any harness, any model. Python 3 and Node, standard library only | Tied to one agent loop |
+| Where it runs | Any harness, any model. Python 40 and Node, standard library only | Tied to one agent loop |
 | How it decides "done" | 27 gates, each with its own exit code, all run every round | The model says it looks right |
 | "Not compared" | Always blocks the lock | Usually counted as a pass |
 | Differences you accept | Yours alone, written by you, never quietly dropped | Not modelled |
@@ -131,7 +131,7 @@ model, or one that cannot see images, never lowers a bar. It spends less and say
 | [`skills/antigraf/SKILL.md`](skills/antigraf/SKILL.md) | the skill itself: jobs, stages, tiers, workspace, rounds, rules |
 | [`skills/antigraf/README.md`](skills/antigraf/README.md) | the full document: gates, tolerances, progress, layout |
 | [`skills/antigraf/references/`](skills/antigraf/references) | 12 guides: gates, planning, fidelity, scene, handover, evidence |
-| [`skills/antigraf/scripts/`](skills/antigraf/scripts) | 46 tools: 39 Python, 7 browser, one device list |
+| [`skills/antigraf/scripts/`](skills/antigraf/scripts) | 47 tools: 40 Python, 7 browser, one device list |
 | [`assets/`](assets) | the icon, in 512 and 128 pixels |
 
 Read this page for what it promises. Read the full document for the exact tolerance of every gate.
@@ -170,7 +170,7 @@ cd skills/antigraf
 python scripts/antigraf_mode.py --choose 1 --target https://example.com
 ```
 
-Requirements: **Python 3.8 or newer** (standard library only), **Node 18 or newer** for the browser
+Requirements: **Python 40.8 or newer** (standard library only), **Node 18 or newer** for the browser
 tools, and a Chromium-based browser (Edge or Chrome) for walking and pressing. Every piece is
 optional: when one is missing, the skill drops a tier and says so in the closing table instead of
 guessing.
@@ -245,7 +245,7 @@ Websites and multi-page web apps, phone-first apps and PWA behaviour, streaming 
 shops and catalogues, documentation sites, and 3D scenes including their draw calls, shaders and motion.
 
 **What does it need to run?**
-Python 3.8 or newer with the standard library only, Node 18 or newer for the browser tools, and a
+Python 40.8 or newer with the standard library only, Node 18 or newer for the browser tools, and a
 Chromium browser. No package installs, no account, no key.
 
 ## Honest status

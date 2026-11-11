@@ -283,24 +283,39 @@ def script_count():
 
     A number written by hand in a badge goes stale the moment a tool is added,
     and a page that miscounts its own tools has no business claiming to measure
-    anything else.
+    anything else. The breakdown is counted too, because it goes stale with it.
     """
     here = os.path.dirname(os.path.abspath(__file__))
-    names = [n for n in os.listdir(here) if os.path.isfile(os.path.join(here, n))]
-    tools = [n for n in names if n.endswith((".py", ".mjs", ".js")) and not n.startswith("_")]
-    return len(tools)
+    names = [n for n in os.listdir(here) if os.path.isfile(os.path.join(here, n)) and not n.startswith("_")]
+    py = len([n for n in names if n.endswith(".py")])
+    browser = len([n for n in names if n.endswith((".mjs", ".js"))])
+    return {"tools": py + browser, "python": py, "browser": browser}
 
 
 SHIELDS_RE = re.compile(r'<img alt="([^"]*)" src="https://img\.shields\.io/badge/(gates|scripts)-(\d+)([^"]*)"([^>]*)>')
 
+# The sentence that names how many tools ship reads differently in each
+# language, but every one of them puts the count first, so the count is the
+# only part rewritten - the words around it stay as they were translated.
+# Japanese, Korean and both Chinese pages write the count after the word, so
+# that form is levelled too rather than left at the old number.
+# The count appears as "47 tools", and in Japanese, Korean and both Chinese
+# pages it appears after the word instead, so both orders are handled.
+TOOLS_WORD = "(?:tools?|の道具|가지 도구|个工具|個工具|herramientas|outils|công cụ|ferramentas)"
+TOOLS_PROSE_RE = re.compile(r"\b\d+(?=\s*(?:の?道具|가지 도구|个 |個 )?" + TOOLS_WORD + ")")
+TOOLS_AFTER_RE = re.compile(r"(?:の道具|가지 도구|个工具|個工具)\s*[0-9]+")
+PYTHON_N_RE = re.compile(r'\b\d+(?=\s*(?:个 |個 |의 )?Python)')
+PYTHON_AFTER_RE = re.compile(r'Python\s*\d+')
+BROWSER_N_RE = re.compile(r'\b\d+(?=\s*(?:个 |個 |의 )?(?:browser|ブラウザ|브라우저|浏览器|瀏覽器|navegador|navigateur|trình duyệt|navegadores))')
+
 
 def refresh_badges(text, registry):
-    """Rewrite the two counts that can be counted: gates and tools.
+    """Rewrite the counts that can be counted: gates, tools, and the split.
 
     The alt text and the address are rewritten together, because a badge whose
     label says 46 and whose picture says 47 is worse than no badge at all.
     """
-    tools = registry.get("script_count")
+    tools = (registry.get("script_count") or {}).get("tools")
 
     def repl(m):
         alt, kind, _num, rest, tail = m.groups()
@@ -316,7 +331,18 @@ def refresh_badges(text, registry):
         return '<img alt="{}" src="https://img.shields.io/badge/{}-{}{}"{}>'.format(
             new_alt, kind, new, rest, tail)
 
-    return SHIELDS_RE.sub(repl, text)
+    text = SHIELDS_RE.sub(repl, text)
+
+    # The same count is written in prose below the icon, in all nine languages,
+    # so the sentence is levelled too. Only the numbers change.
+    counts = registry.get("script_count") or {}
+    if counts:
+        text = TOOLS_PROSE_RE.sub(lambda m: str(counts["tools"]), text)
+        text = TOOLS_AFTER_RE.sub(lambda m: "{} {}".format(m.group(0).rstrip("0123456789 "), counts["tools"]), text)
+        text = PYTHON_N_RE.sub(lambda m: str(counts["python"]), text)
+        text = PYTHON_AFTER_RE.sub(lambda m: "Python " + str(counts["python"]), text)
+        text = BROWSER_N_RE.sub(lambda m: str(counts["browser"]), text)
+    return text
 
 
 def refresh_readme(path, registry):

@@ -112,7 +112,7 @@ e as suas opções para seguir.
 
 | | **Antigraf** | Uma habilidade de clonagem comum |
 |---|---|---|
-| Onde roda | Qualquer ambiente, qualquer modelo. Só bibliotecas padrão de Python 3 e Node | Presa a um laço de agente |
+| Onde roda | Qualquer ambiente, qualquer modelo. Só bibliotecas padrão de Python 40 e Node | Presa a um laço de agente |
 | Como decide "pronto" | 27 verificações, cada uma com seu código de saída, todas em cada rodada | O modelo diz que parece certo |
 | "Não comparado" | Sempre trava o selo | Costuma contar como aprovação |
 | Diferenças que você aceita | Só suas, escritas por você, nunca descartadas em silêncio | Não modelado |
@@ -129,7 +129,7 @@ ou que não vê imagens, nunca baixa a régua: gasta menos e diz isso.
 | `skills/antigraf/SKILL.md` | a habilidade em si: trabalhos, etapas, níveis, espaço de trabalho, rodadas, regras |
 | `skills/antigraf/README.md` | o documento completo: checagens, tolerâncias, progresso, disposição |
 | `skills/antigraf/references/` | 12 guias: checagens, planejamento, fidelidade, cena, entrega, evidências |
-| `skills/antigraf/scripts/` | 46 ferramentas: 39 Python, 7 de navegador, uma lista de aparelhos |
+| `skills/antigraf/scripts/` | 47 ferramentas: 40 Python, 7 de navegador, uma lista de aparelhos |
 | `assets/` | o ícone, em 512 e 128 pixels |
 
 Leia esta página pelo que ela promete. Leia o documento completo para a tolerância exata de cada checagem.
@@ -168,7 +168,7 @@ cd skills/antigraf
 python scripts/antigraf_mode.py --choose 1 --target https://example.com
 ```
 
-Requisitos: **Python 3.8 ou mais novo** (só biblioteca padrão), **Node 18 ou mais novo** para as
+Requisitos: **Python 40.8 ou mais novo** (só biblioteca padrão), **Node 18 ou mais novo** para as
 ferramentas de navegador, e um navegador baseado em Chromium (Edge ou Chrome) para percorrer e clicar.
 Cada peça é opcional: se faltar uma, a habilidade desce um nível e diz isso na tabela final em vez de
 adivinhar.
@@ -236,7 +236,7 @@ Cada checagem deixa um arquivo com seu próprio código de saída, e a tabela fi
 Sites e apps web de várias páginas, apps de celular e comportamento PWA, telas de streaming com player, lojas e catálogos, sites de documentação, e cenas 3D com chamadas de desenho, shaders e movimento.
 
 **Do que ela precisa para rodar?**
-Python 3.8 ou mais, só com a biblioteca padrão, Node 18 ou mais para as ferramentas de navegador, e um navegador Chromium. Sem instalar pacotes, sem conta, sem chave.
+Python 40.8 ou mais, só com a biblioteca padrão, Node 18 ou mais para as ferramentas de navegador, e um navegador Chromium. Sem instalar pacotes, sem conta, sem chave.
 
 ## Estado honesto
 
