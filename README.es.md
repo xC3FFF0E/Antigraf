@@ -61,23 +61,19 @@ muestra.
   <tr>
     <td width="25%" valign="top">
       <h3>Estudia cualquier cosa</h3>
-      Páginas, pantallas, menús, controles y lo que hay detrás de un clic. Cada número lleva su origen,
-      así que una suposición no puede hacerse pasar por una medición.
+      Páginas, pantallas, menús, controles y lo que hay detrás de un clic. Cada número lleva su origen, así que una suposición no puede hacerse pasar por una medición.
     </td>
     <td width="25%" valign="top">
       <h3>Construye la tuya</h3>
-      Tu copia vive en tu proyecto, con la tecnología que elijas. Nada de la fuente viaja con ella
-      salvo lo que tienes derecho a usar.
+      Tu copia vive en tu proyecto, con la tecnología que elijas. Nada de la fuente viaja con ella salvo lo que tienes derecho a usar.
     </td>
     <td width="25%" valign="top">
       <h3>Comprobado, no adivinado</h3>
-      27 comprobaciones corren en ambos lados cada ronda. Una que nunca corrió, o que respondió sin
-      saber, bloquea el cierre y nunca cuenta como aprobada.
+      27 comprobaciones corren en ambos lados cada ronda. Una que nunca corrió, o que respondió sin saber, bloquea el cierre y nunca cuenta como aprobada.
     </td>
     <td width="25%" valign="top">
       <h3>Listo para agentes</h3>
-      Un archivo de habilidad y scripts simples, para que cualquier modelo y entorno mueva las mismas
-      comprobaciones. Medir no necesita IA.
+      Un archivo de habilidad y scripts simples, para que cualquier modelo y entorno mueva las mismas comprobaciones. Medir no necesita IA.
     </td>
   </tr>
 </table>

@@ -61,23 +61,19 @@ commande qui le montre.
   <tr>
     <td width="25%" valign="top">
       <h3>Étudier n'importe quoi</h3>
-      Pages, écrans, menus, contrôles et ce qui se cache derrière un clic. Chaque nombre porte son
-      origine, donc une supposition ne peut pas se faire passer pour une mesure.
+      Pages, écrans, menus, contrôles et ce qui se cache derrière un clic. Chaque nombre porte son origine, donc une supposition ne peut pas se faire passer pour une mesure.
     </td>
     <td width="25%" valign="top">
       <h3>Construire le vôtre</h3>
-      Votre copie vit dans votre projet, avec la pile que vous choisissez. Rien de la source ne
-      l'accompagne, sauf ce que vous avez le droit d'utiliser.
+      Votre copie vit dans votre projet, avec la pile que vous choisissez. Rien de la source ne l'accompagne, sauf ce que vous avez le droit d'utiliser.
     </td>
     <td width="25%" valign="top">
       <h3>Vérifié, pas supposé</h3>
-      27 contrôles tournent des deux côtés à chaque tour. Un contrôle jamais lancé, ou qui répond
-      inconnu, bloque le verrou et ne compte jamais comme une réussite.
+      27 contrôles tournent des deux côtés à chaque tour. Un contrôle jamais lancé, ou qui répond inconnu, bloque le verrou et ne compte jamais comme une réussite.
     </td>
     <td width="25%" valign="top">
       <h3>Prêt pour les agents</h3>
-      Un fichier de compétence et des scripts simples, pour que tout modèle et tout environnement
-      pilote les mêmes contrôles. Mesurer ne demande pas d'IA.
+      Un fichier de compétence et des scripts simples, pour que tout modèle et tout environnement pilote les mêmes contrôles. Mesurer ne demande pas d'IA.
     </td>
   </tr>
 </table>

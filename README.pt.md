@@ -61,23 +61,19 @@ isso.
   <tr>
     <td width="25%" valign="top">
       <h3>Estude qualquer coisa</h3>
-      Páginas, telas, menus, controles e o que está atrás de um clique. Cada número carrega a sua
-      origem, então um palpite não pode se passar por uma medição.
+      Páginas, telas, menus, controles e o que está atrás de um clique. Cada número carrega a sua origem, então um palpite não pode se passar por uma medição.
     </td>
     <td width="25%" valign="top">
       <h3>Construa a sua</h3>
-      A sua cópia vive no seu projeto, com a pilha que você escolher. Nada da fonte viaja com ela,
-      exceto o que você tem o direito de usar.
+      A sua cópia vive no seu projeto, com a pilha que você escolher. Nada da fonte viaja com ela, exceto o que você tem o direito de usar.
     </td>
     <td width="25%" valign="top">
       <h3>Verificado, não adivinhado</h3>
-      27 verificações rodam dos dois lados em cada rodada. Uma que nunca rodou, ou que respondeu
-      desconhecido, trava o selo e nunca conta como aprovação.
+      27 verificações rodam dos dois lados em cada rodada. Uma que nunca rodou, ou que respondeu desconhecido, trava o selo e nunca conta como aprovação.
     </td>
     <td width="25%" valign="top">
       <h3>Pronto para agentes</h3>
-      Um arquivo de habilidade e scripts simples, para que qualquer modelo e ambiente mova as mesmas
-      verificações. Medir não precisa de IA.
+      Um arquivo de habilidade e scripts simples, para que qualquer modelo e ambiente mova as mesmas verificações. Medir não precisa de IA.
     </td>
   </tr>
 </table>

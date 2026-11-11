@@ -63,23 +63,19 @@ and each holding the 100% lock until it matches.
   <tr>
     <td width="25%" valign="top">
       <h3>Study anything</h3>
-      Pages, screens, menus, controls and what sits behind a click. Every number carries where it
-      came from, so a guess can never pass itself off as a measurement.
+      Pages, screens, menus, controls and what sits behind a click. Every number carries where it came from, so a guess can never pass itself off as a measurement.
     </td>
     <td width="25%" valign="top">
       <h3>Build your own</h3>
-      Your copy lives in your project, in the stack you choose. Nothing of the source ships with it
-      except what you have the right to use.
+      Your copy lives in your project, in the stack you choose. Nothing of the source ships with it except what you have the right to use.
     </td>
     <td width="25%" valign="top">
       <h3>Checked, not guessed</h3>
-      27 gates run on both sides every round. A gate that never ran, or answered unknown, blocks the
-      lock and never counts as a pass.
+      27 gates run on both sides every round. A gate that never ran, or answered unknown, blocks the lock and never counts as a pass.
     </td>
     <td width="25%" valign="top">
       <h3>Agent-ready</h3>
-      A skill file plus plain scripts, so any model or harness can drive the same checks. No AI is
-      needed to measure.
+      A skill file plus plain scripts, so any model or harness can drive the same checks. No AI is needed to measure.
     </td>
   </tr>
 </table>

@@ -60,23 +60,19 @@ biết.
   <tr>
     <td width="25%" valign="top">
       <h3>Nghiên cứu mọi thứ</h3>
-      Trang, màn hình, menu, nút điều khiển, và cả thứ nằm sau một cú nhấp. Mỗi con số đều mang nguồn
-      gốc, nên phỏng đoán không thể giả làm phép đo.
+      Trang, màn hình, menu, nút điều khiển, và cả thứ nằm sau một cú nhấp. Mỗi con số đều mang nguồn gốc, nên phỏng đoán không thể giả làm phép đo.
     </td>
     <td width="25%" valign="top">
       <h3>Dựng bản của bạn</h3>
-      Bản sao nằm trong dự án của bạn, với công nghệ bạn chọn. Không có gì từ nguồn đi kèm ngoài
-      những gì bạn có quyền dùng.
+      Bản sao nằm trong dự án của bạn, với công nghệ bạn chọn. Không có gì từ nguồn đi kèm ngoài những gì bạn có quyền dùng.
     </td>
     <td width="25%" valign="top">
       <h3>Kiểm chứng, không phỏng đoán</h3>
-      27 phép kiểm tra chạy ở cả hai bên mỗi vòng. Một phép chưa từng chạy, hoặc trả lời chưa biết,
-      sẽ chặn khoá và không bao giờ tính là đạt.
+      27 phép kiểm tra chạy ở cả hai bên mỗi vòng. Một phép chưa từng chạy, hoặc trả lời chưa biết, sẽ chặn khoá và không bao giờ tính là đạt.
     </td>
     <td width="25%" valign="top">
       <h3>Sẵn sàng cho agent</h3>
-      Một tệp kỹ năng và các script thuần, để bất kỳ mô hình và môi trường nào cũng chạy cùng bộ
-      kiểm tra. Đo lường không cần AI.
+      Một tệp kỹ năng và các script thuần, để bất kỳ mô hình và môi trường nào cũng chạy cùng bộ kiểm tra. Đo lường không cần AI.
     </td>
   </tr>
 </table>
