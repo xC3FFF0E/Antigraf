@@ -36,15 +36,16 @@
 
 <p align="center">
   <a href="#cómo-funciona">Cómo funciona</a> ·
-  <a href="#cuatro-trabajos">Cuatro trabajos</a> ·
-  <a href="#qué-lo-distingue">Qué lo distingue</a> ·
-  <a href="#dónde-está-cada-cosa">Dónde está cada cosa</a> ·
-  <a href="#instalación">Instalación</a> ·
-  <a href="#cómo-usarla">Cómo usarla</a> ·
-  <a href="#preguntas-que-hace-la-gente">Preguntas que hace la gente</a> ·
-  <a href="#estado-honesto">Estado honesto</a> ·
-  <a href="#licencia">Licencia</a> ·
-  <a href="#la-línea-que-no-cruzamos">La línea que no cruzamos</a>
+<a href="#cuatro-trabajos">Cuatro trabajos</a> ·
+<a href="#qué-lo-distingue">Qué lo distingue</a> ·
+<a href="#dónde-está-cada-cosa">Dónde está cada cosa</a> ·
+<a href="#instalación">Instalación</a> ·
+<a href="#cómo-usarla">Cómo usarla</a> ·
+<a href="#preguntas-que-hace-la-gente">Preguntas que hace la gente</a> ·
+<a href="#estado-honesto">Estado honesto</a> ·
+<a href="#licencia">Licencia</a> ·
+<a href="#contribuir-y-seguridad">Contribuir y seguridad</a> ·
+<a href="#la-línea-que-no-cruzamos">La línea que no cruzamos</a>
 </p>
 
 <br>
@@ -307,6 +308,10 @@ la razón antes que un cien y una mentira.
 ## Licencia
 
 Dos licencias, tú eliges: **Apache License 2.0** ([LICENSE-APACHE](LICENSE-APACHE)) o **MIT** ([LICENSE-MIT](LICENSE-MIT)). La versión corta, y lo que las licencias no cubren, está en [LICENSE.md](LICENSE.md). El icono y el nombre se quedan con el proyecto; un fork está bien siempre que diga que es un fork.
+
+## Contribuir y seguridad
+
+Cómo proponer un cambio, y la regla que importa (una comprobación nueva debe mostrarse fallando primero), está en [CONTRIBUTING.md](CONTRIBUTING.md). Cómo avisar de un fallo de seguridad en privado, y de qué te protege Antigraf y de qué no, está en [SECURITY.md](SECURITY.md).
 
 ## La línea que no cruzamos
 

@@ -36,15 +36,16 @@
 
 <p align="center">
   <a href="#工作方式">工作方式</a> ·
-  <a href="#四项工作">四项工作</a> ·
-  <a href="#与众不同之处">与众不同之处</a> ·
-  <a href="#各部分在哪里">各部分在哪里</a> ·
-  <a href="#安装">安装</a> ·
-  <a href="#使用方法">使用方法</a> ·
-  <a href="#常见问题">常见问题</a> ·
-  <a href="#真实状态">真实状态</a> ·
-  <a href="#许可证">许可证</a> ·
-  <a href="#我们不越过的线">我们不越过的线</a>
+<a href="#四项工作">四项工作</a> ·
+<a href="#与众不同之处">与众不同之处</a> ·
+<a href="#各部分在哪里">各部分在哪里</a> ·
+<a href="#安装">安装</a> ·
+<a href="#使用方法">使用方法</a> ·
+<a href="#常见问题">常见问题</a> ·
+<a href="#真实状态">真实状态</a> ·
+<a href="#许可证">许可证</a> ·
+<a href="#贡献与安全">贡献与安全</a> ·
+<a href="#我们不越过的线">我们不越过的线</a>
 </p>
 
 <br>
@@ -277,6 +278,10 @@ The lock needs 100%: every gate passing, nothing unknown. A gate that never ran 
 ## 许可证
 
 两种许可证任选其一：**Apache License 2.0**（[LICENSE-APACHE](LICENSE-APACHE)）或 **MIT**（[LICENSE-MIT](LICENSE-MIT)）。简要说明以及许可证不覆盖的内容见 [LICENSE.md](LICENSE.md)。图标与名称归本项目所有；只要注明是分支（fork），就可以自由分叉。
+
+## 贡献与安全
+
+如何提出改动，以及唯一重要的规则（新的检查必须先展示失败），在 [CONTRIBUTING.md](CONTRIBUTING.md)。如何私下报告漏洞，以及 Antigraf 保护你免受什么、不保护什么，在 [SECURITY.md](SECURITY.md)。
 
 ## 我们不越过的线
 

@@ -35,15 +35,16 @@
 
 <p align="center">
   <a href="#how-it-works">How it works</a> ·
-  <a href="#four-jobs">Four jobs</a> ·
-  <a href="#what-sets-it-apart">What sets it apart</a> ·
-  <a href="#where-things-live">Where things live</a> ·
-  <a href="#install">Install</a> ·
-  <a href="#how-to-use">How to use</a> ·
-  <a href="#questions-people-ask">Questions people ask</a> ·
-  <a href="#honest-status">Honest status</a> ·
-  <a href="#license">License</a> ·
-  <a href="#the-line-we-do-not-cross">The line we do not cross</a>
+<a href="#four-jobs">Four jobs</a> ·
+<a href="#what-sets-it-apart">What sets it apart</a> ·
+<a href="#where-things-live">Where things live</a> ·
+<a href="#install">Install</a> ·
+<a href="#how-to-use">How to use</a> ·
+<a href="#questions-people-ask">Questions people ask</a> ·
+<a href="#honest-status">Honest status</a> ·
+<a href="#license">License</a> ·
+<a href="#contributing-and-security">Contributing and security</a> ·
+<a href="#the-line-we-do-not-cross">The line we do not cross</a>
 </p>
 
 <br>
@@ -325,6 +326,10 @@ python skills/antigraf/scripts/antigraf_registry.py --runs runs --out runs/regis
 ## License
 
 Two licenses, your choice: **Apache License 2.0** ([LICENSE-APACHE](LICENSE-APACHE)) or **MIT** ([LICENSE-MIT](LICENSE-MIT)). The short version, and what the licenses do not cover, is in [LICENSE.md](LICENSE.md). The icon and the name stay with the project; a fork is fine as long as it says it is a fork.
+
+## Contributing and security
+
+How to propose a change, and the one rule that matters (a new gate must be shown failing first), is in [CONTRIBUTING.md](CONTRIBUTING.md). How to report a hole privately, and what Antigraf does and does not protect you from, is in [SECURITY.md](SECURITY.md).
 
 ## The line we do not cross
 

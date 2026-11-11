@@ -36,15 +36,16 @@
 
 <p align="center">
   <a href="#仕組み">仕組み</a> ·
-  <a href="#四つの仕事">四つの仕事</a> ·
-  <a href="#他と違うところ">他と違うところ</a> ·
-  <a href="#どこに何があるか">どこに何があるか</a> ·
-  <a href="#導入">導入</a> ·
-  <a href="#使い方">使い方</a> ·
-  <a href="#よくある質問">よくある質問</a> ·
-  <a href="#正直な現状">正直な現状</a> ·
-  <a href="#ライセンス">ライセンス</a> ·
-  <a href="#越えない線">越えない線</a>
+<a href="#四つの仕事">四つの仕事</a> ·
+<a href="#他と違うところ">他と違うところ</a> ·
+<a href="#どこに何があるか">どこに何があるか</a> ·
+<a href="#導入">導入</a> ·
+<a href="#使い方">使い方</a> ·
+<a href="#よくある質問">よくある質問</a> ·
+<a href="#正直な現状">正直な現状</a> ·
+<a href="#ライセンス">ライセンス</a> ·
+<a href="#貢献とセキュリティ">貢献とセキュリティ</a> ·
+<a href="#越えない線">越えない線</a>
 </p>
 
 <br>
@@ -277,6 +278,10 @@ The lock needs 100%: every gate passing, nothing unknown. A gate that never ran 
 ## ライセンス
 
 **Apache License 2.0**（[LICENSE-APACHE](LICENSE-APACHE)）または **MIT**（[LICENSE-MIT](LICENSE-MIT)）のどちらかを選べます。短い説明と、ライセンスが及ばない範囲は [LICENSE.md](LICENSE.md) にあります。アイコンと名称はプロジェクトに属します。フォークは、フォークであると明記すれば問題ありません。
+
+## 貢献とセキュリティ
+
+変更を提案する方法と、大切な唯一のルール（新しいチェックは、まず失敗することを示さなければならない）は [CONTRIBUTING.md](CONTRIBUTING.md) にあります。脅威を非公開で報せる方法、および Antigraf が守るものと守らないものは [SECURITY.md](SECURITY.md) にあります。
 
 ## 越えない線
 

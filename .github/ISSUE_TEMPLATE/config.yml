@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: A security hole
+    url: https://github.com/xC3FFF0E/Antigraf/security/advisories/new
+    about: Please report a vulnerability privately, never in a public issue.

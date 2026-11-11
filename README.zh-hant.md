@@ -36,15 +36,16 @@
 
 <p align="center">
   <a href="#運作方式">運作方式</a> ·
-  <a href="#四項工作">四項工作</a> ·
-  <a href="#與眾不同之處">與眾不同之處</a> ·
-  <a href="#各部分在哪裡">各部分在哪裡</a> ·
-  <a href="#安裝">安裝</a> ·
-  <a href="#使用方法">使用方法</a> ·
-  <a href="#常見問題">常見問題</a> ·
-  <a href="#真實狀態">真實狀態</a> ·
-  <a href="#授權條款">授權條款</a> ·
-  <a href="#我們不越過的線">我們不越過的線</a>
+<a href="#四項工作">四項工作</a> ·
+<a href="#與眾不同之處">與眾不同之處</a> ·
+<a href="#各部分在哪裡">各部分在哪裡</a> ·
+<a href="#安裝">安裝</a> ·
+<a href="#使用方法">使用方法</a> ·
+<a href="#常見問題">常見問題</a> ·
+<a href="#真實狀態">真實狀態</a> ·
+<a href="#授權條款">授權條款</a> ·
+<a href="#貢獻與安全">貢獻與安全</a> ·
+<a href="#我們不越過的線">我們不越過的線</a>
 </p>
 
 <br>
@@ -288,6 +289,10 @@ The lock needs 100%: every gate passing, nothing unknown. A gate that never ran 
 ## 授權條款
 
 兩種授權任選其一：**Apache License 2.0**（[LICENSE-APACHE](LICENSE-APACHE)）或 **MIT**（[LICENSE-MIT](LICENSE-MIT)）。簡要說明以及授權不涵蓋的範圍見 [LICENSE.md](LICENSE.md)。圖示與名稱歸本專案所有；只要註明是分支（fork），即可自由分叉。
+
+## 貢獻與安全
+
+如何提出變更，以及唯一重要的規則（新的檢查必須先展示失敗），在 [CONTRIBUTING.md](CONTRIBUTING.md)。如何私下回報漏洞，以及 Antigraf 保護你免於什麼、不保護什麼，在 [SECURITY.md](SECURITY.md)。
 
 ## 我們不越過的線
 

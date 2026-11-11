@@ -36,15 +36,16 @@
 
 <p align="center">
   <a href="#comment-ça-marche">Comment ça marche</a> ·
-  <a href="#quatre-travaux">Quatre travaux</a> ·
-  <a href="#ce-qui-le-distingue">Ce qui le distingue</a> ·
-  <a href="#où-se-trouve-quoi">Où se trouve quoi</a> ·
-  <a href="#installation">Installation</a> ·
-  <a href="#comment-lutiliser">Comment l'utiliser</a> ·
-  <a href="#les-questions-quon-nous-pose">Les questions qu'on nous pose</a> ·
-  <a href="#statut-honnête">Statut honnête</a> ·
-  <a href="#licence">Licence</a> ·
-  <a href="#la-ligne-que-nous-ne-franchissons-pas">La ligne que nous ne franchissons pas</a>
+<a href="#quatre-travaux">Quatre travaux</a> ·
+<a href="#ce-qui-le-distingue">Ce qui le distingue</a> ·
+<a href="#où-se-trouve-quoi">Où se trouve quoi</a> ·
+<a href="#installation">Installation</a> ·
+<a href="#comment-lutiliser">Comment l'utiliser</a> ·
+<a href="#les-questions-quon-nous-pose">Les questions qu'on nous pose</a> ·
+<a href="#statut-honnête">Statut honnête</a> ·
+<a href="#licence">Licence</a> ·
+<a href="#contributions-et-sécurité">Contributions et sécurité</a> ·
+<a href="#la-ligne-que-nous-ne-franchissons-pas">La ligne que nous ne franchissons pas</a>
 </p>
 
 <br>
@@ -309,6 +310,10 @@ montrer un zéro et sa raison plutôt qu'un cent et un mensonge.
 ## Licence
 
 Deux licences, à votre choix : **Apache License 2.0** ([LICENSE-APACHE](LICENSE-APACHE)) ou **MIT** ([LICENSE-MIT](LICENSE-MIT)). La version courte, et ce que les licences ne couvrent pas, se trouve dans [LICENSE.md](LICENSE.md). L'icône et le nom restent au projet ; un fork est acceptable tant qu'il indique qu'il s'agit d'un fork.
+
+## Contributions et sécurité
+
+Comment proposer une modification, et la seule règle qui compte (un contrôle nouveau doit être montré en échec avant d'être accepté), se trouvent dans [CONTRIBUTING.md](CONTRIBUTING.md). Comment signaler une faille en privé, et ce contre quoi Antigraf vous protège ou non, se trouvent dans [SECURITY.md](SECURITY.md).
 
 ## La ligne que nous ne franchissons pas
 

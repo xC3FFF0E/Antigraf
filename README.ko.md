@@ -36,15 +36,16 @@
 
 <p align="center">
   <a href="#작동-방식">작동 방식</a> ·
-  <a href="#네-가지-작업">네 가지 작업</a> ·
-  <a href="#다른-점">다른 점</a> ·
-  <a href="#어디에-무엇이-있나">어디에 무엇이 있나</a> ·
-  <a href="#설치">설치</a> ·
-  <a href="#사용법">사용법</a> ·
-  <a href="#자주-묻는-질문">자주 묻는 질문</a> ·
-  <a href="#정직한-현황">정직한 현황</a> ·
-  <a href="#라이선스">라이선스</a> ·
-  <a href="#넘지-않는-선">넘지 않는 선</a>
+<a href="#네-가지-작업">네 가지 작업</a> ·
+<a href="#다른-점">다른 점</a> ·
+<a href="#어디에-무엇이-있나">어디에 무엇이 있나</a> ·
+<a href="#설치">설치</a> ·
+<a href="#사용법">사용법</a> ·
+<a href="#자주-묻는-질문">자주 묻는 질문</a> ·
+<a href="#정직한-현황">정직한 현황</a> ·
+<a href="#라이선스">라이선스</a> ·
+<a href="#기여와-보안">기여와 보안</a> ·
+<a href="#넘지-않는-선">넘지 않는 선</a>
 </p>
 
 <br>
@@ -283,6 +284,10 @@ The lock needs 100%: every gate passing, nothing unknown. A gate that never ran 
 ## 라이선스
 
 **Apache License 2.0**([LICENSE-APACHE](LICENSE-APACHE)) 또는 **MIT**([LICENSE-MIT](LICENSE-MIT)) 중 하나를 고르세요. 짧은 설명과 라이선스가 적용되지 않는 범위는 [LICENSE.md](LICENSE.md)에 있습니다. 아이콘과 이름은 프로젝트에 남습니다. 포크는 포크임을 밝히면 괜찮습니다.
+
+## 기여와 보안
+
+변경을 제안하는 방법과, 가장 중요한 단 하나의 규칙(새 검사는 먼저 실패하는 모습을 보여야 합니다)은 [CONTRIBUTING.md](CONTRIBUTING.md)에 있습니다. 취약점을 비공개로 알리는 방법과 Antigraf가 보호하는 것과 보호하지 않는 것은 [SECURITY.md](SECURITY.md)에 있습니다.
 
 ## 넘지 않는 선
 

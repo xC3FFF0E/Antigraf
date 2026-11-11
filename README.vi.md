@@ -36,15 +36,16 @@
 
 <p align="center">
   <a href="#cách-hoạt-động">Cách hoạt động</a> ·
-  <a href="#bốn-công-việc">Bốn công việc</a> ·
-  <a href="#điều-làm-nó-khác-biệt">Điều làm nó khác biệt</a> ·
-  <a href="#chỗ-nào-có-gì">Chỗ nào có gì</a> ·
-  <a href="#cài-đặt">Cài đặt</a> ·
-  <a href="#cách-dùng">Cách dùng</a> ·
-  <a href="#câu-hỏi-mọi-người-hay-đặt">Câu hỏi mọi người hay đặt</a> ·
-  <a href="#tình-trạng-trung-thực">Tình trạng trung thực</a> ·
-  <a href="#giấy-phép">Giấy phép</a> ·
-  <a href="#ranh-giới-chúng-tôi-không-vượt-qua">Ranh giới chúng tôi không vượt qua</a>
+<a href="#bốn-công-việc">Bốn công việc</a> ·
+<a href="#điều-làm-nó-khác-biệt">Điều làm nó khác biệt</a> ·
+<a href="#chỗ-nào-có-gì">Chỗ nào có gì</a> ·
+<a href="#cài-đặt">Cài đặt</a> ·
+<a href="#cách-dùng">Cách dùng</a> ·
+<a href="#câu-hỏi-mọi-người-hay-đặt">Câu hỏi mọi người hay đặt</a> ·
+<a href="#tình-trạng-trung-thực">Tình trạng trung thực</a> ·
+<a href="#giấy-phép">Giấy phép</a> ·
+<a href="#đóng-góp-và-bảo-mật">Đóng góp và bảo mật</a> ·
+<a href="#ranh-giới-chúng-tôi-không-vượt-qua">Ranh giới chúng tôi không vượt qua</a>
 </p>
 
 <br>
@@ -304,6 +305,10 @@ không và lý do, còn hơn một trăm và lời nói dối.
 ## Giấy phép
 
 Hai giấy phép, bạn chọn một: **Apache License 2.0** ([LICENSE-APACHE](LICENSE-APACHE)) hoặc **MIT** ([LICENSE-MIT](LICENSE-MIT)). Bản tóm tắt và những gì giấy phép không bao gồm nằm trong [LICENSE.md](LICENSE.md). Biểu tượng và tên thuộc về dự án; bản fork vẫn được, miễn là ghi rõ đó là fork.
+
+## Đóng góp và bảo mật
+
+Cách đề xuất một thay đổi, và quy tắc duy nhất quan trọng (một phép kiểm tra mới phải được chứng minh là thất bại trước), nằm trong [CONTRIBUTING.md](CONTRIBUTING.md). Cách báo một lỗ hổng một cách riêng tư, và Antigraf bảo vệ bạn khỏi điều gì hay không, nằm trong [SECURITY.md](SECURITY.md).
 
 ## Ranh giới chúng tôi không vượt qua
 
