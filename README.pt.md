@@ -37,16 +37,11 @@
   <a href="#como-funciona">Como funciona</a> ·
   <a href="#quatro-trabalhos">Quatro trabalhos</a> ·
   <a href="#o-que-o-distingue">O que o distingue</a> ·
-  <a href="#onde-fica-cada-coisa">Instalação</a> ·
   <a href="#instalação">Como usar</a> ·
-  <a href="#perguntas-que-as-pessoas-fazem">Perguntas</a> ·
-  <a href="#como-usar">Estado honesto</a> ·
+  <a href="#como-usar">Perguntas</a> ·
+  <a href="#perguntas-que-as-pessoas-fazem">Estado honesto</a> ·
   <a href="#estado-honesto">A linha que não cruzamos</a>
 </p>
-
-<br>
-
-
 
 <br>
 
@@ -57,8 +52,6 @@ nada fique desconhecido.
 
 A ideia não é dizer "parece igual". A ideia é mostrar a linha que ainda difere, e o comando que mostra
 isso.
-
-<br>
 
 <br>
 
@@ -180,29 +173,6 @@ ferramentas de navegador, e um navegador baseado em Chromium (Edge ou Chrome) pa
 Cada peça é opcional: se faltar uma, a habilidade desce um nível e diz isso na tabela final em vez de
 adivinhar.
 
-## Perguntas que as pessoas fazem
-
-**Dá para copiar o site inteiro, ou só a primeira página?**
-Ela segue todos os links do mesmo site e captura cada página em três larguras, celulares e tablets. O que não alcançou, as páginas não percorridas e os controles não pressionados ficam escritos como *não explorado* e seguram o selo. Você sempre vê a conta: páginas achadas contra páginas percorridas.
-
-**Ela me entrega o código-fonte do original?**
-Não. Ela mede o original e você constrói a sua cópia com a sua tecnologia. O que sai é o seu código, não uma cópia do deles.
-
-**Funciona com um modelo que não vê imagens?**
-Sim. O design viaja como números: tamanhos, cores, espaçamento, tipografia, áreas clicáveis. As imagens servem para comparar, nunca para aprender, então um modelo só de texto também constrói a partir das medidas.
-
-**Do que ela se recusa a copiar?**
-Lógica de servidor, credenciais, tokens de sessão, pagamentos e dados contábeis. Um campo com esse formato para a execução e vai para `HANDOVER.md`, para você saber o que ligar sozinho.
-
-**Como sei que realmente funcionou?**
-Cada checagem deixa um arquivo com seu próprio código de saída, e a tabela final é calculada desses registros. Uma checagem que não rodou, ou que respondeu desconhecido, vale zero. O modelo não pode escrever a própria nota.
-
-**Que tipos de fonte ela atende?**
-Sites e apps web de várias páginas, apps de celular e comportamento PWA, telas de streaming com player, lojas e catálogos, sites de documentação, e cenas 3D com chamadas de desenho, shaders e movimento.
-
-**Do que ela precisa para rodar?**
-Python 3.8 ou mais, só com a biblioteca padrão, Node 18 ou mais para as ferramentas de navegador, e um navegador Chromium. Sem instalar pacotes, sem conta, sem chave.
-
 ## Como usar
 
 Uma linha basta:
@@ -245,6 +215,29 @@ O selo fecha em **100%** e só então: cada linha aprovada, nada desconhecido, n
 explicação. Até lá a tabela diz o que está aberto, por verificação e por linha, por exemplo
 `G5 @1440 hero pad 16 12 -4 +-4`.
 
+## Perguntas que as pessoas fazem
+
+**Dá para copiar o site inteiro, ou só a primeira página?**
+Ela segue todos os links do mesmo site e captura cada página em três larguras, celulares e tablets. O que não alcançou, as páginas não percorridas e os controles não pressionados ficam escritos como *não explorado* e seguram o selo. Você sempre vê a conta: páginas achadas contra páginas percorridas.
+
+**Ela me entrega o código-fonte do original?**
+Não. Ela mede o original e você constrói a sua cópia com a sua tecnologia. O que sai é o seu código, não uma cópia do deles.
+
+**Funciona com um modelo que não vê imagens?**
+Sim. O design viaja como números: tamanhos, cores, espaçamento, tipografia, áreas clicáveis. As imagens servem para comparar, nunca para aprender, então um modelo só de texto também constrói a partir das medidas.
+
+**Do que ela se recusa a copiar?**
+Lógica de servidor, credenciais, tokens de sessão, pagamentos e dados contábeis. Um campo com esse formato para a execução e vai para `HANDOVER.md`, para você saber o que ligar sozinho.
+
+**Como sei que realmente funcionou?**
+Cada checagem deixa um arquivo com seu próprio código de saída, e a tabela final é calculada desses registros. Uma checagem que não rodou, ou que respondeu desconhecido, vale zero. O modelo não pode escrever a própria nota.
+
+**Que tipos de fonte ela atende?**
+Sites e apps web de várias páginas, apps de celular e comportamento PWA, telas de streaming com player, lojas e catálogos, sites de documentação, e cenas 3D com chamadas de desenho, shaders e movimento.
+
+**Do que ela precisa para rodar?**
+Python 3.8 ou mais, só com a biblioteca padrão, Node 18 ou mais para as ferramentas de navegador, e um navegador Chromium. Sem instalar pacotes, sem conta, sem chave.
+
 ## Estado honesto
 
 **A metade que mede funciona. A metade que constrói ainda não produziu uma cópia que passasse em todas as
@@ -253,8 +246,6 @@ verificações.**
 O bloco de progresso do documento completo é escrito a partir dos registros em disco, nunca à mão. Hoje
 ele diz 27 verificações, 0 provadas em um par real original-cópia. Preferimos mostrar um zero e o motivo
 a um cem e uma mentira.
-
----
 
 ## A linha que não cruzamos
 

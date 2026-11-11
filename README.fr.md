@@ -34,19 +34,14 @@
 </p>
 
 <p align="center">
-  <a href="#comment-ça-marche">Fonctionnement</a> ·
+  <a href="#comment-ça-marche">Comment ça marche</a> ·
   <a href="#quatre-travaux">Quatre travaux</a> ·
   <a href="#ce-qui-le-distingue">Ce qui le distingue</a> ·
-  <a href="#où-se-trouve-quoi">Installation</a> ·
-  <a href="#installation">Utilisation</a> ·
-  <a href="#les-questions-quon-nous-pose">Questions</a> ·
-  <a href="#comment-lutiliser">Statut honnête</a> ·
-  <a href="#statut-honnête">La ligne à ne pas franchir</a>
+  <a href="#installation">Comment l'utiliser</a> ·
+  <a href="#comment-lutiliser">Questions</a> ·
+  <a href="#les-questions-quon-nous-pose">Statut honnête</a> ·
+  <a href="#statut-honnête">La ligne que nous ne franchissons pas</a>
 </p>
-
-<br>
-
-
 
 <br>
 
@@ -57,8 +52,6 @@ et que rien ne reste inconnu.
 
 L'idée n'est pas de dire « ça se ressemble ». L'idée est de montrer la ligne qui diffère encore, et la
 commande qui le montre.
-
-<br>
 
 <br>
 
@@ -181,29 +174,6 @@ pour les outils de navigateur, et un navigateur basé sur Chromium (Edge ou Chro
 cliquer. Chaque pièce est facultative : s'il en manque une, la compétence descend d'un niveau et le dit
 dans le tableau final au lieu de deviner.
 
-## Les questions qu'on nous pose
-
-**Peut-elle copier tout un site, ou seulement la première page ?**
-Elle suit tous les liens du même site et capture chaque page en trois largeurs, sur mobile et tablette. Ce qu'elle n'a pas atteint, les pages non parcourues et les contrôles non pressés, est écrit comme *non exploré* et retient le verrou. Vous voyez toujours le compte : pages trouvées contre pages parcourues.
-
-**Me donne-t-elle le code source de l'original ?**
-Non. Elle mesure l'original et vous construisez votre copie avec vos outils. Ce qui est livré est votre code, pas une copie du sien.
-
-**Fonctionne-t-elle avec un modèle qui ne voit pas les images ?**
-Oui. Le design passe par des nombres : tailles, couleurs, espacements, typographie, zones cliquables. Les images servent à comparer, jamais à apprendre, donc un modèle texte seul construit aussi à partir des mesures.
-
-**Qu'est-ce qu'elle refuse de copier ?**
-La logique serveur, les identifiants, les jetons de session, les paiements et les données comptables. Un champ de cette forme arrête l'exécution et part dans `HANDOVER.md`, pour que vous sachiez quoi brancher.
-
-**Comment savoir si ça a vraiment marché ?**
-Chaque contrôle laisse un fichier avec son code de sortie, et le tableau final est calculé à partir de ces registres. Un contrôle qui n'a pas tourné, ou qui a répondu inconnu, vaut zéro. Le modèle ne peut pas écrire sa propre note.
-
-**Quels types de sources gère-t-elle ?**
-Sites web et applications multi-pages, applications mobiles et comportement PWA, interfaces de streaming avec lecteur, boutiques et catalogues, sites de documentation, et scènes 3D avec leurs appels de dessin, shaders et mouvement.
-
-**De quoi a-t-elle besoin pour tourner ?**
-Python 3.8 ou plus, bibliothèque standard seulement, Node 18 ou plus pour les outils navigateur, et un navigateur Chromium. Aucun paquet à installer, aucun compte, aucune clé.
-
 ## Comment l'utiliser
 
 Une ligne suffit :
@@ -247,6 +217,29 @@ Le verrou se ferme à **100%** et seulement alors : chaque ligne passe, rien d'i
 inexpliquée. D'ici là le tableau dit ce qui est ouvert, par contrôle et par ligne, par exemple
 `G5 @1440 hero pad 16 12 -4 +-4`.
 
+## Les questions qu'on nous pose
+
+**Peut-elle copier tout un site, ou seulement la première page ?**
+Elle suit tous les liens du même site et capture chaque page en trois largeurs, sur mobile et tablette. Ce qu'elle n'a pas atteint, les pages non parcourues et les contrôles non pressés, est écrit comme *non exploré* et retient le verrou. Vous voyez toujours le compte : pages trouvées contre pages parcourues.
+
+**Me donne-t-elle le code source de l'original ?**
+Non. Elle mesure l'original et vous construisez votre copie avec vos outils. Ce qui est livré est votre code, pas une copie du sien.
+
+**Fonctionne-t-elle avec un modèle qui ne voit pas les images ?**
+Oui. Le design passe par des nombres : tailles, couleurs, espacements, typographie, zones cliquables. Les images servent à comparer, jamais à apprendre, donc un modèle texte seul construit aussi à partir des mesures.
+
+**Qu'est-ce qu'elle refuse de copier ?**
+La logique serveur, les identifiants, les jetons de session, les paiements et les données comptables. Un champ de cette forme arrête l'exécution et part dans `HANDOVER.md`, pour que vous sachiez quoi brancher.
+
+**Comment savoir si ça a vraiment marché ?**
+Chaque contrôle laisse un fichier avec son code de sortie, et le tableau final est calculé à partir de ces registres. Un contrôle qui n'a pas tourné, ou qui a répondu inconnu, vaut zéro. Le modèle ne peut pas écrire sa propre note.
+
+**Quels types de sources gère-t-elle ?**
+Sites web et applications multi-pages, applications mobiles et comportement PWA, interfaces de streaming avec lecteur, boutiques et catalogues, sites de documentation, et scènes 3D avec leurs appels de dessin, shaders et mouvement.
+
+**De quoi a-t-elle besoin pour tourner ?**
+Python 3.8 ou plus, bibliothèque standard seulement, Node 18 ou plus pour les outils navigateur, et un navigateur Chromium. Aucun paquet à installer, aucun compte, aucune clé.
+
 ## Statut honnête
 
 **La moitié qui mesure fonctionne. La moitié qui construit n'a pas encore produit une copie passant
@@ -255,8 +248,6 @@ tous les contrôles.**
 Le bloc de progression du document complet est écrit depuis les registres sur disque, jamais à la main.
 Il indique aujourd'hui 27 contrôles, 0 prouvé sur un vrai couple original-copie. Nous préférons vous
 montrer un zéro et sa raison plutôt qu'un cent et un mensonge.
-
----
 
 ## La ligne que nous ne franchissons pas
 

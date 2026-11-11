@@ -37,16 +37,11 @@
   <a href="#cómo-funciona">Cómo funciona</a> ·
   <a href="#cuatro-trabajos">Cuatro trabajos</a> ·
   <a href="#qué-lo-distingue">Qué lo distingue</a> ·
-  <a href="#dónde-está-cada-cosa">Instalación</a> ·
   <a href="#instalación">Cómo usarla</a> ·
-  <a href="#preguntas-que-hace-la-gente">Preguntas</a> ·
-  <a href="#cómo-usarla">Estado honesto</a> ·
+  <a href="#cómo-usarla">Preguntas</a> ·
+  <a href="#preguntas-que-hace-la-gente">Estado honesto</a> ·
   <a href="#estado-honesto">La línea que no cruzamos</a>
 </p>
-
-<br>
-
-
 
 <br>
 
@@ -57,8 +52,6 @@ que nada falla y nada queda sin saber.
 
 La idea no es decir "se ve igual". La idea es mostrar la fila que aún difiere, y el comando que lo
 muestra.
-
-<br>
 
 <br>
 
@@ -180,29 +173,6 @@ herramientas de navegador, y un navegador basado en Chromium (Edge o Chrome) par
 Cada pieza es opcional: si falta una, la habilidad baja un nivel y lo dice en la tabla final en vez de
 adivinar.
 
-## Preguntas que hace la gente
-
-**¿Puede copiar un sitio entero, o solo la portada?**
-Recorre todos los enlaces del mismo sitio y captura cada página en tres anchos, móviles y tabletas. Lo que no alcanzó, las páginas que no recorrió y los controles que no pulsó, queda escrito como *no explorado* y mantiene el cierre. Siempre ves la cuenta: páginas encontradas frente a páginas recorridas.
-
-**¿Me entrega el código fuente del original?**
-No. Mide el original y tú construyes tu propia copia con tu tecnología. Lo que se entrega es tu código, no una copia del suyo.
-
-**¿Funciona con un modelo que no ve imágenes?**
-Sí. El diseño viaja como números: tamaños, colores, espaciado, tipografía, zonas pulsables. Las imágenes se usan para comparar, nunca para aprender, así que un modelo solo de texto igual construye desde medidas.
-
-**¿Qué se niega a copiar?**
-Lógica de servidor, credenciales, tokens de sesión, pagos y datos contables. Un campo con esa forma detiene la ejecución y se escribe en `HANDOVER.md`, para que sepas qué conectar tú.
-
-**¿Cómo sé que de verdad funcionó?**
-Cada comprobación deja un archivo con su propio código de salida, y la tabla final se calcula de esos registros. Una comprobación que nunca corrió, o que respondió sin saber, vale cero. El modelo no puede escribir su propia nota.
-
-**¿Qué tipos de fuentes maneja?**
-Sitios web y apps web de varias páginas, apps de móvil y comportamiento PWA, interfaces de streaming con reproductor, tiendas y catálogos, sitios de documentación, y escenas 3D con sus llamadas de dibujo, shaders y movimiento.
-
-**¿Qué necesita para funcionar?**
-Python 3.8 o superior solo con la librería estándar, Node 18 o superior para las herramientas de navegador, y un navegador Chromium. Sin instalar paquetes, sin cuenta, sin clave.
-
 ## Cómo usarla
 
 Una línea basta:
@@ -245,6 +215,29 @@ El cierre se completa en **100%** y solo entonces: cada fila aprobada, nada sin 
 diferencia sin explicación. Hasta ese momento la tabla dice qué está abierto, por comprobación y por
 fila, por ejemplo `G5 @1440 hero pad 16 12 -4 +-4`.
 
+## Preguntas que hace la gente
+
+**¿Puede copiar un sitio entero, o solo la portada?**
+Recorre todos los enlaces del mismo sitio y captura cada página en tres anchos, móviles y tabletas. Lo que no alcanzó, las páginas que no recorrió y los controles que no pulsó, queda escrito como *no explorado* y mantiene el cierre. Siempre ves la cuenta: páginas encontradas frente a páginas recorridas.
+
+**¿Me entrega el código fuente del original?**
+No. Mide el original y tú construyes tu propia copia con tu tecnología. Lo que se entrega es tu código, no una copia del suyo.
+
+**¿Funciona con un modelo que no ve imágenes?**
+Sí. El diseño viaja como números: tamaños, colores, espaciado, tipografía, zonas pulsables. Las imágenes se usan para comparar, nunca para aprender, así que un modelo solo de texto igual construye desde medidas.
+
+**¿Qué se niega a copiar?**
+Lógica de servidor, credenciales, tokens de sesión, pagos y datos contables. Un campo con esa forma detiene la ejecución y se escribe en `HANDOVER.md`, para que sepas qué conectar tú.
+
+**¿Cómo sé que de verdad funcionó?**
+Cada comprobación deja un archivo con su propio código de salida, y la tabla final se calcula de esos registros. Una comprobación que nunca corrió, o que respondió sin saber, vale cero. El modelo no puede escribir su propia nota.
+
+**¿Qué tipos de fuentes maneja?**
+Sitios web y apps web de varias páginas, apps de móvil y comportamiento PWA, interfaces de streaming con reproductor, tiendas y catálogos, sitios de documentación, y escenas 3D con sus llamadas de dibujo, shaders y movimiento.
+
+**¿Qué necesita para funcionar?**
+Python 3.8 o superior solo con la librería estándar, Node 18 o superior para las herramientas de navegador, y un navegador Chromium. Sin instalar paquetes, sin cuenta, sin clave.
+
 ## Estado honesto
 
 **La mitad que mide funciona. La mitad que construye aún no ha producido una copia que apruebe todas
@@ -253,8 +246,6 @@ las comprobaciones.**
 El bloque de progreso del documento completo se escribe desde los registros en disco, nunca a mano.
 Hoy dice 27 comprobaciones, 0 probadas en un par real original-copia. Preferimos mostrarte un cero y
 la razón antes que un cien y una mentira.
-
----
 
 ## La línea que no cruzamos
 

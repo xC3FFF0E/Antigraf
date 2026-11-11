@@ -36,7 +36,6 @@
   <a href="#how-it-works">How it works</a> ·
   <a href="#four-jobs">Four jobs</a> ·
   <a href="#what-sets-it-apart">What sets it apart</a> ·
-  <a href="#where-things-live">Install</a> ·
   <a href="#install">How to use</a> ·
   <a href="#how-to-use">Questions</a> ·
   <a href="#questions-people-ask">Status</a> ·
@@ -256,8 +255,6 @@ Chromium browser. No package installs, no account, no key.
 The progress block in the full document is written from the proof ledgers on disk, never by hand. It
 currently reads 27 gates, 0 proven on a real original-to-copy pair. We would rather show you a zero
 and the reason than a hundred and a lie.
-
----
 
 ## The line we do not cross
 

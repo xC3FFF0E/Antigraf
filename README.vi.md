@@ -36,17 +36,12 @@
 <p align="center">
   <a href="#cách-hoạt-động">Cách hoạt động</a> ·
   <a href="#bốn-công-việc">Bốn công việc</a> ·
-  <a href="#điều-làm-nó-khác-biệt">Điều làm nó khác</a> ·
-  <a href="#chỗ-nào-có-gì">Cài đặt</a> ·
+  <a href="#điều-làm-nó-khác-biệt">Điều làm nó khác biệt</a> ·
   <a href="#cài-đặt">Cách dùng</a> ·
-  <a href="#câu-hỏi-mọi-người-hay-đặt">Câu hỏi</a> ·
-  <a href="#cách-dùng">Tình trạng thật</a> ·
-  <a href="#tình-trạng-trung-thực">Ranh giới không vượt</a>
+  <a href="#cách-dùng">Câu hỏi</a> ·
+  <a href="#câu-hỏi-mọi-người-hay-đặt">Tình trạng trung thực</a> ·
+  <a href="#tình-trạng-trung-thực">Ranh giới chúng tôi không vượt qua</a>
 </p>
-
-<br>
-
-
 
 <br>
 
@@ -56,8 +51,6 @@ rồi bắt hai bên trả lời cùng một bộ kiểm tra cho đến khi khô
 biết.
 
 Điểm mấu chốt không phải là nói "trông giống nhau". Mà là chỉ ra dòng còn khác, và lệnh cho thấy nó.
-
-<br>
 
 <br>
 
@@ -179,29 +172,6 @@ Yêu cầu: **Python 3.8 trở lên** (chỉ thư viện chuẩn), **Node 18 tr�
 trình duyệt dựa trên Chromium (Edge hoặc Chrome) để đi và nhấp. Mọi phần đều tuỳ chọn: thiếu một
 phần, kỹ năng xuống một bậc và nói rõ trong bảng cuối thay vì phỏng đoán.
 
-## Câu hỏi mọi người hay đặt
-
-**Nó sao chép được cả trang web hay chỉ trang đầu?**
-Nó đi theo mọi liên kết cùng trang và ghi mỗi trang ở ba bề rộng, trên điện thoại và máy tính bảng. Những gì chưa tới, trang chưa đi và điều khiển chưa bấm đều được ghi là *chưa khảo sát* và giữ khóa. Bạn luôn thấy con số: trang tìm được so với trang đã đi.
-
-**Nó có đưa cho tôi mã nguồn của bản gốc không?**
-Không. Nó đo bản gốc và bạn dựng bản của mình bằng công nghệ bạn chọn. Thứ nhận được là mã của bạn, không phải bản sao mã của họ.
-
-**Mô hình không nhìn được ảnh có dùng được không?**
-Được. Thiết kế truyền bằng con số: kích thước, màu, khoảng cách, cỡ chữ, vùng bấm. Ảnh chỉ dùng để so, không dùng để học, nên mô hình chỉ đọc chữ vẫn dựng từ số đo.
-
-**Nó từ chối sao chép những gì?**
-Logic phía máy chủ, thông tin đăng nhập, mã phiên, thanh toán và dữ liệu kế toán. Gặp trường có dạng đó là dừng ngay và ghi vào `HANDOVER.md`, để bạn biết mình phải nối gì.
-
-**Làm sao biết nó thật sự xong?**
-Mỗi bước kiểm để lại một tệp kèm mã thoát, và bảng cuối được tính từ các sổ đó. Bước kiểm chưa chạy, hoặc trả lời không rõ, tính là không điểm. Mô hình không tự ghi điểm cho mình được.
-
-**Nó xử lý được những loại nguồn nào?**
-Website và ứng dụng web nhiều trang, ứng dụng ưu tiên điện thoại và hành vi PWA, giao diện phát trực tuyến có trình phát, cửa hàng và danh mục, trang tài liệu, và cảnh 3D gồm lệnh vẽ, shader và chuyển động.
-
-**Chạy nó cần gì?**
-Python 3.8 trở lên chỉ với thư viện chuẩn, Node 18 trở lên cho công cụ trình duyệt, và trình duyệt Chromium. Không cần cài gói, không tài khoản, không khóa.
-
 ## Cách dùng
 
 Một dòng là đủ:
@@ -243,6 +213,29 @@ là của bạn bằng giấy miễn có chữ ký, hoặc dừng.
 Khoá chỉ đóng ở **100%**: mọi dòng đạt, không gì chưa biết, không khác biệt nào chưa giải thích. Trước
 đó bảng nói rõ còn gì mở, theo phép kiểm tra và theo dòng, ví dụ `G5 @1440 hero pad 16 12 -4 +-4`.
 
+## Câu hỏi mọi người hay đặt
+
+**Nó sao chép được cả trang web hay chỉ trang đầu?**
+Nó đi theo mọi liên kết cùng trang và ghi mỗi trang ở ba bề rộng, trên điện thoại và máy tính bảng. Những gì chưa tới, trang chưa đi và điều khiển chưa bấm đều được ghi là *chưa khảo sát* và giữ khóa. Bạn luôn thấy con số: trang tìm được so với trang đã đi.
+
+**Nó có đưa cho tôi mã nguồn của bản gốc không?**
+Không. Nó đo bản gốc và bạn dựng bản của mình bằng công nghệ bạn chọn. Thứ nhận được là mã của bạn, không phải bản sao mã của họ.
+
+**Mô hình không nhìn được ảnh có dùng được không?**
+Được. Thiết kế truyền bằng con số: kích thước, màu, khoảng cách, cỡ chữ, vùng bấm. Ảnh chỉ dùng để so, không dùng để học, nên mô hình chỉ đọc chữ vẫn dựng từ số đo.
+
+**Nó từ chối sao chép những gì?**
+Logic phía máy chủ, thông tin đăng nhập, mã phiên, thanh toán và dữ liệu kế toán. Gặp trường có dạng đó là dừng ngay và ghi vào `HANDOVER.md`, để bạn biết mình phải nối gì.
+
+**Làm sao biết nó thật sự xong?**
+Mỗi bước kiểm để lại một tệp kèm mã thoát, và bảng cuối được tính từ các sổ đó. Bước kiểm chưa chạy, hoặc trả lời không rõ, tính là không điểm. Mô hình không tự ghi điểm cho mình được.
+
+**Nó xử lý được những loại nguồn nào?**
+Website và ứng dụng web nhiều trang, ứng dụng ưu tiên điện thoại và hành vi PWA, giao diện phát trực tuyến có trình phát, cửa hàng và danh mục, trang tài liệu, và cảnh 3D gồm lệnh vẽ, shader và chuyển động.
+
+**Chạy nó cần gì?**
+Python 3.8 trở lên chỉ với thư viện chuẩn, Node 18 trở lên cho công cụ trình duyệt, và trình duyệt Chromium. Không cần cài gói, không tài khoản, không khóa.
+
 ## Tình trạng trung thực
 
 **Nửa đo lường đã chạy được. Nửa dựng vẫn chưa từng tạo ra bản sao đạt mọi phép kiểm tra.**
@@ -250,8 +243,6 @@ Khoá chỉ đóng ở **100%**: mọi dòng đạt, không gì chưa biết, kh
 Khối tiến độ trong tài liệu đầy đủ được viết từ sổ ghi trên đĩa, không bao giờ viết tay. Hiện nay là 27
 phép kiểm tra, 0 đã chứng minh trên một cặp bản gốc - bản sao thật. Chúng tôi thà cho bạn thấy số
 không và lý do, còn hơn một trăm và lời nói dối.
-
----
 
 ## Ranh giới chúng tôi không vượt qua
 
