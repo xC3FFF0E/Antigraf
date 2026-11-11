@@ -25,7 +25,7 @@
 
 <p align="center">
   <img alt="27 gates" src="https://img.shields.io/badge/gates-27-2d81ff?style=flat-square">
-  <img alt="47 scripts, no installs" src="https://img.shields.io/badge/scripts-47%2C%20no%20installs-2d81ff?style=flat-square">
+  <img alt="48 scripts, no installs" src="https://img.shields.io/badge/scripts-48%2C%20no%20installs-2d81ff?style=flat-square">
   <img alt="4 jobs" src="https://img.shields.io/badge/jobs-clone%20%C2%B7%20recreate%20%C2%B7%20improve%20%C2%B7%20study-2d81ff?style=flat-square">
   <img alt="Any model" src="https://img.shields.io/badge/works%20with-any%20model%20%C2%B7%20any%20harness-3a3a3a?style=flat-square">
 
@@ -184,20 +184,20 @@ python scripts/antigraf_mode.py --choose 1 --target https://example.com
 
 ```
 Area                    Score  pass  fail  unknown  What holds it
-----------------------  -----  ----  ----  -------  ----------------------
+----------------------  -----  ----  ----  -------  -------------
 Words & layout           100%     3     0        0
 Design, icons            100%     2     0        0
-Behaviour, flows          60%     3     0        2  not measured: G7, G19
+Behaviour, flows          80%     4     1        0  failing: G24
 Phone & PWA              100%     2     0        0
-Motion & 3D               33%     1     0        2  not measured: G25, G26
+Motion & 3D              100%     3     0        0
 Media & speed            100%     2     0        0
 Accessibility            100%     1     0        0
 Sources, repairs         100%     4     0        0
-Evidence, proof, pages    40%     2     2        1  failing: G11, G12
+Evidence, proof, pages    80%     4     1        0  failing: G12
 
 Pictures  none compared - both sides need a shot at the same width
 
-TOTAL  80.4% of the work this mode promised
+TOTAL  94.8% of the work this mode promised
 ```
 
 실행되지 않았거나 알 수 없다고 답한 검사는 **0점**이라 총점이 사본을 좋게 보이게 할 수 없습니다. 모든 작업은 이 표와 세 가지 제안으로 끝납니다. 더 밀어붙이기, 서명한 예외로 차이 받아들이기, 멈추기.

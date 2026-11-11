@@ -25,7 +25,7 @@
 
 <p align="center">
   <img alt="27 gates" src="https://img.shields.io/badge/gates-27-2d81ff?style=flat-square">
-  <img alt="47 scripts, no installs" src="https://img.shields.io/badge/scripts-47%2C%20no%20installs-2d81ff?style=flat-square">
+  <img alt="48 scripts, no installs" src="https://img.shields.io/badge/scripts-48%2C%20no%20installs-2d81ff?style=flat-square">
   <img alt="4 jobs" src="https://img.shields.io/badge/jobs-clone%20%C2%B7%20recreate%20%C2%B7%20improve%20%C2%B7%20study-2d81ff?style=flat-square">
   <img alt="Any model" src="https://img.shields.io/badge/works%20with-any%20model%20%C2%B7%20any%20harness-3a3a3a?style=flat-square">
   <img alt="Antigraf skill" src="https://img.shields.io/badge/skill-antigraf-1f883d?style=flat-square">
@@ -131,7 +131,7 @@ model, or one that cannot see images, never lowers a bar. It spends less and say
 | [`skills/antigraf/SKILL.md`](skills/antigraf/SKILL.md) | the skill itself: jobs, stages, tiers, workspace, rounds, rules |
 | [`skills/antigraf/README.md`](skills/antigraf/README.md) | the full document: gates, tolerances, progress, layout |
 | [`skills/antigraf/references/`](skills/antigraf/references) | 12 guides: gates, planning, fidelity, scene, handover, evidence |
-| [`skills/antigraf/scripts/`](skills/antigraf/scripts) | 47 tools: 40 Python, 7 browser, one device list |
+| [`skills/antigraf/scripts/`](skills/antigraf/scripts) | 48 tools: 40 Python, 7 browser, one device list |
 | [`assets/`](assets) | the icon, in 512 and 128 pixels |
 
 Read this page for what it promises. Read the full document for the exact tolerance of every gate.
@@ -198,20 +198,20 @@ The closing table looks like this, and it is computed from recorded proof, never
 
 ```
 Area                    Score  pass  fail  unknown  What holds it
-----------------------  -----  ----  ----  -------  ----------------------
+----------------------  -----  ----  ----  -------  -------------
 Words & layout           100%     3     0        0
 Design, icons            100%     2     0        0
-Behaviour, flows          60%     3     0        2  not measured: G7, G19
+Behaviour, flows          80%     4     1        0  failing: G24
 Phone & PWA              100%     2     0        0
-Motion & 3D               33%     1     0        2  not measured: G25, G26
+Motion & 3D              100%     3     0        0
 Media & speed            100%     2     0        0
 Accessibility            100%     1     0        0
 Sources, repairs         100%     4     0        0
-Evidence, proof, pages    40%     2     2        1  failing: G11, G12
+Evidence, proof, pages    80%     4     1        0  failing: G12
 
 Pictures  none compared - both sides need a shot at the same width
 
-TOTAL  80.4% of the work this mode promised
+TOTAL  94.8% of the work this mode promised
 ```
 
 A gate that never ran, or reported unknown, counts as **zero**, so the total can never flatter the
