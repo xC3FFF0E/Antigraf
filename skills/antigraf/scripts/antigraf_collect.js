@@ -173,6 +173,24 @@
     return out;
   }
 
+  // The order a keyboard actually walks: elements the browser will reach, in
+  // document order, minus anything removed from the tab order by tabindex="-1".
+  // Measured from the page, never guessed from the markup alone.
+  function focusOrder() {
+    const sel = "a[href], button, input, select, textarea, [tabindex], [role=button]";
+    const out = [];
+    for (const el of document.querySelectorAll(sel)) {
+      if (!visible(el)) continue;
+      if (el.getAttribute("disabled") !== null) continue;
+      if (el.tabIndex < 0) continue;
+      const label = nameOf(el);
+      if (!label) continue;
+      out.push(label);
+      if (out.length >= 200) break;
+    }
+    return out;
+  }
+
   function headings() {
     return Array.from(document.querySelectorAll("h1,h2,h3,h4,h5,h6")).filter(visible).map((h) => ({
       level: parseInt(h.tagName.slice(1), 10), text: text(h).slice(0, 120), src: "measured",
@@ -233,6 +251,13 @@
       .map(([word, count]) => ({ word, count }));
   }
 
+  // One label rule for both the control list and the focus walk, so the two
+  // can be compared: whatever a person could read aloud for that element.
+  function nameOf(el) {
+    return (text(el) || el.getAttribute("aria-label") || el.getAttribute("placeholder")
+      || el.getAttribute("value") || "").slice(0, 60);
+  }
+
   function controls() {
     const out = [];
     const roles = "a[href], button, input, select, textarea, [role=button], [role=tab], [role=link], [role=checkbox], [role=switch]";
@@ -243,8 +268,7 @@
       const r = el.getBoundingClientRect();
       out.push({
         id: "ctl-" + String(i).padStart(2, "0"),
-        label: (text(el) || el.getAttribute("aria-label") || el.getAttribute("placeholder")
-          || el.getAttribute("value") || "").slice(0, 60),
+        label: nameOf(el),
         role: el.getAttribute("role") || el.tagName.toLowerCase(),
         href: el.getAttribute("href") || null,
         type: el.getAttribute("type") || null,
@@ -386,6 +410,7 @@
         src: "measured",
       }],
       landmarks: landmarks(),
+      focus_order: focusOrder(),
       outline: outline(),
       headings: headings(),
       links: links(),

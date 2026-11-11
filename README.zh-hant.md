@@ -231,20 +231,20 @@ Python 3.8 以上（只用標準庫）、瀏覽器工具需要 Node 18 以上，
 
 <!-- ANTIGRAF:SCORE (written by scripts/antigraf_registry.py - do not edit by hand) -->
 
-**Measured: 58.0% out of 100 - the three-page test pair (round 3)**
+**Measured: 73.7% out of 100 - the three-page test pair (round 5)**
 
 | Area | Score | Passing | Failing | Not measured | What holds it down |
 |---|---|---|---|---|---|
 | Words & layout | 100% | 3 | 0 | 0 | - |
-| Design, icons | 50% | 1 | 1 | 0 | failing: G4 |
+| Design, icons | 100% | 2 | 0 | 0 | - |
 | Behaviour, flows | 20% | 1 | 3 | 1 | failing: G6, G7, G23 |
 | Phone & PWA | 100% | 2 | 0 | 0 | - |
 | Motion & 3D | 33% | 1 | 0 | 2 | not measured: G25, G26 |
 | Media & speed | 100% | 2 | 0 | 0 | - |
-| Accessibility | 0% | 0 | 1 | 0 | failing: G9 |
-| Sources, repairs | 75% | 3 | 0 | 1 | not measured: G22 |
+| Accessibility | 100% | 1 | 0 | 0 | - |
+| Sources, repairs | 100% | 4 | 0 | 0 | - |
 | Evidence, proof, pages | 40% | 2 | 2 | 1 | failing: G11, G12 |
-| **Total** | **58.0%** | 15 | 7 | 5 | 12 gate(s) not passing |
+| **Total** | **73.7%** | 18 | 5 | 4 | 9 gate(s) not passing |
 
 The lock needs 100%: every gate passing, nothing unknown. A gate that never ran counts as zero, not as a pass.
 
@@ -258,24 +258,24 @@ The lock needs 100%: every gate passing, nothing unknown. A gate that never ran 
 
 | What the gates check | Gates | State | Where it was measured |
 |---|---|---|---|
-| Look: sections, words, colours, spacing | G2, G3, G4, G5 | measured | the three-page test pair round 3 |
-| Icons and pictures, one partner each | G8, G17 | measured | the three-page test pair round 3 |
-| Every page walked, planned and shipped | G11 | measured | the three-page test pair round 3 |
-| Behaviour: pressed, and the same result | G7, G23, G24 | measured | the three-page test pair round 3 |
-| States: hover, focus, open, empty, error | G6 | measured | the three-page test pair round 3 |
-| Motion: durations, easings, scroll | G13 | measured | the three-page test pair round 3 |
-| Phone, install and offline (PWA) | G9, G14, G18 | measured | the three-page test pair round 3 |
-| Speed and weight budgets | G15 | measured | the three-page test pair round 3 |
-| Logic: same input, same answer, no secrets | G19 | measured | the three-page test pair round 3 |
-| Defects found, and the copy repaired | G20, G21 | measured | the three-page test pair round 3 |
-| 3D scene read as numbers | G25 | measured | the three-page test pair round 3 |
-| 3D motion compared frame by frame | G26 | measured | the three-page test pair round 3 |
-| Server seams listed for you to hook up | G16 | measured | the three-page test pair round 3 |
-| Evidence, proof and a frozen plan | G0, G1, G10, G12 | measured | the three-page test pair round 3 |
+| Look: sections, words, colours, spacing | G2, G3, G4, G5 | measured | the three-page test pair round 5 |
+| Icons and pictures, one partner each | G8, G17 | measured | the three-page test pair round 5 |
+| Every page walked, planned and shipped | G11 | measured | the three-page test pair round 5 |
+| Behaviour: pressed, and the same result | G7, G23, G24 | measured | the three-page test pair round 5 |
+| States: hover, focus, open, empty, error | G6 | measured | the three-page test pair round 5 |
+| Motion: durations, easings, scroll | G13 | measured | the three-page test pair round 5 |
+| Phone, install and offline (PWA) | G9, G14, G18 | measured | the three-page test pair round 5 |
+| Speed and weight budgets | G15 | measured | the three-page test pair round 5 |
+| Logic: same input, same answer, no secrets | G19 | measured | the three-page test pair round 5 |
+| Defects found, and the copy repaired | G20, G21 | measured | the three-page test pair round 5 |
+| 3D scene read as numbers | G25 | measured | the three-page test pair round 5 |
+| 3D motion compared frame by frame | G26 | measured | the three-page test pair round 5 |
+| Server seams listed for you to hook up | G16 | measured | the three-page test pair round 5 |
+| Evidence, proof and a frozen plan | G0, G1, G10, G12 | measured | the three-page test pair round 5 |
 
 | Target | Family | Kind | Gates passed | Failed | Unknown | Verdict |
 |---|---|---|---|---|---|---|
-| the three-page test pair | unknown | round 3 | 15 of 27 | 7 | 5 | measured |
+| the three-page test pair | unknown | round 5 | 18 of 27 | 5 | 4 | measured |
 
 `proven` means every gate ran, passed, and nothing was unknown. `measured` means the gates ran and left a real exit code. Anything else is `not proven`, and is not being claimed.
 
