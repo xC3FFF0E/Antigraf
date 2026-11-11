@@ -12,3 +12,7 @@ runs/
 .hormachuelos/
 *.log
 access-check.txt
+# Private words the leak scan must forbid (client and target names, kept
+# outside version control on purpose - this file must never be committed)
+.antigraf-private-terms
+leakscan.json

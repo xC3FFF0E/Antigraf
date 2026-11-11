@@ -17,6 +17,37 @@ A check that has never failed is a check nobody has tested. Send, with your pull
 
 A gate that only ever exits 0 is not a gate.
 
+## The second rule: nothing private reaches the history
+
+A machine path, a token, a credential and the name of a site you were asked to copy all count as
+the same mistake. Once one of them is pushed it is in the history, and cleaning it up means
+rewriting commits that other people have already cloned.
+
+So it is checked twice:
+
+- **Before every commit.** Turn it on once per clone:
+  `git config core.hooksPath .githooks`
+  The hook reads only what is staged, and stops the commit on a finding.
+- **After every push.** The `leak-scan` workflow reads the whole history and fails the run.
+
+Run it yourself before opening a pull request:
+
+```bash
+python skills/antigraf/scripts/antigraf_leakscan.py            # the files
+python skills/antigraf/scripts/antigraf_leakscan.py --history  # every commit
+```
+
+Exit 0 is clean, 2 is a finding, 3 is "could not scan". A finding prints the rule, the file and a
+masked fragment: enough to locate it, never enough to use it.
+
+Client and target names are the one thing the tool cannot know on its own. Never write them in a
+file that is committed, not even in a rule, a test or a comment. Keep them in
+`.antigraf-private-terms` - one word per line, ignored by git - and pass it with `--terms`:
+
+```bash
+python skills/antigraf/scripts/antigraf_leakscan.py --terms .antigraf-private-terms --history
+```
+
 ## Where things live
 
 | Path | What belongs there |
@@ -52,7 +83,9 @@ python skills/antigraf/scripts/antigraf_score.py --proof checks/round-1/proof.js
 2. Every browser file still parses: `node --check skills/antigraf/scripts/antigraf_drive.mjs`
 3. The changed gate was run on a pair that should pass **and** on a pair that should fail.
 4. The READMEs still agree with the code: gate count, script count, and section order.
-5. Nothing secret-shaped, and no key, token or password, appears in a fixture or a commit.
+5. The leak scan is clean, files and history:
+   `python skills/antigraf/scripts/antigraf_leakscan.py --history --terms .antigraf-private-terms`
+6. No fixture, example or document names a real target or carries a real path.
 
 ## Commits
 

@@ -1,0 +1,90 @@
+#!/bin/sh
+# Antigraf pre-commit guard.
+#
+# A machine path, a token or a client's name must never enter the history.
+# Checking before the commit is written is the only moment where stopping
+# costs nothing: after a push the only fix is a history rewrite, and that
+# cannot reach clones already made.
+#
+# Install once per clone:   git config core.hooksPath .githooks
+# Skip in an emergency:     git commit --no-verify   (CI still checks)
+#
+# Plain shell only: no dirname, no uname, no other helper. A hook runs in
+# whatever environment git hands it, and a missing helper would make the
+# guard silently useless.
+
+HOOK_DIR=${0%/*}
+if [ "$HOOK_DIR" = "$0" ]; then
+    HOOK_DIR="."
+fi
+SCAN="$HOOK_DIR/../skills/antigraf/scripts/antigraf_leakscan.py"
+TERMS=".antigraf-private-terms"
+
+# A name being on PATH proves nothing: a Windows install leaves empty
+# "python" and "python3" stubs in WindowsApps, and "py" can resolve to the
+# same broken stub. Each candidate is tested by running the real scan tool
+# with a flag it rejects: an interpreter that answers with the tool's own
+# exit 3 is one that can run the tool.
+PY=""
+for candidate in py python3 python; do
+    if command -v "$candidate" >/dev/null 2>&1; then
+        "$candidate" "$SCAN" --interpreter-probe >/dev/null 2>&1
+        if [ $? -eq 3 ]; then
+            PY="$candidate"
+            break
+        fi
+    fi
+done
+
+# Where Windows really keeps Python, for the installs PATH does not reach.
+if [ -z "$PY" ]; then
+    for found in \
+        "$LOCALAPPDATA/Programs/Python/Python"*/python.exe \
+        "$HOME/AppData/Local/Programs/Python/Python"*/python.exe \
+        "/c/Users/"*/AppData/Local/Programs/Python/Python*/python.exe \
+        "/c/Program Files/Python"*/python.exe \
+        "/usr/bin/python3" \
+        "/usr/local/bin/python3"; do
+        if [ -x "$found" ]; then
+            "$found" "$SCAN" --interpreter-probe >/dev/null 2>&1
+            if [ $? -eq 3 ]; then
+                PY="$found"
+                break
+            fi
+        fi
+    done
+fi
+
+if [ -z "$PY" ]; then
+    echo "Antigraf guard: no Python 3 able to run the scan tool was found." >&2
+    echo "Install Python 3.8+ or commit with --no-verify (CI still checks)." >&2
+    exit 1
+fi
+
+# The staged file list is taken here and handed to the tool: inside a hook,
+# a Python subprocess cannot always start git again, so the tool must not
+# have to ask git for anything.
+LIST=".git/antigraf-staged-list"
+git diff --cached --name-only --diff-filter=ACM -z > "$LIST" 2>/dev/null
+
+if [ -f "$TERMS" ]; then
+    "$PY" "$SCAN" --staged --staged-list "$LIST" --terms "$TERMS"
+    rc=$?
+else
+    "$PY" "$SCAN" --staged --staged-list "$LIST"
+    rc=$?
+fi
+# Truncated rather than deleted: rm is not always available in the shell a
+# hook gets, and a leftover list inside .git is overwritten on the next run.
+: > "$LIST"
+
+if [ $rc -ne 0 ]; then
+    echo "" >&2
+    echo "Antigraf guard: this commit was stopped by the leak scan." >&2
+    echo "Fix the finding. If the word was only an example, rewrite it." >&2
+    echo "Never add a real target name to .antigraf-private-terms - that file" >&2
+    echo "is ignored by git on purpose, and it must stay that way." >&2
+    exit 1
+fi
+
+exit 0

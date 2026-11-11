@@ -1,0 +1,52 @@
+name: leak-scan
+
+# The repo promises that no private path, token or client name is ever
+# published. This job is what makes that promise checkable instead of
+# trusting whoever pushed last.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Use Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Scan the published files and every commit
+        run: |
+          python skills/antigraf/scripts/antigraf_leakscan.py --history \
+            --json leakscan.json
+          echo "leak scan passed"
+
+      - name: Keep the report when it fails
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: leakscan-report
+          path: leakscan.json
+          if-no-files-found: ignore
+
+      - name: Explain the failure
+        if: failure()
+        run: |
+          echo "A file, a commit or a commit message in this push matches a"
+          echo "private shape: a machine path, a token, a credential or a"
+          echo "forbidden word."
+          echo ""
+          echo "Fix the file and expect a history rewrite: a pushed commit that"
+          echo "carried the leak keeps carrying it. See CONTRIBUTING.md."

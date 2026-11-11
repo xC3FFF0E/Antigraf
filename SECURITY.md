@@ -23,6 +23,9 @@ There is no bounty. Reports are read, and a fix or a decision not to fix is writ
   the lock. It is never silently counted as a pass.
 - **It reads only what it was pointed at.** Paths are resolved and refused when they leave the run
   folder; a folder given where a file is expected is refused, not scanned.
+- **It never publishes what it looked at.** `antigraf_leakscan.py` reads the published files, the
+  staged files and every commit, and fails on a machine path, a token, a credential or a forbidden
+  word. The pre-commit hook runs it before a commit exists, and a workflow runs it on every push.
 - **Malformed input is refused, not trusted.** A broken, empty, oversized or wrongly shaped file
   exits 2 with a message, not a traceback and not a pass.
 - **Server-side pieces are named, never copied.** Credentials, payments and accounting are written
