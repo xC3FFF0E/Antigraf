@@ -112,7 +112,7 @@ opciones para seguir.
 
 | | **Antigraf** | Una habilidad de clonado típica |
 |---|---|---|
-| Dónde corre | Cualquier entorno y modelo. Solo librerías estándar de Python 40 y Node | Atada a un bucle de agente |
+| Dónde corre | Cualquier entorno y modelo. Solo librerías estándar de Python 3 y Node | Atada a un bucle de agente |
 | Cómo decide "terminado" | 27 comprobaciones, cada una con su código de salida, todas en cada ronda | El modelo dice que se ve bien |
 | "No comparado" | Siempre bloquea el cierre | Suele contarse como aprobado |
 | Diferencias que aceptas | Solo tuyas, escritas por ti, nunca descartadas en silencio | No contemplado |

@@ -112,7 +112,7 @@ domaine, et vos options pour la suite.
 
 | | **Antigraf** | Une compétence de clonage classique |
 |---|---|---|
-| Où il tourne | Tout environnement, tout modèle. Bibliothèques standard de Python 40 et Node | Lié à une boucle d'agent |
+| Où il tourne | Tout environnement, tout modèle. Bibliothèques standard de Python 3 et Node | Lié à une boucle d'agent |
 | Comment il décide « terminé » | 27 contrôles, chacun avec son code de sortie, tous à chaque tour | Le modèle dit que ça a l'air bon |
 | « Non comparé » | Bloque toujours le verrou | Souvent compté comme une réussite |
 | Différences que vous acceptez | Les vôtres seulement, écrites par vous, jamais écartées en silence | Non modélisé |

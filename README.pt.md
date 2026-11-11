@@ -112,7 +112,7 @@ e as suas opções para seguir.
 
 | | **Antigraf** | Uma habilidade de clonagem comum |
 |---|---|---|
-| Onde roda | Qualquer ambiente, qualquer modelo. Só bibliotecas padrão de Python 40 e Node | Presa a um laço de agente |
+| Onde roda | Qualquer ambiente, qualquer modelo. Só bibliotecas padrão de Python 3 e Node | Presa a um laço de agente |
 | Como decide "pronto" | 27 verificações, cada uma com seu código de saída, todas em cada rodada | O modelo diz que parece certo |
 | "Não comparado" | Sempre trava o selo | Costuma contar como aprovação |
 | Diferenças que você aceita | Só suas, escritas por você, nunca descartadas em silêncio | Não modelado |

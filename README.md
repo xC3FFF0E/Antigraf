@@ -114,7 +114,7 @@ options for what to do next.
 
 | | **Antigraf** | A typical clone skill |
 |---|---|---|
-| Where it runs | Any harness, any model. Python 40 and Node, standard library only | Tied to one agent loop |
+| Where it runs | Any harness, any model. Python 3 and Node, standard library only | Tied to one agent loop |
 | How it decides "done" | 27 gates, each with its own exit code, all run every round | The model says it looks right |
 | "Not compared" | Always blocks the lock | Usually counted as a pass |
 | Differences you accept | Yours alone, written by you, never quietly dropped | Not modelled |

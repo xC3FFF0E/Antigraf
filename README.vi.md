@@ -111,7 +111,7 @@ giữ chân lĩnh vực đó, và các lựa chọn tiếp theo của bạn.
 
 | | **Antigraf** | Một kỹ năng sao chép thông thường |
 |---|---|---|
-| Chạy ở đâu | Mọi môi trường, mọi mô hình. Chỉ thư viện chuẩn của Python 40 và Node | Gắn với một vòng lặp agent |
+| Chạy ở đâu | Mọi môi trường, mọi mô hình. Chỉ thư viện chuẩn của Python 3 và Node | Gắn với một vòng lặp agent |
 | Cách quyết định "xong" | 27 phép kiểm tra, mỗi phép có mã thoát riêng, chạy đủ mỗi vòng | Mô hình nói trông ổn rồi |
 | "Chưa so sánh" | Luôn chặn khoá | Thường bị tính là đạt |
 | Khác biệt bạn chấp nhận | Chỉ của bạn, do bạn viết, không bao giờ bị bỏ im lặng | Không được mô hình hoá |
