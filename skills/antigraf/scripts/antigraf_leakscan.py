@@ -211,7 +211,12 @@ def scan_staged(root, terms, from_list=None):
 
 
 def scan_history(root, terms):
-    log = run_git(["log", "--all", "-p", "--pretty=format:COMMIT %H %s"], root)
+    # The scan tool's own source is a catalogue of the shapes it forbids, so it
+    # would always report itself. Git leaves that one file out of the diff;
+    # every other file in every commit is still read in full, and the
+    # post-checkout files scan still covers the tool itself on disk.
+    log = run_git(["log", "--all", "-p", "--pretty=format:COMMIT %H %s", "--",
+                   ".", ":(exclude)*/" + sorted(SELF)[0]], root)
     if log is None:
         out("CANNOT: git could not read the history")
         sys.exit(CANNOT)
