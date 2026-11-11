@@ -31,16 +31,20 @@
   <img alt="Proven on 0 real pairs" src="https://img.shields.io/badge/proven%20on-0%20real%20pairs-d69e2e?style=flat-square">
 
   <img alt="Antigraf skill" src="https://img.shields.io/badge/skill-antigraf-1f883d?style=flat-square">
+  <img alt="License: Apache-2.0 or MIT" src="https://img.shields.io/badge/license-Apache--2.0%20or%20MIT-2d81ff?style=flat-square">
 </p>
 
 <p align="center">
   <a href="#運作方式">運作方式</a> ·
   <a href="#四項工作">四項工作</a> ·
   <a href="#與眾不同之處">與眾不同之處</a> ·
-  <a href="#安裝">使用方法</a> ·
-  <a href="#使用方法">常見問題</a> ·
-  <a href="#常見問題">真實狀態</a> ·
-  <a href="#真實狀態">我們不越過的線</a>
+  <a href="#各部分在哪裡">各部分在哪裡</a> ·
+  <a href="#安裝">安裝</a> ·
+  <a href="#使用方法">使用方法</a> ·
+  <a href="#常見問題">常見問題</a> ·
+  <a href="#真實狀態">真實狀態</a> ·
+  <a href="#授權條款">授權條款</a> ·
+  <a href="#我們不越過的線">我們不越過的線</a>
 </p>
 
 <br>
@@ -280,6 +284,10 @@ The lock needs 100%: every gate passing, nothing unknown. A gate that never ran 
 **測量的一半能用。建立的一半還沒有做出過通過全部檢查的副本。**
 
 完整文件中的進度區塊由磁碟上的記錄寫成，從不手寫。目前是 27 項檢查，在真實的原件與副本組合上已證實的為 0。我們寧可給你一個零和原因，也不要一個百和謊言。
+
+## 授權條款
+
+兩種授權任選其一：**Apache License 2.0**（[LICENSE-APACHE](LICENSE-APACHE)）或 **MIT**（[LICENSE-MIT](LICENSE-MIT)）。簡要說明以及授權不涵蓋的範圍見 [LICENSE.md](LICENSE.md)。圖示與名稱歸本專案所有；只要註明是分支（fork），即可自由分叉。
 
 ## 我們不越過的線
 

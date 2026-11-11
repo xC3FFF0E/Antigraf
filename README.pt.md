@@ -31,16 +31,20 @@
   <img alt="Proven on 0 real pairs" src="https://img.shields.io/badge/proven%20on-0%20real%20pairs-d69e2e?style=flat-square">
 
   <img alt="Antigraf skill" src="https://img.shields.io/badge/skill-antigraf-1f883d?style=flat-square">
+  <img alt="License: Apache-2.0 or MIT" src="https://img.shields.io/badge/license-Apache--2.0%20or%20MIT-2d81ff?style=flat-square">
 </p>
 
 <p align="center">
   <a href="#como-funciona">Como funciona</a> ·
   <a href="#quatro-trabalhos">Quatro trabalhos</a> ·
   <a href="#o-que-o-distingue">O que o distingue</a> ·
-  <a href="#instalação">Como usar</a> ·
-  <a href="#como-usar">Perguntas</a> ·
-  <a href="#perguntas-que-as-pessoas-fazem">Estado honesto</a> ·
-  <a href="#estado-honesto">A linha que não cruzamos</a>
+  <a href="#onde-fica-cada-coisa">Onde fica cada coisa</a> ·
+  <a href="#instalação">Instalação</a> ·
+  <a href="#como-usar">Como usar</a> ·
+  <a href="#perguntas-que-as-pessoas-fazem">Perguntas que as pessoas fazem</a> ·
+  <a href="#estado-honesto">Estado honesto</a> ·
+  <a href="#licença">Licença</a> ·
+  <a href="#a-linha-que-não-cruzamos">A linha que não cruzamos</a>
 </p>
 
 <br>
@@ -299,6 +303,10 @@ verificações.**
 O bloco de progresso do documento completo é escrito a partir dos registros em disco, nunca à mão. Hoje
 ele diz 27 verificações, 0 provadas em um par real original-cópia. Preferimos mostrar um zero e o motivo
 a um cem e uma mentira.
+
+## Licença
+
+Duas licenças, você escolhe: **Apache License 2.0** ([LICENSE-APACHE](LICENSE-APACHE)) ou **MIT** ([LICENSE-MIT](LICENSE-MIT)). A versão curta, e o que as licenças não cobrem, está em [LICENSE.md](LICENSE.md). O ícone e o nome ficam com o projeto; um fork é aceitável desde que diga que é um fork.
 
 ## A linha que não cruzamos
 

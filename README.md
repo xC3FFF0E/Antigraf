@@ -30,16 +30,20 @@
   <img alt="Any model" src="https://img.shields.io/badge/works%20with-any%20model%20%C2%B7%20any%20harness-3a3a3a?style=flat-square">
   <img alt="Proven on 0 real pairs" src="https://img.shields.io/badge/proven%20on-0%20real%20pairs-d69e2e?style=flat-square">
   <img alt="Antigraf skill" src="https://img.shields.io/badge/skill-antigraf-1f883d?style=flat-square">
+  <img alt="License: Apache-2.0 or MIT" src="https://img.shields.io/badge/license-Apache--2.0%20or%20MIT-2d81ff?style=flat-square">
 </p>
 
 <p align="center">
   <a href="#how-it-works">How it works</a> ·
   <a href="#four-jobs">Four jobs</a> ·
   <a href="#what-sets-it-apart">What sets it apart</a> ·
-  <a href="#install">How to use</a> ·
-  <a href="#how-to-use">Questions</a> ·
-  <a href="#questions-people-ask">Status</a> ·
-  <a href="#honest-status">The line we do not cross</a>
+  <a href="#where-things-live">Where things live</a> ·
+  <a href="#install">Install</a> ·
+  <a href="#how-to-use">How to use</a> ·
+  <a href="#questions-people-ask">Questions people ask</a> ·
+  <a href="#honest-status">Honest status</a> ·
+  <a href="#license">License</a> ·
+  <a href="#the-line-we-do-not-cross">The line we do not cross</a>
 </p>
 
 <br>
@@ -317,6 +321,10 @@ python skills/antigraf/scripts/antigraf_registry.py --runs runs --out runs/regis
   --readme README.ko.md --readme README.es.md --readme README.fr.md --readme README.vi.md \
   --readme README.pt.md
 ```
+
+## License
+
+Two licenses, your choice: **Apache License 2.0** ([LICENSE-APACHE](LICENSE-APACHE)) or **MIT** ([LICENSE-MIT](LICENSE-MIT)). The short version, and what the licenses do not cover, is in [LICENSE.md](LICENSE.md). The icon and the name stay with the project; a fork is fine as long as it says it is a fork.
 
 ## The line we do not cross
 

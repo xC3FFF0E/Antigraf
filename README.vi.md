@@ -31,16 +31,20 @@
   <img alt="Proven on 0 real pairs" src="https://img.shields.io/badge/proven%20on-0%20real%20pairs-d69e2e?style=flat-square">
 
   <img alt="Antigraf skill" src="https://img.shields.io/badge/skill-antigraf-1f883d?style=flat-square">
+  <img alt="License: Apache-2.0 or MIT" src="https://img.shields.io/badge/license-Apache--2.0%20or%20MIT-2d81ff?style=flat-square">
 </p>
 
 <p align="center">
   <a href="#cách-hoạt-động">Cách hoạt động</a> ·
   <a href="#bốn-công-việc">Bốn công việc</a> ·
   <a href="#điều-làm-nó-khác-biệt">Điều làm nó khác biệt</a> ·
-  <a href="#cài-đặt">Cách dùng</a> ·
-  <a href="#cách-dùng">Câu hỏi</a> ·
-  <a href="#câu-hỏi-mọi-người-hay-đặt">Tình trạng trung thực</a> ·
-  <a href="#tình-trạng-trung-thực">Ranh giới chúng tôi không vượt qua</a>
+  <a href="#chỗ-nào-có-gì">Chỗ nào có gì</a> ·
+  <a href="#cài-đặt">Cài đặt</a> ·
+  <a href="#cách-dùng">Cách dùng</a> ·
+  <a href="#câu-hỏi-mọi-người-hay-đặt">Câu hỏi mọi người hay đặt</a> ·
+  <a href="#tình-trạng-trung-thực">Tình trạng trung thực</a> ·
+  <a href="#giấy-phép">Giấy phép</a> ·
+  <a href="#ranh-giới-chúng-tôi-không-vượt-qua">Ranh giới chúng tôi không vượt qua</a>
 </p>
 
 <br>
@@ -296,6 +300,10 @@ The lock needs 100%: every gate passing, nothing unknown. A gate that never ran 
 Khối tiến độ trong tài liệu đầy đủ được viết từ sổ ghi trên đĩa, không bao giờ viết tay. Hiện nay là 27
 phép kiểm tra, 0 đã chứng minh trên một cặp bản gốc - bản sao thật. Chúng tôi thà cho bạn thấy số
 không và lý do, còn hơn một trăm và lời nói dối.
+
+## Giấy phép
+
+Hai giấy phép, bạn chọn một: **Apache License 2.0** ([LICENSE-APACHE](LICENSE-APACHE)) hoặc **MIT** ([LICENSE-MIT](LICENSE-MIT)). Bản tóm tắt và những gì giấy phép không bao gồm nằm trong [LICENSE.md](LICENSE.md). Biểu tượng và tên thuộc về dự án; bản fork vẫn được, miễn là ghi rõ đó là fork.
 
 ## Ranh giới chúng tôi không vượt qua
 

@@ -31,16 +31,20 @@
   <img alt="Proven on 0 real pairs" src="https://img.shields.io/badge/proven%20on-0%20real%20pairs-d69e2e?style=flat-square">
 
   <img alt="Antigraf skill" src="https://img.shields.io/badge/skill-antigraf-1f883d?style=flat-square">
+  <img alt="License: Apache-2.0 or MIT" src="https://img.shields.io/badge/license-Apache--2.0%20or%20MIT-2d81ff?style=flat-square">
 </p>
 
 <p align="center">
   <a href="#仕組み">仕組み</a> ·
   <a href="#四つの仕事">四つの仕事</a> ·
   <a href="#他と違うところ">他と違うところ</a> ·
-  <a href="#導入">使い方</a> ·
-  <a href="#使い方">よくある質問</a> ·
-  <a href="#よくある質問">正直な現状</a> ·
-  <a href="#正直な現状">越えない線</a>
+  <a href="#どこに何があるか">どこに何があるか</a> ·
+  <a href="#導入">導入</a> ·
+  <a href="#使い方">使い方</a> ·
+  <a href="#よくある質問">よくある質問</a> ·
+  <a href="#正直な現状">正直な現状</a> ·
+  <a href="#ライセンス">ライセンス</a> ·
+  <a href="#越えない線">越えない線</a>
 </p>
 
 <br>
@@ -269,6 +273,10 @@ The lock needs 100%: every gate passing, nothing unknown. A gate that never ran 
 **測る側は動きます。作る側は、まだ全チェックを通る複製を一度も生んでいません。**
 
 完全版の進捗欄はディスク上の記録から書かれ、手で書くことはありません。現在は 27 のチェック、本物の原本と複製の組で証明済み 0。百点と嘘より、零点と理由を見せたいからです。
+
+## ライセンス
+
+**Apache License 2.0**（[LICENSE-APACHE](LICENSE-APACHE)）または **MIT**（[LICENSE-MIT](LICENSE-MIT)）のどちらかを選べます。短い説明と、ライセンスが及ばない範囲は [LICENSE.md](LICENSE.md) にあります。アイコンと名称はプロジェクトに属します。フォークは、フォークであると明記すれば問題ありません。
 
 ## 越えない線
 

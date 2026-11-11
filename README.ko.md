@@ -31,16 +31,20 @@
   <img alt="Proven on 0 real pairs" src="https://img.shields.io/badge/proven%20on-0%20real%20pairs-d69e2e?style=flat-square">
 
   <img alt="Antigraf skill" src="https://img.shields.io/badge/skill-antigraf-1f883d?style=flat-square">
+  <img alt="License: Apache-2.0 or MIT" src="https://img.shields.io/badge/license-Apache--2.0%20or%20MIT-2d81ff?style=flat-square">
 </p>
 
 <p align="center">
   <a href="#작동-방식">작동 방식</a> ·
   <a href="#네-가지-작업">네 가지 작업</a> ·
   <a href="#다른-점">다른 점</a> ·
-  <a href="#설치">사용법</a> ·
-  <a href="#사용법">자주 묻는 질문</a> ·
-  <a href="#자주-묻는-질문">정직한 현황</a> ·
-  <a href="#정직한-현황">넘지 않는 선</a>
+  <a href="#어디에-무엇이-있나">어디에 무엇이 있나</a> ·
+  <a href="#설치">설치</a> ·
+  <a href="#사용법">사용법</a> ·
+  <a href="#자주-묻는-질문">자주 묻는 질문</a> ·
+  <a href="#정직한-현황">정직한 현황</a> ·
+  <a href="#라이선스">라이선스</a> ·
+  <a href="#넘지-않는-선">넘지 않는 선</a>
 </p>
 
 <br>
@@ -275,6 +279,10 @@ The lock needs 100%: every gate passing, nothing unknown. A gate that never ran 
 **측정하는 쪽은 작동합니다. 만드는 쪽은 아직 모든 검사를 통과하는 사본을 한 번도 만들지 못했습니다.**
 
 전체 문서의 진행 표는 디스크의 기록에서 쓰이고 손으로 쓰지 않습니다. 현재 27개 검사, 실제 원본과 사본 조합에서 증명된 것은 0입니다. 백 점과 거짓말보다 영 점과 이유를 보여 주겠습니다.
+
+## 라이선스
+
+**Apache License 2.0**([LICENSE-APACHE](LICENSE-APACHE)) 또는 **MIT**([LICENSE-MIT](LICENSE-MIT)) 중 하나를 고르세요. 짧은 설명과 라이선스가 적용되지 않는 범위는 [LICENSE.md](LICENSE.md)에 있습니다. 아이콘과 이름은 프로젝트에 남습니다. 포크는 포크임을 밝히면 괜찮습니다.
 
 ## 넘지 않는 선
 
