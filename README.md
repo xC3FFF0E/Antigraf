@@ -17,8 +17,9 @@
 </p>
 
 <p align="center">
-  <b>From the Greek <i>antígrafo</i> (αντίγραφο), a copy that answers the original.</b><br>
-  A skill that studies a source, builds your own version of it,<br>
+  <b>From the Greek <i>antígrafo</i> (αντίγραφο): a copy that answers the original.</b><br>
+  A duplicate, clone or study skill for AI coding agents.<br>
+  It studies a source, builds your own version of it,
   and <b>proves</b> how close it is with commands you can re-run.
 </p>
 
@@ -28,6 +29,7 @@
   <img alt="4 jobs" src="https://img.shields.io/badge/jobs-clone%20%C2%B7%20recreate%20%C2%B7%20improve%20%C2%B7%20study-2d81ff?style=flat-square">
   <img alt="Any model" src="https://img.shields.io/badge/works%20with-any%20model%20%C2%B7%20any%20harness-3a3a3a?style=flat-square">
   <img alt="Proven on 0 real pairs" src="https://img.shields.io/badge/proven%20on-0%20real%20pairs-d69e2e?style=flat-square">
+  <img alt="Antigraf skill" src="https://img.shields.io/badge/skill-antigraf-1f883d?style=flat-square">
 </p>
 
 <p align="center">
@@ -36,6 +38,7 @@
   <a href="#what-sets-it-apart">What sets it apart</a> ·
   <a href="#install">Install</a> ·
   <a href="#how-to-use">How to use</a> ·
+  <a href="#questions-people-ask">Questions</a> ·
   <a href="#honest-status">Status</a> ·
   <a href="#the-line-we-do-not-cross">The line we do not cross</a>
 </p>
@@ -48,6 +51,12 @@ both sides answer the same checks until nothing fails and nothing is unknown.
 
 The point is not to say "it looks the same". The point is to show the row that still differs, and the
 command that shows it.
+
+<b>In plain words:</b> Antigraf is a 1:1 replication skill for AI coding agents. Use it to clone a
+website, copy a web app or game, recreate a design as your own, or study how a site is built, front
+to back. It covers the whole page set, not just the front page: every route, section, control, opened
+state, animation, phone layout, offline behaviour and 3D scene, each compared against the original
+and each holding the 100% lock until it matches.
 
 <br>
 
@@ -125,6 +134,8 @@ model, or one that cannot see images, never lowers a bar. It spends less and say
 | [`skills/antigraf/references/`](skills/antigraf/references) | 12 guides: gates, planning, fidelity, scene, handover, evidence |
 | [`skills/antigraf/scripts/`](skills/antigraf/scripts) | 46 tools: 39 Python, 7 browser, one device list |
 | [`assets/`](assets) | the icon, in 512 and 128 pixels |
+
+Read this page for what it promises. Read the full document for the exact tolerance of every gate.
 
 ## Install
 
@@ -207,6 +218,37 @@ The lock closes at **100%** and only then: every row passing, nothing unknown, n
 unexplained. Until that happens the table says what is open, by gate and by row, for example
 `G5 @1440 hero pad 16 12 -4 +-4`.
 
+## Questions people ask
+
+**Can it copy a whole site, or only the front page?**
+It walks every same-origin link it finds and captures each page at three widths, phones and tablets.
+Anything it did not reach, the pages it never walked and the controls it never pressed, is written
+down as *not explored* and holds the lock. You always see the count: pages found against pages walked.
+
+**Does it hand me the original's source code?**
+No. It measures the original and you build your own copy in your own stack. What ships is your code,
+not a copy of theirs.
+
+**Does it work with a model that cannot see images?**
+Yes. The design is carried as numbers: sizes, colours, spacing, type, tap targets. Pictures are used
+to compare, never to learn from, so a text-only model still builds from measurements.
+
+**What does it refuse to copy?**
+Server-side logic, credentials, session tokens, payments and accounting data. A field shaped like any
+of those stops the run and is written into `HANDOVER.md` instead, so you know what to wire yourself.
+
+**How do I know it really worked?**
+Every gate writes a file with its own exit code, and the closing table is computed from those ledgers.
+A gate that never ran, or answered unknown, scores zero. The model cannot type its own score.
+
+**What kinds of sources does it handle?**
+Websites and multi-page web apps, phone-first apps and PWA behaviour, streaming interfaces with a player,
+shops and catalogues, documentation sites, and 3D scenes including their draw calls, shaders and motion.
+
+**What does it need to run?**
+Python 3.8 or newer with the standard library only, Node 18 or newer for the browser tools, and a
+Chromium browser. No package installs, no account, no key.
+
 ## Honest status
 
 **The measuring half works. The building half has not yet produced a copy that passed every gate.**
@@ -234,5 +276,5 @@ it out. What you build is yours only if what you put in it is yours to put in.
 
 <p align="center">
   <img src="assets/antigraf-128.png" width="36" height="36" alt="Antigraf"><br>
-  <sub>Antigraf. A copy that answers the original.</sub>
+  <sub>Antigraf. Clone it, prove it, or study it.</sub>
 </p>
