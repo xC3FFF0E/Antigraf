@@ -424,7 +424,7 @@ run it with `--fetch <url> --css` so it reads the page and the stylesheet instea
 
 Then the law: **our copy may not use a library or a font the original does not, may not drop one it does use,
 and must pin the same version.** A licence nobody cleared holds the lock until it is cleared or replaced with
-our own. That is what makes "how did they make this 3D so clean?" an answerable question — here, three.js
+our own. That is what makes "how did they make this 3D scene so clean?" an answerable question — here, three.js
 171, MIT, named from its own code — instead of a guess.
 
 ## 7.7 Repair mode — we copy what it does right, and fix what it does wrong

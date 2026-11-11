@@ -3,7 +3,7 @@
 
     python antigraf_logic.py logic/cases.json logic/results.json
 
-The front end is not only what it looks like: it is what it *decides*. A 3D
+The front end is not only what it looks like: it is what it *decides*. A counter
 generator parses a number, clamps it, rounds it, lays out a keychain, and draws
 the same plate every time for the same input. That is logic, and it is copied -
 not the other site's source code, but the behaviour of it, proven case by case.

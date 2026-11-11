@@ -41,7 +41,7 @@ Antigraf needs Python 3.8 or newer and, for the browser tools, Node 18 or newer.
 
 ```bash
 python skills/antigraf/scripts/antigraf_mode.py            # the four jobs
-python skills/antigraf/scripts/antigraf_fixture.py --out a-temp-folder   # a tiny site to practise on
+python skills/antigraf/scripts/antigraf_fixture.py --out /tmp/antigraf-fixture   # a tiny site to practise on
 python skills/antigraf/scripts/antigraf_round.py --original <capture> --copy <capture> --round 1 --plan plan.json
 python skills/antigraf/scripts/antigraf_score.py --proof checks/round-1/proof.json --run run.json
 ```

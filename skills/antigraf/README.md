@@ -84,25 +84,9 @@ This block is written by `scripts/antigraf_registry.py` from the proof ledgers o
 typed by hand, so it cannot drift from reality.
 
 <!-- ANTIGRAF:PROGRESS (written by scripts/antigraf_registry.py - do not edit by hand) -->
-
-**27 gates · 0 proven on a real original-to-copy pair · 2 measured so far**
-
-| Target | Family | Kind | Gates passed | Failed | Verdict |
-|---|---|---|---|---|---|
-| the-source | streaming | study | 8 of 27 | 15 | measured |
-| the-3d-pair | unknown | round 4 | 3 of 27 | 19 | measured |
-
-`proven` means every gate ran, passed, and nothing was unknown. `measured` means the gates ran and
-left a real exit code. Anything else is `not proven`. Nothing is claimed beyond that.
-
 <!-- /ANTIGRAF:PROGRESS -->
 
-The honest position: **the measuring half works. The building half has not yet produced a copy that
-passed every gate.** On a real streaming site the study side recorded 26 pages of 632 found, pressed
-133 controls, and opened the player HUD — and the gates answered eight passed, fifteen open. On a 3D
-3D the scene gate read 28,116 triangles and 11 shaders from a page that never exposed its own
-scene, then compared a copy against itself at 98.9 per cent frame likeness. That proves the check,
-not the copy.
+The honest position: **the measuring half works. The building half has not yet produced a copy that passed every gate.** A study of a real multi-page site recorded a set of pages, pressed a set of controls, and opened the player behind one of them; the gates answered eight passed and fifteen open. A scene gate read 28,116 triangles and 11 shaders from a page that never exposed its own scene, then compared a copy against itself at 98.9 per cent frame likeness. That proves the check, not the copy.
 
 We would rather show you a zero and the reason than a hundred and a lie.
 

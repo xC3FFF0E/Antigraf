@@ -123,7 +123,7 @@ to install, does it open with the network cut, does it keep its footing when the
   "has_manifest": true,
   "has_service_worker": true,
   "manifest": {
-    "name": "the-source", "start_url": "/", "display": "standalone",
+    "name": "The copy", "start_url": "/", "display": "standalone",
     "theme_color": "#0b1020", "background_color": "#0b1020",
     "icons": [{"sizes": "192x192", "purpose": "any"}, {"sizes": "512x512", "purpose": "maskable"}]
   },

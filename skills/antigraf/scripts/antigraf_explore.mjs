@@ -286,7 +286,7 @@ const TRY_CLOSE = () => {
       .replace(/\s+/g, " ").trim().toLowerCase();
     if (!name) continue;
     if (words.some((w) => name === w || name.startsWith(w + " ") || name.includes(w))) {
-      el.setAttribute("data-ag-closer", "1");
+      el.setAttribute("data-antigraf-closer", "1");
       return JSON.stringify({ ok: true, label: name.slice(0, 40) });
     }
   }
@@ -477,7 +477,7 @@ for (const route of routes) {
       const tryClose = JSON.parse(await evaluateQuiet("(" + TRY_CLOSE.toString() + ")()") || "{}");
       if (tryClose && tryClose.ok) {
         closer = tryClose.label;
-        await evaluateQuiet("(() => { const e = document.querySelector('[data-ag-closer]'); if (e) e.click(); return 1; })()");
+        await evaluateQuiet("(() => { const e = document.querySelector('[data-antigraf-closer]'); if (e) e.click(); return 1; })()");
         await sleep(600);
         const gone = JSON.parse(await evaluateQuiet("(" + SNAPSHOT.toString() + ")()") || "{}");
         states.push({

@@ -118,7 +118,7 @@ The scene probe samples the page over time and records, per sample:
 By default the frames are sampled **while the scene is being dragged**: a real
 press, a move and a release across the canvas, before every sample but the first.
 A 3D page whose model only turns under the pointer looks perfectly still to a
-probe that never touches it, and that was the reason a 3D site reported
+probe that never touches it, and that was the reason a 3D page reported
 "nothing moving" on both sides. `--idle` samples without touching the page, for a
 scene whose motion is a timed animation.
 
@@ -155,7 +155,7 @@ node scripts/antigraf_scene.mjs --url https://the-original --out capture/scene.j
      --frames 6 --learn
 
 # our own build
-node scripts/antigraf_scene.mjs --url http://private-target/ --out checks/round-3/scene.json \
+node scripts/antigraf_scene.mjs --url http://localhost:8000/ --out checks/round-3/scene.json \
      --frames 6 --learn
 
 # then, in the round

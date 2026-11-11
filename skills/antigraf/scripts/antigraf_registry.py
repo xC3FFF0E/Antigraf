@@ -121,6 +121,7 @@ URL_RE = re.compile(r"https?://[^\s\"'<>;,)]+")
 # keeps ordinary text like `capture/capture.json` readable.
 WIN_PATH_RE = re.compile(r"[A-Za-z]:[\\/][^\s\"'<>|;,)]*")
 POSIX_PATH_RE = re.compile(r"(?<![A-Za-z0-9_.:-])/[^\s\"'<>|;,)]+")
+SEGMENT_RE = re.compile(r"private-path((?:\\[^\\\s\"'<>|;,)]*)+)")
 # A folder name that survives inside a longer token is still a leak, but the
 # command text of a proof is how someone reproduces the run, so relative paths
 # like `capture/capture.json` stay exactly as they were.
@@ -136,14 +137,17 @@ def scrub(value):
     if isinstance(value, dict):
         # The folder a gate was run from says nothing about the result and
         # everything about whose machine it was, so it is never dated back.
-        return dict((scrub(k), "private-path" if k == "cwd" else scrub(v))
+        return dict((scrub(k), "private-path" if k in ("cwd", "cwd_path", "directory") else scrub(v))
                     for k, v in value.items())
     if isinstance(value, list):
         return [scrub(v) for v in value]
     if isinstance(value, str):
         out = URL_RE.sub("private-target", value)
         out = WIN_PATH_RE.sub("private-path", out)
-        return POSIX_PATH_RE.sub("private-path", out)
+        out = POSIX_PATH_RE.sub("private-path", out)
+        # A cut can still leave the tail of the original path on the line, so
+        # every backslash segment hanging off `private-path` is taken with it.
+        return SEGMENT_RE.sub("private-path", out)
     return value
 
 
