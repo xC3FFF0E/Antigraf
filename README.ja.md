@@ -25,7 +25,7 @@
 
 <p align="center">
   <img alt="27 gates" src="https://img.shields.io/badge/gates-27-2d81ff?style=flat-square">
-  <img alt="48 scripts, no installs" src="https://img.shields.io/badge/scripts-48%2C%20no%20installs-2d81ff?style=flat-square">
+  <img alt="47 scripts, no installs" src="https://img.shields.io/badge/scripts-47%2C%20no%20installs-2d81ff?style=flat-square">
   <img alt="4 jobs" src="https://img.shields.io/badge/jobs-clone%20%C2%B7%20recreate%20%C2%B7%20improve%20%C2%B7%20study-2d81ff?style=flat-square">
   <img alt="Any model" src="https://img.shields.io/badge/works%20with-any%20model%20%C2%B7%20any%20harness-3a3a3a?style=flat-square">
 
@@ -229,20 +229,20 @@ Python 3.8 以上（標準ライブラリのみ）、ブラウザ用の道具に
 
 <!-- ANTIGRAF:SCORE (written by scripts/antigraf_registry.py - do not edit by hand) -->
 
-**Measured: 94.8% out of 100 - the three-page test pair (round 7)**
+**Measured: 100.0% out of 100 - the three-page test pair (round 8)**
 
 | Area | Score | Passing | Failing | Not measured | What holds it down |
 |---|---|---|---|---|---|
 | Words & layout | 100% | 3 | 0 | 0 | - |
 | Design, icons | 100% | 2 | 0 | 0 | - |
-| Behaviour, flows | 80% | 4 | 1 | 0 | failing: G24 |
+| Behaviour, flows | 100% | 5 | 0 | 0 | - |
 | Phone & PWA | 100% | 2 | 0 | 0 | - |
 | Motion & 3D | 100% | 3 | 0 | 0 | - |
 | Media & speed | 100% | 2 | 0 | 0 | - |
 | Accessibility | 100% | 1 | 0 | 0 | - |
 | Sources, repairs | 100% | 4 | 0 | 0 | - |
-| Evidence, proof, pages | 80% | 4 | 1 | 0 | failing: G12 |
-| **Total** | **94.8%** | 25 | 2 | 0 | 2 gate(s) not passing |
+| Evidence, proof, pages | 100% | 5 | 0 | 0 | - |
+| **Total** | **100.0%** | 27 | 0 | 0 | 0 gate(s) not passing |
 
 The lock needs 100%: every gate passing, nothing unknown. A gate that never ran counts as zero, not as a pass.
 
@@ -252,28 +252,28 @@ The lock needs 100%: every gate passing, nothing unknown. A gate that never ran 
 
 <!-- ANTIGRAF:PROGRESS (written by scripts/antigraf_registry.py - do not edit by hand) -->
 
-**27 gates  ·  0 proven on a real original-to-copy pair  ·  1 measured so far**
+**27 gates  ·  1 proven on a real original-to-copy pair  ·  0 measured so far**
 
 | What the gates check | Gates | State | Where it was measured |
 |---|---|---|---|
-| Look: sections, words, colours, spacing | G2, G3, G4, G5 | measured | the three-page test pair round 7 |
-| Icons and pictures, one partner each | G8, G17 | measured | the three-page test pair round 7 |
-| Every page walked, planned and shipped | G11 | measured | the three-page test pair round 7 |
-| Behaviour: pressed, and the same result | G7, G23, G24 | measured | the three-page test pair round 7 |
-| States: hover, focus, open, empty, error | G6 | measured | the three-page test pair round 7 |
-| Motion: durations, easings, scroll | G13 | measured | the three-page test pair round 7 |
-| Phone, install and offline (PWA) | G9, G14, G18 | measured | the three-page test pair round 7 |
-| Speed and weight budgets | G15 | measured | the three-page test pair round 7 |
-| Logic: same input, same answer, no secrets | G19 | measured | the three-page test pair round 7 |
-| Defects found, and the copy repaired | G20, G21 | measured | the three-page test pair round 7 |
-| 3D scene read as numbers | G25 | measured | the three-page test pair round 7 |
-| 3D motion compared frame by frame | G26 | measured | the three-page test pair round 7 |
-| Server seams listed for you to hook up | G16 | measured | the three-page test pair round 7 |
-| Evidence, proof and a frozen plan | G0, G1, G10, G12 | measured | the three-page test pair round 7 |
+| Look: sections, words, colours, spacing | G2, G3, G4, G5 | proven | the three-page test pair round 8 |
+| Icons and pictures, one partner each | G8, G17 | proven | the three-page test pair round 8 |
+| Every page walked, planned and shipped | G11 | proven | the three-page test pair round 8 |
+| Behaviour: pressed, and the same result | G7, G23, G24 | proven | the three-page test pair round 8 |
+| States: hover, focus, open, empty, error | G6 | proven | the three-page test pair round 8 |
+| Motion: durations, easings, scroll | G13 | proven | the three-page test pair round 8 |
+| Phone, install and offline (PWA) | G9, G14, G18 | proven | the three-page test pair round 8 |
+| Speed and weight budgets | G15 | proven | the three-page test pair round 8 |
+| Logic: same input, same answer, no secrets | G19 | proven | the three-page test pair round 8 |
+| Defects found, and the copy repaired | G20, G21 | proven | the three-page test pair round 8 |
+| 3D scene read as numbers | G25 | proven | the three-page test pair round 8 |
+| 3D motion compared frame by frame | G26 | proven | the three-page test pair round 8 |
+| Server seams listed for you to hook up | G16 | proven | the three-page test pair round 8 |
+| Evidence, proof and a frozen plan | G0, G1, G10, G12 | proven | the three-page test pair round 8 |
 
 | Target | Family | Kind | Gates passed | Failed | Unknown | Verdict |
 |---|---|---|---|---|---|---|
-| the three-page test pair | unknown | round 7 | 25 of 27 | 2 | 0 | measured |
+| the three-page test pair | unknown | round 8 | 27 of 27 | 0 | 0 | proven |
 
 `proven` means every gate ran, passed, and nothing was unknown. `measured` means the gates ran and left a real exit code. Anything else is `not proven`, and is not being claimed.
 

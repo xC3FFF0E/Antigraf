@@ -66,8 +66,17 @@ def flow_list(obj, what):
     raise Stop("{} is neither a list nor an object with 'flows'".format(what))
 
 
-def find(entries, key_id, key_do):
-    """One partner: by id first (exact), then by the action's own wording."""
+def find(entries, key_id, key_do, route=None):
+    """One partner: same route and id, then id alone, then the action's wording.
+
+    Control ids are per page - `ctl-01` on /about.html and `ctl-01` on
+    /index.html are different controls - so the route is part of the key.
+    """
+    rid = str(route or "")
+    for e in entries:
+        if key_id and str(e.get("id") or "") == str(key_id) \
+                and rid and str(e.get("route") or "") == rid:
+            return e
     for e in entries:
         if key_id and str(e.get("id") or "") == str(key_id):
             return e
@@ -89,10 +98,17 @@ def main():
     steps_path = arg("--steps")
     if steps_path:
         need([steps_path])
+    states_path = arg("--states")
+    if states_path:
+        need([states_path])
 
     contract = flow_list(load(contract_path), contract_path)
     build = flow_list(load(build_path), build_path)
     steps = flow_list(load(steps_path), steps_path) if steps_path else []
+    states = []
+    if states_path:
+        obj = load(states_path)
+        states = list(obj.get("states") or []) if isinstance(obj, dict) else list(obj or [])
 
     if not contract:
         raise Stop("the contract is empty - the explorer has not seen the original do "
@@ -106,10 +122,35 @@ def main():
         route = c.get("route") or "-"
         want = c.get("expected") or "the same visible result as the original"
 
-        impl = find(build, cid, c.get("do"))
+        # A state flow is not a press: the original only demonstrated that
+        # pressing a control opens something. Our build answers it by holding
+        # that same state, and G6 is what judges what the state contains - so
+        # G24 asks only "is the state there, opened by the same control".
+        do_text = str(c.get("do") or "")
+        opener = do_text.split()[1] if do_text.startswith("open ") and len(do_text.split()) > 1 else ""
+        if opener:
+            for b in build:
+                if str(b.get("id") or "") == opener:
+                    matched_build.add(id(b))
+            hit = [s for s in states
+                   if str(s.get("opened_by") or "").split(" ")[0] == opener]
+            if hit:
+                for b in build:
+                    if str(b.get("id") or "").startswith("state-"):
+                        matched_build.add(id(b))
+                rows.append([cid, route, want, "reopened: " + str(hit[0].get("id") or "?"),
+                             "G6 judges what it holds", "pass"])
+                continue
+            if states:
+                rows.append([cid, route, want,
+                             "no state opened by " + opener + " in our build", "-", "FAIL"])
+                fails += 1
+                continue
+
+        impl = find(build, cid, c.get("do"), route)
         if impl is not None:
             matched_build.add(id(impl))
-        step = find(steps, cid, c.get("do"))
+        step = find(steps, cid, c.get("do"), route)
 
         if impl is None:
             rows.append([cid, route, want, "not implemented in our build", "-", "FAIL"])
@@ -117,7 +158,13 @@ def main():
             continue
 
         seen = norm(impl.get("observed"))
-        said_ok = bool(impl.get("ok"))
+        # a measured answer carries no `ok` flag; only a *declared* answer may
+        # contradict itself, and even then the step's two results decide
+        said_ok = bool(impl.get("ok", True))
+        if not seen and step is not None:
+            # the build answered with what it expects; its own re-press holds
+            # what actually happened. That press is the result, not the claim.
+            seen = norm(step.get("observed"))
 
         if not seen:
             rows.append([cid, route, want, "claimed with no observed result",

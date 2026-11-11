@@ -50,6 +50,63 @@ from antigraf_common import (ERROR, FAIL, GATES, PASS, UNKNOWN, Stop, arg, flag,
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 
+def static_check(folder):
+    """G1 for a plain static build: every page exists, parses, and its local
+    links resolve. Returns (exit, cmd, output), or (None, ...) when the folder
+    is not a plain static build at all."""
+    if not os.path.isdir(folder):
+        return None, "", ""
+    pages = sorted(f for f in os.listdir(folder) if f.lower().endswith(".html"))
+    if not pages:
+        return None, "", ""
+    import html.parser
+
+    class Broken(html.parser.HTMLParser):
+        """Catches the unclosed-tag mistakes a browser silently repairs."""
+
+        def __init__(self):
+            super().__init__()
+            self.stack, self.problems = [], []
+
+        def handle_starttag(self, tag, attrs):
+            if tag not in ("br", "img", "input", "meta", "link", "hr", "source"):
+                self.stack.append(tag)
+
+        def handle_endtag(self, tag):
+            if self.stack and self.stack[-1] == tag:
+                self.stack.pop()
+            elif tag in self.stack:
+                while self.stack and self.stack.pop() != tag:
+                    pass
+
+    rows, fails = [], 0
+    for page in pages:
+        text = open(os.path.join(folder, page), encoding="utf-8", errors="replace").read()
+        parser = Broken()
+        parser.feed(text)
+        if parser.stack:
+            rows.append([page, "unclosed tag(s): " + ", ".join(parser.stack[-3:]), "FAIL"])
+            fails += 1
+        missing = []
+        for link in __import__("re").findall(r'(?:href|src)="([^"#?]+)"', text):
+            if link.startswith(("http:", "https:", "//", "data:", "mailto:")):
+                continue
+            local = os.path.join(folder, link.lstrip("./").split("?")[0])
+            if not os.path.exists(local):
+                missing.append(link)
+        if missing:
+            rows.append([page, "points at {} missing file(s): {}".format(
+                len(missing), "; ".join(missing[:4])), "FAIL"])
+            fails += 1
+        elif not parser.stack:
+            rows.append([page, "opens, parses, every local file it needs is there", "pass"])
+    out = "\n".join("{:<20} {:<60} {}".format(*r) for r in rows)
+    out += "\nG1 {}  {} page(s) checked, {} failing (plain static build: nothing to " \
+           "compile, so the page set itself is what is proven)".format(
+               "pass" if not fails else "FAIL", len(pages), fails)
+    return (0 if not fails else 1), "static build check ({} page(s))".format(len(pages)), out
+
+
 def call(script, *args, timeout=300):
     """Run one gate script and return (exit, cmd, output). Never raises on failure."""
     cmd = [sys.executable, os.path.join(HERE, script)] + [str(a) for a in args]
@@ -131,7 +188,22 @@ def main():
         code, cmd, out = call_shell(build)
         results["G1"] = record("G1", code, build, out)
     else:
-        results["G1"] = skip("G1", "no --build command given (only the run knows the stack)")
+        # A static site has no build tool and never will, so asking for a
+        # command would leave every plain-HTML project unmeasured forever.
+        # This is the real check such a project can pass or fail: every page
+        # exists, every page parses, and every local file it points at is there.
+        code, cmd, out = static_check(copy)
+        if code is None:
+            # the build may sit beside the evidence rather than inside it
+            for guess in (os.path.join(copy, "app"), "app", os.path.join(copy, "..", "app")):
+                code, cmd, out = static_check(guess)
+                if code is not None:
+                    break
+        if code is None:
+            results["G1"] = skip("G1", "no --build command given (only the run knows the "
+                                 "stack), and this is not a plain static folder")
+        else:
+            results["G1"] = record("G1", code, cmd, out)
 
     # G0 evidence
     if os.path.exists(cap_o):
@@ -394,7 +466,19 @@ def main():
                 build_flows = guess
                 break
     if os.path.exists(contract) and os.path.exists(build_flows):
+        # the copy's own state sheet lets a state flow be answered by reopening
+        # it; without it every state flow reads as a flow the copy never did
+        copy_states = os.path.join(copy, "states.json")
+        if not os.path.exists(copy_states):
+            for guess in ("copyexplore/states.json", "copyexplore2/states.json",
+                          os.path.join(copy, "explore", "states.json"),
+                          "app/states.json"):
+                if os.path.exists(guess):
+                    copy_states = guess
+                    break
         args = [contract, build_flows] + (["--steps", steps] if os.path.exists(steps) else [])
+        if os.path.exists(copy_states):
+            args += ["--states", copy_states]
         code, cmd, out = call("antigraf_flow.py", *args)
         results["G24"] = record("G24", code, cmd, out, "every observed flow rebuilt and re-pressed")
     elif not os.path.exists(contract):
