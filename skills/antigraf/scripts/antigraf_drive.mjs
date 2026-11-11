@@ -39,7 +39,7 @@ const PROFILE = argOf("profile", "web-default");
 const WIDTHS = argOf("widths", "1440,768,390").split(",").map((s) => parseInt(s.trim(), 10)).filter(Boolean);
 const PORT = parseInt(argOf("cdp", "9333"), 10);
 const NO_LAUNCH = has("no-launch");
-const MAX_ROUTES = parseInt(argOf("max-routes", "12"), 10);
+const MAX_ROUTES = parseInt(argOf("max-routes", "40"), 10);
 const NO_ROUTES = has("no-routes");
 
 if (!TARGET || !OUT) {
@@ -49,6 +49,55 @@ if (!TARGET || !OUT) {
 
 fs.mkdirSync(OUT, { recursive: true });
 fs.mkdirSync(path.join(OUT, "shots"), { recursive: true });
+
+// ---------------------------------------------------------------- salvage
+//
+// A walk that dies halfway still measured something. If the run crashes before
+// the top-level files are written, the per-width files are merged into
+// capture.json and inventory.json and marked partial, so the gates read what was
+// really measured instead of reporting "no capture".
+let finished = false;
+const salvage = (why) => {
+  if (finished) return;
+  finished = true;
+  try {
+    const caps = fs.readdirSync(OUT).filter((f) => /^capture-\d+\.json$/.test(f)).sort();
+    if (!caps.length) { console.error("antigraf: walk stopped before any width was measured - " + why); return; }
+    if (!fs.existsSync(path.join(OUT, "capture.json"))) {
+      const main = JSON.parse(fs.readFileSync(path.join(OUT, caps[0]), "utf8"));
+      main.partial = true;
+      main.partial_reason = String(why).slice(0, 300);
+      main.widths = caps.map((f) => parseInt(f.match(/\d+/)[0], 10));
+      fs.writeFileSync(path.join(OUT, "capture.json"), JSON.stringify(main, null, 2));
+    }
+    if (!fs.existsSync(path.join(OUT, "inventory.json"))) {
+      const merged = { version: 1, target: TARGET, how: "browser walk (partial)", partial: true,
+        routes: [], sections: [], controls: [], states: [], media: [], shortcuts: [], words: [], icons: [], tabs: [] };
+      const seenK = new Set();
+      for (const f of fs.readdirSync(OUT).filter((x) => /^inventory-\d+\.json$/.test(x))) {
+        const inv = JSON.parse(fs.readFileSync(path.join(OUT, f), "utf8"));
+        for (const key of Object.keys(merged)) {
+          if (!Array.isArray(inv[key])) continue;
+          for (const item of inv[key]) {
+            const k = key + JSON.stringify(item).replace(/"src":"measured"/g, "");
+            if (seenK.has(k)) continue;
+            seenK.add(k);
+            merged[key].push(item);
+          }
+        }
+      }
+      fs.writeFileSync(path.join(OUT, "inventory.json"), JSON.stringify(merged, null, 2));
+    }
+    console.error(`antigraf: walk stopped early (${why}) - saved a PARTIAL capture from ${caps.length} width file(s)`);
+  } catch (e) {
+    console.error("antigraf: salvage failed - " + ((e && e.message) || e));
+  }
+};
+process.on("uncaughtException", (e) => { salvage((e && e.message) || e); process.exit(1); });
+process.on("unhandledRejection", (e) => { salvage((e && e.message) || e); process.exit(1); });
+process.on("SIGINT", () => { salvage("stopped by the person"); process.exit(130); });
+process.on("SIGTERM", () => { salvage("stopped"); process.exit(143); });
+process.on("exit", (code) => { if (!finished) salvage("exited with code " + code + " before the walk finished"); });
 
 const collectSrc = fs.readFileSync(path.join(HERE, "antigraf_collect.js"), "utf8");
 const probeSrc = fs.readFileSync(path.join(HERE, "antigraf_probe.js"), "utf8");
@@ -240,6 +289,23 @@ const pages = [{
   capture: "capture.json", inventory: "inventory.json",
   shots: report.widths.map((r) => r.shot), error: null, src: "measured",
 }];
+// Pages of the same kind (/movie/123, /movie/456) share one template. The walker
+// takes one page of every kind before a second of any kind, so a page budget
+// covers the shape of the site instead of the first long list it meets.
+const templateOf = (p) => normPath(p).split("/").map((s) =>
+  (/\d/.test(s) || s.length > 24) ? "*" : s).join("/");
+const templateWalked = new Map();
+const takeNext = () => {
+  let best = 0, bestN = Infinity;
+  for (let i = 0; i < queue.length; i++) {
+    const n = templateWalked.get(templateOf(queue[i].path)) || 0;
+    if (n < bestN) { best = i; bestN = n; if (n === 0) break; }
+  }
+  const [it] = queue.splice(best, 1);
+  const t = templateOf(it.path);
+  templateWalked.set(t, (templateWalked.get(t) || 0) + 1);
+  return it;
+};
 const queued = new Set([normPath(startPath)]);
 const queue = [];
 const addLinks = (inv, via) => {
@@ -258,7 +324,7 @@ if (!NO_ROUTES) {
   }
 
   while (queue.length && pages.filter((p) => p.walked).length <= MAX_ROUTES) {
-    const next = queue.shift();
+    const next = takeNext();
     if (pages.some((p) => normPath(p.path) === normPath(next.path))) continue;
     const slug = slugOf(next.path);
     const dir = path.join(OUT, "routes", slug);
@@ -334,6 +400,8 @@ if (!NO_ROUTES) {
   for (const left of queue) {
     pages.push({
       path: left.path, slug: slugOf(left.path), via: left.via, walked: false,
+      template: templateOf(left.path),
+      template_walked: (templateWalked.get(templateOf(left.path)) || 0) > 0,
       widths: WIDTHS, url: null, capture: null, inventory: null, shots: [],
       error: `not walked: the --max-routes cap (${MAX_ROUTES}) was reached`,
       src: "measured",
@@ -466,5 +534,6 @@ fs.writeFileSync(path.join(OUT, "study-summary.json"), JSON.stringify(report, nu
 
 console.log(`done: ${report.widths.length} widths, ${report.devices.length} devices, ` +
   `files in ${OUT}: ${fs.readdirSync(OUT).filter((f) => f.endsWith(".json")).length}`);
+finished = true;
 
 await page.close();

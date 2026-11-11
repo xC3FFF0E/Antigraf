@@ -56,6 +56,7 @@ def main():
 
     checked = sum(by_status.get(s, 0) for s in ("pass", "waived"))
     total = len(units)
+    gate_pct = None
 
     if proof_path:
         need([proof_path])
@@ -63,6 +64,8 @@ def main():
         gates_ok = {e.get("gate") for e in entries
                     if e.get("exit") == 0 and str(e.get("cmd") or "").strip()}
         all_gates = set(GATES)
+        gate_pct = 100.0 * len(gates_ok & all_gates) / len(all_gates)
+        print("gates  {} of {} passing ({:.1f}%)".format(len(gates_ok & all_gates), len(all_gates), gate_pct))
         for g in sorted(all_gates - gates_ok):
             holds.append("gate {} has no passing proof entry".format(g))
     else:
@@ -144,8 +147,10 @@ def main():
             print("  - " + h)
         if len(holds) > 30:
             print("  ... and {} more".format(len(holds) - 30))
-        print("\nThis is {}% complete, not locked. Say which of these you want fixed next; "
-              "the worst one first.".format(int(pct)))
+        shown = gate_pct if gate_pct is not None else pct
+        what = "of the gates pass" if gate_pct is not None else "of the plan rows are settled"
+        print("\nThis is {:.1f}% complete ({}; plan rows {:.1f}%), not locked. Say which of these "
+              "you want fixed next; the worst one first.".format(shown, what, pct))
         return FAIL
     print("Nothing fails, nothing is unknown, everything found is covered, "
           "and every remaining difference is signed by the person.")

@@ -110,6 +110,15 @@ FAMILIES = {
         "seam": ("availability", "book", "reserve", "calendar"),
         "want": ["pick_dates", "read_availability", "read_price"],
     },
+    "studio3d": {
+        "label": ("3d", "3d model", "stl", "3mf", "obj", "glb", "export", "extrude",
+                  "mesh", "exploded", "assembled", "rotate", "orbit", "wireframe",
+                  "layer height", "relief", "cut it open", "plate"),
+        "route": ("generator", "editor", "studio", "3d", "model", "configurator"),
+        "media": ("canvas", "webgl"),
+        "seam": (".glb", ".gltf", ".stl", ".3mf", ".wasm", "manifold", "three"),
+        "want": ["rotate_view", "change_parameter", "export_model", "read_model"],
+    },
     "map": {
         "label": ("map", "location", "directions", "nearby", "markers", "address",
                   "distance", "route"),
@@ -121,6 +130,16 @@ FAMILIES = {
 }
 
 WEIGHT = {"route": 3, "label": 2, "media": 2, "seam": 1, "form": 1}
+
+# Route, media and seam hits are the shape of the site; a label is only a word on
+# it. A family held up by words alone ("Buy me a coffee", "Colors") must not beat
+# a family the structure points at, so structural families are ranked first.
+STRUCTURAL = ("route", "media", "seam")
+
+# Phrases that contain a family word but say nothing about the site's kind:
+# a tip jar is not a shop, a licence upsell is not a checkout.
+NOISE_PHRASES = ("buy me a coffee", "ko-fi", "patreon", "donate", "sponsor",
+                 "commercial license", "commercial licence", "cookie", "privacy")
 
 ROUTE_SEGMENTS_MANY = 40  # a site this wide is a catalogue of something
 
@@ -144,6 +163,8 @@ def score_family(name, spec, buckets):
             continue
         for item in buckets.get(kind, []):
             field = text_of(item)
+            if kind == "label" and any(p in field for p in NOISE_PHRASES):
+                continue
             for w in words:
                 # A short word like "u" or "ts" is a whole word or nothing: plain
                 # substring matching let "u" fire on /about.html and misread a
@@ -179,7 +200,10 @@ def main():
                   for r in (inv.get("routes") or [])],
         "label": [{"label": c.get("label"), "role": c.get("role"), "src": "measured"}
                   for c in (inv.get("controls") or [])],
-        "media": [{"tag": m.get("tag"), "src": "measured"} for m in (inv.get("media") or [])],
+        # the walker records an element's kind as `role` (img, canvas, svg, video);
+        # older captures used `tag` - reading only `tag` hid every canvas
+        "media": [{"tag": (m.get("tag") or m.get("role") or "").lower(), "src": "measured"}
+                  for m in (inv.get("media") or [])],
         "form": [{"label": f.get("action"), "src": "measured"} for f in (cap.get("forms") or [])],
         "seam": [{"path": s.get("path"), "src": "measured"} for s in seams
                  if isinstance(s, dict)],
@@ -190,9 +214,13 @@ def main():
     scored = []
     for name, spec in FAMILIES.items():
         points, hits = score_family(name, spec, buckets)
+        structural = sum(1 for h in hits if h["kind"] in STRUCTURAL)
         scored.append({"family": name, "score": points, "evidence": hits,
-                       "want": spec["want"], "src": "inferred"})
-    scored.sort(key=lambda r: (-r["score"], r["family"]))
+                       "structural": structural, "want": spec["want"], "src": "inferred"})
+    scored.sort(key=lambda r: (-(1 if r["structural"] else 0), -r["score"], r["family"]))
+    # a structural family with a trivial score must not hide a strong word-only one
+    if len(scored) > 1 and scored[0]["score"] < 3:
+        scored.sort(key=lambda r: (-r["score"], r["family"]))
 
     min_score = int(arg("--min-score", "3"))
     top = scored[0] if scored and scored[0]["score"] >= min_score else None
@@ -248,6 +276,8 @@ def main():
             "price": chosen in ("commerce", "booking"),
             "filters": chosen in ("catalog", "dashboard", "commerce"),
             "validation": chosen == "auth",
+            # a 3D tool is judged by the model it exports, not only by pixels
+            "solid_model": chosen == "studio3d",
             "src": "inferred",
         },
     }
