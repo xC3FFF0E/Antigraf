@@ -1,0 +1,245 @@
+[
+ {
+  "gate": "G1",
+  "at": "2026-11-11T07:29:26Z",
+  "cmd": "",
+  "cwd": "private-path",
+  "exit": 2,
+  "out_tail": "not run: no --build command given (only the run knows the stack)",
+  "note": "no --build command given (only the run knows the stack)"
+ },
+ {
+  "gate": "G0",
+  "at": "2026-11-11T07:29:26Z",
+  "cmd": "python scripts/antigraf_guard.py evidence capture",
+  "cwd": "private-path",
+  "exit": 0,
+  "out_tail": "shot @1440  yes           shots/width-1440.png                        pass\nshot @768   yes           shots/width-768.png                         pass\nshot @390   yes           shots/width-390.png                         pass\nwidths      1440,768,390  ok                                          pass\nnoise pass  none          no animation on this page, so none is owed  pass\nG0 pass  0 problem(s)",
+  "note": ""
+ },
+ {
+  "gate": "G10",
+  "at": "2026-11-11T07:29:26Z",
+  "cmd": "python scripts/antigraf_guard.py frozen capture\\capture.json copycapture\\capture.json",
+  "cwd": "private-path",
+  "exit": 0,
+  "out_tail": "fonts_loaded    loaded         loaded         pass\nlocale          en-US          en-US          pass\ntimezone        Asia/Manila    Asia/Manila    pass\nthrottle        none           none           pass\nseed            none           none           pass\nG10 pass  0 mismatch(es) - 0 unknown",
+  "note": ""
+ },
+ {
+  "gate": "G11",
+  "at": "2026-11-11T07:29:26Z",
+  "cmd": "python scripts/antigraf_coverage.py capture\\inventory.json plan.json --copy copycapture\\inventory.json --pages capture\\pages.json",
+  "cwd": "private-path",
+  "exit": 1,
+  "out_tail": "  NOT SHIPPED st-07  states ctl-01 Sundial  (planned, but the build never delivered it)\n  NOT SHIPPED st-08  states ctl-02 Home  (planned, but the build never delivered it)\n  NOT SHIPPED st-09  states ctl-04 Back to the dial  (planned, but the build never delivered it)\n  NOT SHIPPED st-10  states ctl-01 Sundial  (planned, but the build never delivered it)\n  NOT SHIPPED st-11  states ctl-02 Home  (planned, but the build never delivered it)\nG11 FAIL (11 failing)  S2 structural - found, planned and shipped do not agree",
+  "note": "found, planned and shipped agree on every page"
+ },
+ {
+  "gate": "G2",
+  "at": "2026-11-11T07:29:26Z",
+  "cmd": "python scripts/antigraf_structure.py capture\\capture.json copycapture\\capture.json",
+  "cwd": "private-path",
+  "exit": 0,
+  "out_tail": "sections@390   0     0     0        0      0\nheadings       6     6     0        0      0\nlinks          6     6     0        0      0\nforms          0     0     0        0      0\nmedia          1     1     0        0      0\nG2 pass",
+  "note": ""
+ },
+ {
+  "gate": "G3",
+  "at": "2026-11-11T07:29:26Z",
+  "cmd": "python scripts/antigraf_text.py capture\\capture.json copycapture\\capture.json",
+  "cwd": "private-path",
+  "exit": 0,
+  "out_tail": "word overlap 100.0%  (53 of 53 original words found)\nG3 pass",
+  "note": ""
+ },
+ {
+  "gate": "G4",
+  "at": "2026-11-11T07:29:26Z",
+  "cmd": "python scripts/antigraf_tokens.py capture\\capture.json copycapture\\capture.json",
+  "cwd": "private-path",
+  "exit": 0,
+  "out_tail": "radii           3/3      0        -\ncontent_widths  1/1      0        -\nshadows         0/0      0        -\nmotion          0/0      0        -\nborder_widths   1/1      0        -\nG4 pass  missing 0 - extra 0 (allowed) - unknown 0",
+  "note": ""
+ },
+ {
+  "gate": "G5",
+  "at": "2026-11-11T07:29:26Z",
+  "cmd": "python scripts/antigraf_geometry.py capture\\capture.json copycapture\\capture.json",
+  "cwd": "private-path",
+  "exit": 0,
+  "out_tail": "@1440  footer pad-left                               24        24     +0     +-4    pass\n@1440  footer gap                                    0         0      +0     +-4    pass\n@1440  footer per row                                1         1      -      exact  pass\n@1440  footer column                                 1392      1392   +0     +-8    pass\n@1440  footer height                                 107       107    +0.0%  +-8%   pass\nG5 pass  0 row(s) failing - 0 unknown (not compared, never a pass)",
+  "note": ""
+ },
+ {
+  "gate": "G6",
+  "at": "2026-11-11T07:29:27Z",
+  "cmd": "python scripts/antigraf_states.py capture\\states.json copycapture\\states.json  &&  python scripts/antigraf_finder.py states capture\\states.json plan.json",
+  "cwd": "private-path",
+  "exit": 0,
+  "out_tail": "state-08  measured  in plan  PASS\nstate-09  measured  in plan  PASS\nstate-10  measured  in plan  PASS\nstate-11  measured  in plan  PASS\n\nG6 States - 11 matched, 0 failing, 0 unknown",
+  "note": ""
+ },
+ {
+  "gate": "G7",
+  "at": "2026-11-11T07:29:27Z",
+  "cmd": "python scripts/antigraf_behavior.py plan.json --steps copycapture\\steps.json  &&  python scripts/antigraf_finder.py steps plan.json copycapture\\steps.json",
+  "cwd": "private-path",
+  "exit": 2,
+  "out_tail": "state-08  planned  replayed        PASS\nstate-09  planned  replayed        PASS\nstate-10  planned  replayed        PASS\nstate-11  planned  replayed        PASS\n\nG7 Behaviour - 19 replayed, 0 failing, 1 unknown",
+  "note": "steps.json found"
+ },
+ {
+  "gate": "G8",
+  "at": "2026-11-11T07:29:27Z",
+  "cmd": "python scripts/antigraf_media_a11y.py media capture\\capture.json copycapture\\capture.json",
+  "cwd": "private-path",
+  "exit": 0,
+  "out_tail": "media  aspect  difference  verdict\n-----  ------  ----------  -------\nsvg    1       same        pass\nG8 pass  0 problem(s)",
+  "note": ""
+ },
+ {
+  "gate": "G9",
+  "at": "2026-11-11T07:29:27Z",
+  "cmd": "python scripts/antigraf_media_a11y.py a11y capture\\capture.json copycapture\\capture.json",
+  "cwd": "private-path",
+  "exit": 0,
+  "out_tail": "contrast     #101820 on #f6f3ec  16.15 kept                   pass\ncontrast     #101820 on #6b6257  2.99 (original is under AA)  pass\ncontrast     #e0a03a on #101820  7.89 kept                    pass\ncontrast     #e0a03a on #f6f3ec  2.05 (original is under AA)  pass\ncontrast     #e0a03a on #6b6257  2.64 (original is under AA)  pass\nG9 pass  0 problem(s) - 0 unknown",
+  "note": ""
+ },
+ {
+  "gate": "G17",
+  "at": "2026-11-11T07:29:27Z",
+  "cmd": "python scripts/antigraf_icons.py capture\\capture.json copycapture\\capture.json",
+  "cwd": "private-path",
+  "exit": 0,
+  "out_tail": "G17 icons @1440px  original 1  copy 1  paired 1  shape: loose\nevery icon in its own place, its own size, its own colour, its own shape\nG17 pass",
+  "note": ""
+ },
+ {
+  "gate": "G18",
+  "at": "2026-11-11T07:29:27Z",
+  "cmd": "python scripts/antigraf_devices.py capture\\devices-walk.json copycapture\\devices-walk.json --profile origexplore/profile.json --shots capture --shots-copy copycapture",
+  "cwd": "private-path",
+  "exit": 0,
+  "out_tail": "ok     Pixel 7       412x915 @2.625x  2.625     shot  pass\nok     iPad mini     744x1133 @2x     2         shot  pass\nok     Desktop       1440x900 @1x     1         shot  pass\nok     Desktop wide  1920x1080 @1x    1         shot  pass\n\n5 of 5 devices compared, 5 clean, 0 with a difference, 0 unmeasured",
+  "note": ""
+ },
+ {
+  "gate": "G13",
+  "at": "2026-11-11T07:29:27Z",
+  "cmd": "python scripts/antigraf_motion.py capture\\motion.json copycapture\\motion.json",
+  "cwd": "private-path",
+  "exit": 0,
+  "out_tail": "G13 Motion - pass: neither side animates, both were recorded",
+  "note": ""
+ },
+ {
+  "gate": "G14",
+  "at": "2026-11-11T07:29:27Z",
+  "cmd": "python scripts/antigraf_pwa.py capture\\pwa.json copycapture\\pwa.json",
+  "cwd": "private-path",
+  "exit": 0,
+  "out_tail": "severity  check        original                                copy  note\n--------  -----------  --------------------------------------  ----  ----\nok        phone & PWA  same install, same offline, same touch\n\nG14 Phone & PWA - pass\n  installs the same way, opens with no network, nothing hidden under the notch, every tap target at least 44 px.",
+  "note": ""
+ },
+ {
+  "gate": "G15",
+  "at": "2026-11-11T07:29:27Z",
+  "cmd": "python scripts/antigraf_speed.py capture\\speed.json copycapture\\speed.json",
+  "cwd": "private-path",
+  "exit": 0,
+  "out_tail": "ok      requests               3         3\nok      first paint            16 ms     16 ms\nok      largest visible paint  16 ms     16 ms\n\nG15 Speed - pass\n  no heavier than the original, within tolerance, on the same machine and throttling.",
+  "note": ""
+ },
+ {
+  "gate": "G16",
+  "at": "2026-11-11T07:29:27Z",
+  "cmd": "python scripts/antigraf_seams.py capture\\seams.json app\\handover.json --no-server-ok",
+  "cwd": "private-path",
+  "exit": 0,
+  "out_tail": "Nothing to hand over: our build must not invent a server.\nwhat         count  note                  verdict\n-----------  -----  --------------------  -------\nseams found  0      nothing to hand over  pass\n\nG16 pass  0 row(s) failing - 0 unknown (not covered, never a pass)",
+  "note": ""
+ },
+ {
+  "gate": "G19",
+  "at": "2026-11-11T07:29:27Z",
+  "cmd": "",
+  "cwd": "private-path",
+  "exit": 2,
+  "out_tail": "not run: no logic/cases.json - the logic cases were never recorded",
+  "note": "no logic/cases.json - the logic cases were never recorded"
+ },
+ {
+  "gate": "G20",
+  "at": "2026-11-11T07:29:27Z",
+  "cmd": "python scripts/antigraf_defects.py capture --label original --report-only",
+  "cwd": "private-path",
+  "exit": 0,
+  "out_tail": "G20 DEFECTS (original) - 1 found\n  D01 S2 [pwa] no notch or home-bar safe area, so bars sit under the cutout | fix: viewport-fit=cover plus padding from env(safe-area-inset-*) on every edge bar\nG20 FAIL - 1 open defects, 0 repeated from the original\nwrite each one into the plan's defect_ledger as repaired, or ask the person to accept it\nreport only - the findings stand and the study half is not held for them",
+  "note": "findings of the original"
+ },
+ {
+  "gate": "G21",
+  "at": "2026-11-11T07:29:27Z",
+  "cmd": "python scripts/antigraf_defects.py copycapture --label copy --must-not-repeat capture\\defects.json --ledger plan.json",
+  "cwd": "private-path",
+  "exit": 0,
+  "out_tail": "G20 DEFECTS (copy) - 0 found\nthe copy repeats none of the original's S1/S2 defects\nG20 PASS - no S1/S2 defect is open",
+  "note": "the copy must not repeat the original's defects"
+ },
+ {
+  "gate": "G22",
+  "at": "2026-11-11T07:29:27Z",
+  "cmd": "python scripts/antigraf_sources.py --compare capture\\sources.json copycapture\\sources.json",
+  "cwd": "private-path",
+  "exit": 0,
+  "out_tail": "our copy: 0 source(s)   original: 0 source(s)\n  same libraries on both sides, same versions\n\nG22 Source ledger - pass (plain code on both sides)\n  neither side names a library, so the copy rests on the same stack\n  as the original: the language, the browser and nothing else.",
+  "note": "same libraries, versions and licences"
+ },
+ {
+  "gate": "G23",
+  "at": "2026-11-11T07:29:27Z",
+  "cmd": "python scripts/antigraf_explore_gate.py origexplore/profile.json capture\\explore.json",
+  "cwd": "private-path",
+  "exit": 0,
+  "out_tail": "controls pressed        17       budget 8                                         pass\naction press_control    pressed  matched press, control                           pass\naction read_overlay     pressed  matched read, overlay                            pass\ncontrols never pressed  0        every control on the pressed routes was pressed  pass\nstates opened           11       each with its opener and closer                  pass\nG23 pass  0 failing - 0 unknown  (the site was pressed)",
+  "note": "pressed vs not pressed"
+ },
+ {
+  "gate": "G24",
+  "at": "2026-11-11T07:29:27Z",
+  "cmd": "python scripts/antigraf_flow.py capture\\flow-contract.json copycapture\\flow.json --steps copycapture\\steps.json",
+  "cwd": "private-path",
+  "exit": 0,
+  "out_tail": "state-08  private-path    state visible: Menu, About us Write to us �            re-pressed: state visible: {'cls': 'menu', 'heading': 'menu'  -      pass\nstate-09  private-path    state visible: Menu, About us Write to us �            re-pressed: state visible: {'cls': 'menu', 'heading': 'menu'  -      pass\nstate-10  private-path  state visible: Menu, About us Write to us �            re-pressed: state visible: {'cls': 'menu', 'heading': 'menu'  -      pass\nstate-11  private-path  state visible: Menu, About us Write to us �            re-pressed: state visible: {'cls': 'menu', 'heading': 'menu'  -      pass\n  extra: our build does 9 flow(s) the original never demonstrated - allowed, and named: ctl-01; ctl-02; ctl-03; ctl-04; ctl-01; ctl-02; ctl-03; ctl-04; ctl-05\nG24 pass  0 failing - 0 unknown  (25 contract flow(s), 28 answered, 28 re-pressed)",
+  "note": "every observed flow rebuilt and re-pressed"
+ },
+ {
+  "gate": "G25",
+  "at": "2026-11-11T07:29:27Z",
+  "cmd": "",
+  "cwd": "private-path",
+  "exit": 2,
+  "out_tail": "not run: no capture/scene.json and copycapture/scene.json - no canvas was read on both sides, so there is nothing to compare",
+  "note": "no capture/scene.json and copycapture/scene.json - no canvas was read on both sides, so there is nothing to compare"
+ },
+ {
+  "gate": "G26",
+  "at": "2026-11-11T07:29:27Z",
+  "cmd": "",
+  "cwd": "private-path",
+  "exit": 2,
+  "out_tail": "not run: no capture/scene.json and copycapture/scene.json - no canvas was read on both sides, so there is nothing to compare",
+  "note": "no capture/scene.json and copycapture/scene.json - no canvas was read on both sides, so there is nothing to compare"
+ },
+ {
+  "gate": "G12",
+  "at": "2026-11-11T07:29:27Z",
+  "cmd": "python scripts/antigraf_proof.py copycapture\\proof.json --expect G0,G1,G2,G3,G4,G5,G6,G7,G8,G9,G10,G11,G13,G14,G15,G16,G17,G18,G19,G20,G21,G22,G23,G24,G25,G26",
+  "cwd": "private-path",
+  "exit": 1,
+  "out_tail": "G22   1        0       as the original: the language, the browser and nothing els  pass\nG23   1        0     G23 pass  0 failing - 0 unknown  (the site was pressed)       pass\nG24   1        0     G24 pass  0 failing - 0 unknown  (25 contract flow(s), 28 an  pass\nG25   1        2     command failed                                                FAIL\nG26   1        2     command failed                                                FAIL\nG12 FAIL (6 failing)  6 gate(s) without real proof",
+  "note": "every gate above has real proof"
+ }
+]

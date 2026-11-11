@@ -235,8 +235,12 @@ def main():
                             "press {0} of {1} controls (a quarter, capped at {2})"
                             .format(budget, controls, MAX_ACTIONS_CEILING)),
             "depth": 1,
-            "actions": (top["want"] if top else
-                        ["press_control", "read_overlay", "read_player_hud"]),
+            # A general site is the fallback for a page that looks like none of
+            # the families. Asking it for a player HUD demanded a play, watch or
+            # trailer press from a page that has no video at all - a phantom row
+            # no build could answer. A site that really has a player scores as
+            # streaming or game and is still asked for it there.
+            "actions": (top["want"] if top else ["press_control", "read_overlay"]),
             "src": budget_src,
         },
         "must_record": {

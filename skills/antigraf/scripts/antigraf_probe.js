@@ -196,6 +196,19 @@
     const link = document.querySelector('link[rel="manifest"]');
     const rel = (r) => { try { return new URL(r, location.href).pathname; } catch (e) { return r; } };
     const meta = (n) => (document.querySelector(`meta[name="${n}"]`) || {}).content || null;
+    // A page says it handles the cutout in a CSS rule, not in a computed style:
+    // env(safe-area-inset-*) resolves to 0px on a browser with no notch, so the
+    // word only exists where the rule was written. Readable sheet rules are the
+    // honest place to look; a sheet from another origin throws and is skipped.
+    const cssMentionsSafeInset = () => {
+      const hit = (rules) => Array.from(rules || []).some((r) =>
+        (r.cssText || "").indexOf("safe-area-inset") !== -1 ||
+        (r.cssRules && hit(r.cssRules)));
+      for (const sheet of Array.from(document.styleSheets)) {
+        try { if (hit(sheet.cssRules)) return true; } catch (e) { /* another origin */ }
+      }
+      return false;
+    };
     const viewport = (document.querySelector('meta[name="viewport"]') || {}).content || null;
     let manifest = null;
     if (link) {
@@ -241,9 +254,11 @@
       } : {},
       css_viewport: viewport,
       theme_color_meta: meta("theme-color"),
-      safe_area: (getComputedStyle(document.documentElement).getPropertyValue("padding-top") || "").includes("env(") ||
-        Array.from(document.querySelectorAll("body *")).some((el) =>
-          (getComputedStyle(el).paddingTop || "").includes("env(safe-area-inset")),
+      safe_area: (String(viewport || "").replace(/\s+/g, "").includes("viewport-fit=cover") &&
+        cssMentionsSafeInset()) || cssMentionsSafeInset(), // env() resolves to 0px in a
+      // browser with no notch, so a computed style never shows the word - the
+      // rule text is where a page says it handles the cutout. A page that only
+      // says cover without the padding still lives under the notch.
       splash: !!(manifest && manifest.background_color && manifest.theme_color),
       install_prompt: false,          // set by the run: did the browser offer to install
       offline_loads: null,            // set by the run: reload with the network cut

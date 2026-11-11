@@ -101,7 +101,18 @@ def main():
 
     vo, vc = str(o.get("css_viewport") or ""), str(c.get("css_viewport") or "")
     if vo and vo != vc:
-        add("S3", "viewport", vo, vc)
+        # A copy that carries the original's viewport and adds to it has not
+        # diverged - it has answered a phone need the original left open
+        # (viewport-fit=cover for a notch, for one). Only a copy that drops a
+        # word the original relies on is a difference worth failing.
+        words_o = [w.strip() for w in vo.split(",") if w.strip()]
+        words_c = [w.strip() for w in vc.split(",") if w.strip()]
+        if all(w in words_c for w in words_o):
+            if words_c != words_o:
+                print("  improvement: viewport carries every rule the original has, plus {}"
+                      .format(", ".join(w for w in words_c if w not in words_o)))
+        else:
+            add("S3", "viewport", vo, vc)
 
     tap_o = o.get("touch_target_min_px")
     tap_c = c.get("touch_target_min_px")

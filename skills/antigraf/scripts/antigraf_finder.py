@@ -125,13 +125,34 @@ def states_in_plan(plan):
 
 
 def interactive_in_plan(plan):
+    """Every unit G7 owes a replay for: controls, and every opened state.
+
+    A plan generated from the sheet numbers states `st-01`, while the explorer
+    writes `state-01`, and the step sheet uses the explorer's name. Without the
+    measured id the finder read every planned state as `st-01`, called the steps
+    `state-01` strangers, and reported eleven replays as eleven failures on
+    rows the plan had in fact claimed. The row's measured name is the pair; the
+    plan id is only a numbering.
+    """
     rows = units(plan)
     picked = ids_of(rows, ("control", "form", "menu", "tab", "button", "link"))
     if not picked:
         picked = [str(r.get("unit_id")) for r in rows
                   if isinstance(r, dict) and r.get("unit_id")
                   and str(r.get("unit_id")).split("-")[0] in ("ctl", "form", "menu", "tab")]
-    return picked
+    planned = list(picked)
+    for r in rows:
+        if str(r.get("kind") or "").lower() != "state":
+            continue
+        measured = ""
+        for key in ("state_id", "target", "label"):
+            v = str(r.get(key) or "").strip()
+            if v.startswith("state-"):
+                measured = v
+                break
+        if measured:
+            planned.append(measured)
+    return planned
 
 
 def table(head, rows):
