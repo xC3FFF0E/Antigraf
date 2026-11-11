@@ -98,12 +98,12 @@ Señala una fuente, elige un trabajo, y avanza en cinco etapas:
 
 `/antigraf` hace una sola pregunta antes de que ocurra cualquier cosa.
 
-| Trabajo | Qué hace |
-|---|---|
-| **1 Clonar** | Copia la fuente 1:1. No pregunta nada más y fija el objetivo en 100%. |
-| **2 Recrear** | Copia como tu propia versión. Pregunta qué debe cambiar: colores, marca, iconos, textos. |
-| **3 Mejorar** | Pone una fuente frente a tu proyecto, muestra qué hace mejor y termina con una lista corta de próximos pasos. |
-| **4 Estudiar** | Solo lectura, nada se ejecuta, los secretos se tapan. Con qué está construido, de arriba abajo. |
+| # | Trabajo | Qué hace |
+|---|---|---|
+| **1** | **Clonar** | Copia la fuente 1:1. No pregunta nada más y fija el objetivo en 100%. |
+| **2** | **Recrear** | Copia como tu propia versión. Pregunta qué debe cambiar: colores, marca, iconos, textos. |
+| **3** | **Mejorar** | Pone una fuente frente a tu proyecto, muestra qué hace mejor y termina con una lista corta de próximos pasos. |
+| **4** | **Estudiar** | Solo lectura, nada se ejecuta, los secretos se tapan. Con qué está construido, de arriba abajo. |
 
 Todo trabajo terminado acaba con una tabla honesta de 1 a 100 por área, qué frena cada área y tus
 opciones para seguir.

@@ -98,12 +98,12 @@ Désignez une source, choisissez un travail, et il avance en cinq étapes :
 
 `/antigraf` pose une seule question avant que quoi que ce soit n'arrive.
 
-| Travail | Ce qu'il fait |
-|---|---|
-| **1 Cloner** | Copier la source à l'identique. Il ne demande rien de plus et verrouille l'objectif à 100%. |
-| **2 Recréer** | Copier comme votre propre version. Il demande ce qui doit changer : couleurs, marque, icônes, textes. |
-| **3 Améliorer** | Confronter une source à votre projet, montrer ce qu'elle fait mieux et finir par une courte liste de prochaines étapes. |
-| **4 Étudier** | Lecture seule, rien n'est exécuté, les secrets sont masqués. Avec quoi c'est construit, de haut en bas. |
+| # | Travail | Ce qu'il fait |
+|---|---|---|
+| **1** | **Cloner** | Copier la source à l'identique. Il ne demande rien de plus et verrouille l'objectif à 100%. |
+| **2** | **Recréer** | Copier comme votre propre version. Il demande ce qui doit changer : couleurs, marque, icônes, textes. |
+| **3** | **Améliorer** | Confronter une source à votre projet, montrer ce qu'elle fait mieux et finir par une courte liste de prochaines étapes. |
+| **4** | **Étudier** | Lecture seule, rien n'est exécuté, les secrets sont masqués. Avec quoi c'est construit, de haut en bas. |
 
 Tout travail terminé se termine par un tableau honnête de 1 à 100 par domaine, ce qui retient chaque
 domaine, et vos options pour la suite.

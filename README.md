@@ -100,12 +100,12 @@ Point Antigraf at a source, pick a job, and it works in five stages:
 
 `/antigraf` asks one question before anything else happens.
 
-| Job | What it does |
-|---|---|
-| **1 Clone** | Copy the source 1:1. It asks nothing else, and locks the target at 100%. |
-| **2 Recreate** | Copy it as your own version. It asks what should change: colours, branding, icons, copy. |
-| **3 Improve** | Put a source against your own project, show what it does better, and end with a short list of what to do next. |
-| **4 Study** | Read only, nothing executed, secrets redacted. What it is built with, front to back. |
+| # | Job | What it does |
+|---|---|---|
+| **1** | **Clone** | Copy the source 1:1. It asks nothing else, and locks the target at 100%. |
+| **2** | **Recreate** | Copy it as your own version. It asks what should change: colours, branding, icons, copy. |
+| **3** | **Improve** | Put a source against your own project, show what it does better, and end with a short list of what to do next. |
+| **4** | **Study** | Read only, nothing executed, secrets redacted. What it is built with, front to back. |
 
 Every finished job ends with an honest 1 to 100 table per area, what holds each area down, and your
 options for what to do next.

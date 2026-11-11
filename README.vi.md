@@ -97,12 +97,12 @@ Chỉ vào một nguồn, chọn một công việc, và nó chạy qua năm bư
 
 `/antigraf` hỏi đúng một câu trước khi mọi thứ bắt đầu.
 
-| Công việc | Nó làm gì |
-|---|---|
-| **1 Sao chép** | Sao chép nguồn 1:1. Không hỏi thêm gì, và khoá mục tiêu ở 100%. |
-| **2 Tái tạo** | Sao chép thành phiên bản của riêng bạn. Nó hỏi cần đổi gì: màu, thương hiệu, biểu tượng, câu chữ. |
-| **3 Cải thiện** | Đặt một nguồn cạnh dự án của bạn, chỉ ra nó làm gì tốt hơn, và kết thúc bằng danh sách ngắn việc cần làm tiếp. |
-| **4 Nghiên cứu** | Chỉ đọc, không chạy gì, thông tin nhạy cảm được che. Nó được dựng bằng gì, từ ngoài vào trong. |
+| # | Công việc | Nó làm gì |
+|---|---|---|
+| **1** | **Sao chép** | Sao chép nguồn 1:1. Không hỏi thêm gì, và khoá mục tiêu ở 100%. |
+| **2** | **Tái tạo** | Sao chép thành phiên bản của riêng bạn. Nó hỏi cần đổi gì: màu, thương hiệu, biểu tượng, câu chữ. |
+| **3** | **Cải thiện** | Đặt một nguồn cạnh dự án của bạn, chỉ ra nó làm gì tốt hơn, và kết thúc bằng danh sách ngắn việc cần làm tiếp. |
+| **4** | **Nghiên cứu** | Chỉ đọc, không chạy gì, thông tin nhạy cảm được che. Nó được dựng bằng gì, từ ngoài vào trong. |
 
 Mọi công việc đã xong đều kết thúc bằng bảng 1 đến 100 trung thực theo từng lĩnh vực, điều gì đang
 giữ chân lĩnh vực đó, và các lựa chọn tiếp theo của bạn.
