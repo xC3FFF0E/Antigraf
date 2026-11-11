@@ -198,14 +198,18 @@ A tabela final é assim, e é calculada a partir da prova registrada, nunca digi
 Area                    Score  pass  fail  unknown  What holds it
 ----------------------  -----  ----  ----  -------  ----------------------
 Words & layout           100%     3     0        0
-Design, icons             50%     1     1        0  failing: G4
-Behaviour, flows          20%     1     3        1  failing: G6, G7, G23
+Design, icons            100%     2     0        0
+Behaviour, flows          60%     3     0        2  not measured: G7, G19
 Phone & PWA              100%     2     0        0
 Motion & 3D               33%     1     0        2  not measured: G25, G26
 Media & speed            100%     2     0        0
-Accessibility              0%     0     1        0  failing: G9
-Sources, repairs          75%     3     0        1  not measured: G22
+Accessibility            100%     1     0        0
+Sources, repairs         100%     4     0        0
 Evidence, proof, pages    40%     2     2        1  failing: G11, G12
+
+Pictures  none compared - both sides need a shot at the same width
+
+TOTAL  80.4% of the work this mode promised
 ```
 
 Uma verificação que nunca rodou, ou que respondeu desconhecido, conta como **zero**, então o total nunca
