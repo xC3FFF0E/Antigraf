@@ -88,8 +88,8 @@ def gate_state(entries, gdata):
 
 
 def main():
-    mode_path = arg("--mode", "run.json")
-    mode = load(mode_path, default={}) or {} if os.path.exists(mode_path) else {}
+    mode_path = arg("--mode") or arg("--run") or "run.json"
+    mode = (load(mode_path, default={}) or {}) if os.path.exists(mode_path) else {}
     proof = arg("--proof")
     if not proof:
         raise Stop("usage: antigraf_score.py --proof checks/round-N/proof.json "
