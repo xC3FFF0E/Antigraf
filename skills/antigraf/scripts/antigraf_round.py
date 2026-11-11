@@ -30,6 +30,8 @@ What it runs, and what it skips honestly:
   G20 defects       every evidenced fault of the original, and the copy must not repeat one
   G21 repair        the copy may not be worse than the original on any measured fault
   G22 sources       what the original is built from: libraries, versions, licences, fonts
+  G25 scene         needs both scene.json; plus, when the original folder holds
+                    model.3mf / model.stl, the copy's exported solid (antigraf_solid.py)
 
 A gate whose inputs are missing is recorded as `unknown` with the reason, never as
 a pass. G1 (the build) is run by the stack's own command, passed in with
@@ -505,6 +507,27 @@ def main():
             results[gate] = skip(gate, "no {}/scene.json and {}/scene.json - no canvas was "
                                  "read on both sides, so there is nothing to compare"
                                  .format(orig, copy))
+
+    # The solid part of G25: a tool that exports a printable object is judged
+    # by the object it makes, from the same input on both sides. A model file
+    # in the original folder makes this mandatory - the copy must export one
+    # too, and it must be a clean solid that matches. See references/solid.md.
+    def model_in(folder):
+        for name in ("model.3mf", "model.stl"):
+            p = os.path.join(folder, name)
+            if os.path.exists(p):
+                return p
+        return None
+    model_o, model_c = model_in(orig), model_in(copy)
+    if model_o:
+        if model_c:
+            code, cmd, out = call("antigraf_solid.py", model_o, model_c)
+            solid_ok = record("G25", code, cmd, out, "the exported solid, same input")
+        else:
+            solid_ok = skip("G25", "the original exports {} but {} has no model.3mf or "
+                            "model.stl - the copy's solid was never measured"
+                            .format(model_o, copy))
+        results["G25"] = bool(results.get("G25")) and solid_ok
 
     # pictures - reported, never a gate
     widths = []

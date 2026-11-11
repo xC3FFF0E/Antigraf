@@ -315,6 +315,13 @@ programs, draw calls, lighting uniforms) and G26 (frame motion: what moves, whic
 cost). The probe installs a hook before the page's own scripts, so a private scene is still measured rather
 than guessed. Full detail and every tolerance: `references/scene.md`.
 
+**A 3D tool that makes a real object** (exports 3MF/STL, builds solids from pictures or text) has a
+stricter rule: a solid geometry engine is mandatory (manifold-3d by default) for every join, cut and
+pocket; every picture or font goes through the smoothing pipeline (clean, scale up, threshold, trace,
+simplify, grow then shrink, drop specks, extrude); and G25 also compares the exported solid from the
+same input on both sides with `antigraf_solid.py` - size, volume, area, holes, bad edges. "It looks
+right" is never the verdict for a solid. Full rule: `references/solid.md`.
+
 ---
 
 ## 5. Spending few tokens
@@ -618,6 +625,7 @@ Next:   <one concrete idea>
 | `references/coverage-and-proof.md` | G11 coverage (found vs planned) and G12 proof (command + output per gate), with the record shapes |
 | `references/scripts.md` | the ready-made scripts in `scripts/`: the runner, the gate commands, the browser collector, the scene probe, the audit pass, behaviour steps, waivers |
 | `references/scene.md` | G25 scene and G26 frame motion: reading a 3D canvas as draw calls, shaders, uniforms and motion |
+| `references/solid.md` | solid 3D tools: the mandatory solid engine, the smoothing pipeline, and the same-input exported-solid check |
 | `references/lean-voice.md` | how a run spends few tokens: evidence law, model tiers, output budget, what is never shortened |
 | `references/builder-brief.md` | the fillable brief, kind sections, follow-ups and resume messages |
 | `references/stacks.md` | per-stack layouts, build and verify commands, engine specifics |

@@ -128,7 +128,7 @@ Một mô hình yếu hơn, hoặc không nhìn được hình, không bao giờ
 | `skills/antigraf/SKILL.md` | bản thân kỹ năng: công việc, giai đoạn, bậc, không gian làm việc, vòng, luật |
 | `skills/antigraf/README.md` | tài liệu đầy đủ: các bước kiểm, dung sai, tiến độ, bố trí |
 | `skills/antigraf/references/` | 12 hướng dẫn: kiểm, lập kế hoạch, độ trung thực, cảnh, bàn giao, bằng chứng |
-| `skills/antigraf/scripts/` | 47 công cụ: 40 Python, 7 trình duyệt, một danh sách thiết bị |
+| `skills/antigraf/scripts/` | 49 công cụ: 41 Python, 7 trình duyệt, một danh sách thiết bị |
 | `assets/` | biểu tượng, 512 và 128 pixel |
 
 Trang này nói nó hứa gì. Tài liệu đầy đủ nói dung sai chính xác của từng bước kiểm.

@@ -123,7 +123,7 @@ Antigraf 以一份說明文件加一套小工具的形式，住在你的代理�
 | `skills/antigraf/SKILL.md` | 技能本體：任務、階段、層級、工作區、回合、規則 |
 | `skills/antigraf/README.md` | 完整文件：檢查項目、容差、進度、目錄 |
 | `skills/antigraf/references/` | 12 份指南：檢查項目、計畫、還原度、場景、交接、證據 |
-| `skills/antigraf/scripts/` | 47 個工具：40 個 Python、7 個瀏覽器、1 份裝置清單 |
+| `skills/antigraf/scripts/` | 49 個工具：41 個 Python、7 個瀏覽器、1 份裝置清單 |
 | `assets/` | 圖示，512 與 128 像素 |
 
 這頁說明它承諾什麼，完整文件說明每項檢查的準確容差。

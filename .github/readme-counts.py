@@ -22,11 +22,11 @@ def rows(text):
 for p in sorted(glob.glob("README*.md")):
     text = io.open(p, encoding="utf-8-sig").read()
     tool_row, version_row = rows(text)
-    if "47" not in tool_row:
-        problems.append((p, "tools row does not say 47", tool_row.strip()[:80]))
-    if "40" not in tool_row:
+    if "49" not in tool_row:
+        problems.append((p, "tools row does not say 49", tool_row.strip()[:80]))
+    if "41" not in tool_row:
         problems.append((p, "tools row lost the Python count", tool_row.strip()[:80]))
-    if "45" in tool_row or "46" in tool_row:
+    if "47" in tool_row or "48" in tool_row:
         problems.append((p, "tools row still has an old count", tool_row.strip()[:80]))
     # Japanese, Korean and both Chinese pages count Python tools as "Python 40",
     # which is a count and not a version, so the tools row is read out first.
