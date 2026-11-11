@@ -120,7 +120,9 @@ URL_RE = re.compile(r"https?://[^\s\"'<>;,)]+")
 # name on the page. A posix path is only matched when it starts a token, which
 # keeps ordinary text like `capture/capture.json` readable.
 WIN_PATH_RE = re.compile(r"[A-Za-z]:[\\/][^\s\"'<>|;,)]*")
-POSIX_PATH_RE = re.compile(r"(?<![A-Za-z0-9_.:-])/[^\s\"'<>|;,)]+")
+# A file path is cut whether it starts a token or hangs off a word already cut
+# on the same line, so no tail of a folder name can survive the scrub.
+POSIX_PATH_RE = re.compile(r"(?<![A-Za-z0-9_.])(?:[\\/][^\s\"'<>|;,)]+)+")
 SEGMENT_RE = re.compile(r"private-path((?:\\[^\\\s\"'<>|;,)]*)+)")
 # A folder name that survives inside a longer token is still a leak, but the
 # command text of a proof is how someone reproduces the run, so relative paths
