@@ -209,6 +209,63 @@ Python 3.8 以上（標準ライブラリのみ）、ブラウザ用の道具に
 
 ## 正直な現状
 
+ここでは意図して二つの数字を示します。スコアは一つの実際の原本と複製のペアについてゲートが示す値で、証明済みの数はすべてのゲートを通過したペアの数です。道具が完成したかを決めるのは二つ目です。
+
+**能力は主張ではなく測定です。** 以下のゲートはすべて存在し、実行されます。実際に合格したものは、一つのペアのスコアとは別に数えます。
+
+<!-- ANTIGRAF:SCORE (written by scripts/antigraf_registry.py - do not edit by hand) -->
+
+**Measured: 54.0% out of 100 - test-pair-3page (round 1)**
+
+| Area | Score | Passing | Failing | Not measured | What holds it down |
+|---|---|---|---|---|---|
+| Words & layout | 100% | 3 | 0 | 0 | - |
+| Design, icons | 100% | 2 | 0 | 0 | - |
+| Behaviour, flows | 0% | 0 | 5 | 0 | failing: G6, G7, G23, G24, G19 |
+| Phone & PWA | 0% | 0 | 2 | 0 | failing: G14, G18 |
+| Motion & 3D | 33% | 1 | 2 | 0 | failing: G25, G26 |
+| Media & speed | 100% | 2 | 0 | 0 | - |
+| Sources, repairs | 50% | 2 | 1 | 1 | failing: G16 |
+| Evidence, proof, pages | 60% | 3 | 2 | 0 | failing: G1, G12 |
+| **Total** | **54.0%** | 13 | 13 | 1 | 14 gate(s) not passing |
+
+The lock needs 100%: every gate passing, nothing unknown. A gate that never ran counts as zero, not as a pass.
+
+<!-- /ANTIGRAF:SCORE -->
+
+### ゲートごとの主張
+
+<!-- ANTIGRAF:PROGRESS (written by scripts/antigraf_registry.py - do not edit by hand) -->
+
+**27 gates · 0 proven on a real original-to-copy pair · 1 measured so far**
+
+| What the gates check | Gates | State | Where it was measured |
+|---|---|---|---|
+| Look: sections, words, colours, spacing | G2, G3, G4, G5 | proven | nothing yet |
+| Icons and pictures, one partner each | G8, G17 | proven | nothing yet |
+| Every page walked, planned and shipped | G11 | proven | nothing yet |
+| Behaviour: pressed, and the same result | G7, G23, G24 | measured | test-pair-3page checks\round-1 |
+| States: hover, focus, open, empty, error | G6 | measured | test-pair-3page checks\round-1 |
+| Motion: durations, easings, scroll | G13 | proven | nothing yet |
+| Phone, install and offline (PWA) | G9, G14, G18 | measured | test-pair-3page checks\round-1 |
+| Speed and weight budgets | G15 | proven | nothing yet |
+| Logic: same input, same answer, no secrets | G19 | measured | test-pair-3page checks\round-1 |
+| Defects found, and the copy repaired | G20, G21 | proven | nothing yet |
+| 3D scene read as numbers | G25 | measured | test-pair-3page checks\round-1 |
+| 3D motion compared frame by frame | G26 | measured | test-pair-3page checks\round-1 |
+| Server seams listed for you to hook up | G16 | measured | test-pair-3page checks\round-1 |
+| Evidence, proof and a frozen plan | G0, G1, G10, G12 | measured | test-pair-3page checks\round-1 |
+
+| Target | Family | Kind | Gates passed | Failed | Unknown | Verdict |
+|---|---|---|---|---|---|---|
+| test-pair-3page | unknown | round 1 | 13 of 27 | 13 | 0 | measured |
+
+`proven` means every gate ran, passed, and nothing was unknown. `measured` means the gates ran and left a real exit code. Anything else is `not proven`, and is not being claimed.
+
+<!-- /ANTIGRAF:PROGRESS -->
+
+
+
 **測る側は動きます。作る側は、まだ全チェックを通る複製を一度も生んでいません。**
 
 完全版の進捗欄はディスク上の記録から書かれ、手で書くことはありません。現在は 27 のチェック、本物の原本と複製の組で証明済み 0。百点と嘘より、零点と理由を見せたいからです。

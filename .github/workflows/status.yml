@@ -1,0 +1,66 @@
+name: Refresh the honest status
+
+# The README never carries a hand-typed number. This job re-reads the proof ledgers
+# kept under benchmarks/ and rewrites the two generated blocks on every page.
+# If the number in the page and the number in the ledger ever disagree, this job
+# fixes the page and commits the difference instead of leaving it stale.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "benchmarks/**"
+      - "skills/antigraf/scripts/antigraf_registry.py"
+      - "skills/antigraf/scripts/antigraf_score.py"
+      - ".github/workflows/status.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  status:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Rewrite the status blocks from the ledgers
+        run: |
+          python skills/antigraf/scripts/antigraf_registry.py \
+            --runs benchmarks --out benchmarks/registry.json \
+            --readme README.md --readme README.ja.md --readme README.zh.md \
+            --readme README.zh-hant.md --readme README.ko.md --readme README.es.md \
+            --readme README.fr.md --readme README.vi.md --readme README.pt.md
+
+      - name: Fail if a page lost its markers
+        run: |
+          python - <<'PY'
+          import io, glob, sys
+          bad = []
+          for f in sorted(glob.glob("README*.md")):
+              t = io.open(f, encoding="utf-8-sig").read()
+              for mark in ("<!-- ANTIGRAF:SCORE", "<!-- /ANTIGRAF:SCORE",
+                           "<!-- ANTIGRAF:PROGRESS", "<!-- /ANTIGRAF:PROGRESS"):
+                  if mark not in t:
+                      bad.append("%s missing %s" % (f, mark))
+          if bad:
+              print("\n".join(bad))
+              sys.exit(1)
+          print("markers intact on %d page(s)" % len(glob.glob("README*.md")))
+          PY
+
+      - name: Commit the refreshed pages
+        run: |
+          git config user.name "antigraf-status"
+          git config user.email "actions@github.com"
+          git add README*.md benchmarks/registry.json
+          if git diff --cached --quiet; then
+            echo "no change: the pages already match the ledgers"
+          else
+            git commit -m "Refresh the honest status from the proof ledgers"
+            git push
+          fi

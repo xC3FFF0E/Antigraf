@@ -209,6 +209,63 @@ Python 3.8 以上（只用标准库）、浏览器工具需要 Node 18 以上，
 
 ## 真实状态
 
+这里刻意显示两个不同的数字：得分是各道检查对一对真实原版与副本给出的结果，已证明的数量是通过全部检查的配对数量。决定工具是否完成的是第二个。
+
+**能力靠测量，不靠宣称。** 下面每一道检查都存在并可运行。真正通过的，与某一对目标的得分分开计数。
+
+<!-- ANTIGRAF:SCORE (written by scripts/antigraf_registry.py - do not edit by hand) -->
+
+**Measured: 54.0% out of 100 - test-pair-3page (round 1)**
+
+| Area | Score | Passing | Failing | Not measured | What holds it down |
+|---|---|---|---|---|---|
+| Words & layout | 100% | 3 | 0 | 0 | - |
+| Design, icons | 100% | 2 | 0 | 0 | - |
+| Behaviour, flows | 0% | 0 | 5 | 0 | failing: G6, G7, G23, G24, G19 |
+| Phone & PWA | 0% | 0 | 2 | 0 | failing: G14, G18 |
+| Motion & 3D | 33% | 1 | 2 | 0 | failing: G25, G26 |
+| Media & speed | 100% | 2 | 0 | 0 | - |
+| Sources, repairs | 50% | 2 | 1 | 1 | failing: G16 |
+| Evidence, proof, pages | 60% | 3 | 2 | 0 | failing: G1, G12 |
+| **Total** | **54.0%** | 13 | 13 | 1 | 14 gate(s) not passing |
+
+The lock needs 100%: every gate passing, nothing unknown. A gate that never ran counts as zero, not as a pass.
+
+<!-- /ANTIGRAF:SCORE -->
+
+### 逐项检查的主张
+
+<!-- ANTIGRAF:PROGRESS (written by scripts/antigraf_registry.py - do not edit by hand) -->
+
+**27 gates · 0 proven on a real original-to-copy pair · 1 measured so far**
+
+| What the gates check | Gates | State | Where it was measured |
+|---|---|---|---|
+| Look: sections, words, colours, spacing | G2, G3, G4, G5 | proven | nothing yet |
+| Icons and pictures, one partner each | G8, G17 | proven | nothing yet |
+| Every page walked, planned and shipped | G11 | proven | nothing yet |
+| Behaviour: pressed, and the same result | G7, G23, G24 | measured | test-pair-3page checks\round-1 |
+| States: hover, focus, open, empty, error | G6 | measured | test-pair-3page checks\round-1 |
+| Motion: durations, easings, scroll | G13 | proven | nothing yet |
+| Phone, install and offline (PWA) | G9, G14, G18 | measured | test-pair-3page checks\round-1 |
+| Speed and weight budgets | G15 | proven | nothing yet |
+| Logic: same input, same answer, no secrets | G19 | measured | test-pair-3page checks\round-1 |
+| Defects found, and the copy repaired | G20, G21 | proven | nothing yet |
+| 3D scene read as numbers | G25 | measured | test-pair-3page checks\round-1 |
+| 3D motion compared frame by frame | G26 | measured | test-pair-3page checks\round-1 |
+| Server seams listed for you to hook up | G16 | measured | test-pair-3page checks\round-1 |
+| Evidence, proof and a frozen plan | G0, G1, G10, G12 | measured | test-pair-3page checks\round-1 |
+
+| Target | Family | Kind | Gates passed | Failed | Unknown | Verdict |
+|---|---|---|---|---|---|---|
+| test-pair-3page | unknown | round 1 | 13 of 27 | 13 | 0 | measured |
+
+`proven` means every gate ran, passed, and nothing was unknown. `measured` means the gates ran and left a real exit code. Anything else is `not proven`, and is not being claimed.
+
+<!-- /ANTIGRAF:PROGRESS -->
+
+
+
 **测量的一半能用。构建的一半还没有做出过通过全部检查的副本。**
 
 完整文档中的进度块由磁盘上的记录写成，从不手写。目前是 27 项检查，在真实的原件与副本组合上已证实的为 0。我们宁可给你一个零和原因，也不要一个百和谎言。

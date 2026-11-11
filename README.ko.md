@@ -215,6 +215,63 @@ Python 3.8 이상(표준 라이브러리만), 브라우저 도구에는 Node 18 
 
 ## 정직한 현황
 
+여기서는 두 숫자를 일부러 나눠 보여줍니다. 점수는 실제 원본과 복사본 한 쌍에 대해 게이트가 말하는 값이고, 증명된 수는 모든 게이트를 통과한 쌍의 수입니다. 도구가 끝났는지를 정하는 것은 두 번째입니다.
+
+**능력은 주장이 아니라 측정입니다.** 아래 게이트는 모두 존재하고 실행됩니다. 실제로 통과한 것은 한 쌍의 점수와 따로 셉니다.
+
+<!-- ANTIGRAF:SCORE (written by scripts/antigraf_registry.py - do not edit by hand) -->
+
+**Measured: 54.0% out of 100 - test-pair-3page (round 1)**
+
+| Area | Score | Passing | Failing | Not measured | What holds it down |
+|---|---|---|---|---|---|
+| Words & layout | 100% | 3 | 0 | 0 | - |
+| Design, icons | 100% | 2 | 0 | 0 | - |
+| Behaviour, flows | 0% | 0 | 5 | 0 | failing: G6, G7, G23, G24, G19 |
+| Phone & PWA | 0% | 0 | 2 | 0 | failing: G14, G18 |
+| Motion & 3D | 33% | 1 | 2 | 0 | failing: G25, G26 |
+| Media & speed | 100% | 2 | 0 | 0 | - |
+| Sources, repairs | 50% | 2 | 1 | 1 | failing: G16 |
+| Evidence, proof, pages | 60% | 3 | 2 | 0 | failing: G1, G12 |
+| **Total** | **54.0%** | 13 | 13 | 1 | 14 gate(s) not passing |
+
+The lock needs 100%: every gate passing, nothing unknown. A gate that never ran counts as zero, not as a pass.
+
+<!-- /ANTIGRAF:SCORE -->
+
+### 게이트별 주장
+
+<!-- ANTIGRAF:PROGRESS (written by scripts/antigraf_registry.py - do not edit by hand) -->
+
+**27 gates · 0 proven on a real original-to-copy pair · 1 measured so far**
+
+| What the gates check | Gates | State | Where it was measured |
+|---|---|---|---|
+| Look: sections, words, colours, spacing | G2, G3, G4, G5 | proven | nothing yet |
+| Icons and pictures, one partner each | G8, G17 | proven | nothing yet |
+| Every page walked, planned and shipped | G11 | proven | nothing yet |
+| Behaviour: pressed, and the same result | G7, G23, G24 | measured | test-pair-3page checks\round-1 |
+| States: hover, focus, open, empty, error | G6 | measured | test-pair-3page checks\round-1 |
+| Motion: durations, easings, scroll | G13 | proven | nothing yet |
+| Phone, install and offline (PWA) | G9, G14, G18 | measured | test-pair-3page checks\round-1 |
+| Speed and weight budgets | G15 | proven | nothing yet |
+| Logic: same input, same answer, no secrets | G19 | measured | test-pair-3page checks\round-1 |
+| Defects found, and the copy repaired | G20, G21 | proven | nothing yet |
+| 3D scene read as numbers | G25 | measured | test-pair-3page checks\round-1 |
+| 3D motion compared frame by frame | G26 | measured | test-pair-3page checks\round-1 |
+| Server seams listed for you to hook up | G16 | measured | test-pair-3page checks\round-1 |
+| Evidence, proof and a frozen plan | G0, G1, G10, G12 | measured | test-pair-3page checks\round-1 |
+
+| Target | Family | Kind | Gates passed | Failed | Unknown | Verdict |
+|---|---|---|---|---|---|---|
+| test-pair-3page | unknown | round 1 | 13 of 27 | 13 | 0 | measured |
+
+`proven` means every gate ran, passed, and nothing was unknown. `measured` means the gates ran and left a real exit code. Anything else is `not proven`, and is not being claimed.
+
+<!-- /ANTIGRAF:PROGRESS -->
+
+
+
 **측정하는 쪽은 작동합니다. 만드는 쪽은 아직 모든 검사를 통과하는 사본을 한 번도 만들지 못했습니다.**
 
 전체 문서의 진행 표는 디스크의 기록에서 쓰이고 손으로 쓰지 않습니다. 현재 27개 검사, 실제 원본과 사본 조합에서 증명된 것은 0입니다. 백 점과 거짓말보다 영 점과 이유를 보여 주겠습니다.

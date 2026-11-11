@@ -252,9 +252,75 @@ Chromium browser. No package installs, no account, no key.
 
 **The measuring half works. The building half has not yet produced a copy that passed every gate.**
 
-The progress block in the full document is written from the proof ledgers on disk, never by hand. It
-currently reads 27 gates, 0 proven on a real original-to-copy pair. We would rather show you a zero
-and the reason than a hundred and a lie.
+The block below is generated from a measured run kept in the repository, so it cannot drift from what
+was recorded. Two different numbers are shown below on purpose: the score is what the gates say about
+one real original-to-copy pair, and the proven count is how many pairs passed every gate. The second
+is the one that decides whether the tool is done.
+
+**Capability, measured not claimed.** Every gate below exists and runs. What has actually passed is counted apart from what one pair scored.
+
+<!-- ANTIGRAF:SCORE (written by scripts/antigraf_registry.py - do not edit by hand) -->
+
+**Measured: 54.0% out of 100 - test-pair-3page (round 1)**
+
+| Area | Score | Passing | Failing | Not measured | What holds it down |
+|---|---|---|---|---|---|
+| Words & layout | 100% | 3 | 0 | 0 | - |
+| Design, icons | 100% | 2 | 0 | 0 | - |
+| Behaviour, flows | 0% | 0 | 5 | 0 | failing: G6, G7, G23, G24, G19 |
+| Phone & PWA | 0% | 0 | 2 | 0 | failing: G14, G18 |
+| Motion & 3D | 33% | 1 | 2 | 0 | failing: G25, G26 |
+| Media & speed | 100% | 2 | 0 | 0 | - |
+| Sources, repairs | 50% | 2 | 1 | 1 | failing: G16 |
+| Evidence, proof, pages | 60% | 3 | 2 | 0 | failing: G1, G12 |
+| **Total** | **54.0%** | 13 | 13 | 1 | 14 gate(s) not passing |
+
+The lock needs 100%: every gate passing, nothing unknown. A gate that never ran counts as zero, not as a pass.
+
+<!-- /ANTIGRAF:SCORE -->
+
+### Gates, claim by claim
+
+Each claim below reads `proven` only when every gate behind it passed, with nothing unknown, on a real
+original-to-copy pair. Anything short of that says so.
+
+<!-- ANTIGRAF:PROGRESS (written by scripts/antigraf_registry.py - do not edit by hand) -->
+
+**27 gates · 0 proven on a real original-to-copy pair · 1 measured so far**
+
+| What the gates check | Gates | State | Where it was measured |
+|---|---|---|---|
+| Look: sections, words, colours, spacing | G2, G3, G4, G5 | proven | nothing yet |
+| Icons and pictures, one partner each | G8, G17 | proven | nothing yet |
+| Every page walked, planned and shipped | G11 | proven | nothing yet |
+| Behaviour: pressed, and the same result | G7, G23, G24 | measured | test-pair-3page checks\round-1 |
+| States: hover, focus, open, empty, error | G6 | measured | test-pair-3page checks\round-1 |
+| Motion: durations, easings, scroll | G13 | proven | nothing yet |
+| Phone, install and offline (PWA) | G9, G14, G18 | measured | test-pair-3page checks\round-1 |
+| Speed and weight budgets | G15 | proven | nothing yet |
+| Logic: same input, same answer, no secrets | G19 | measured | test-pair-3page checks\round-1 |
+| Defects found, and the copy repaired | G20, G21 | proven | nothing yet |
+| 3D scene read as numbers | G25 | measured | test-pair-3page checks\round-1 |
+| 3D motion compared frame by frame | G26 | measured | test-pair-3page checks\round-1 |
+| Server seams listed for you to hook up | G16 | measured | test-pair-3page checks\round-1 |
+| Evidence, proof and a frozen plan | G0, G1, G10, G12 | measured | test-pair-3page checks\round-1 |
+
+| Target | Family | Kind | Gates passed | Failed | Unknown | Verdict |
+|---|---|---|---|---|---|---|
+| test-pair-3page | unknown | round 1 | 13 of 27 | 13 | 0 | measured |
+
+`proven` means every gate ran, passed, and nothing was unknown. `measured` means the gates ran and left a real exit code. Anything else is `not proven`, and is not being claimed.
+
+<!-- /ANTIGRAF:PROGRESS -->
+
+To refresh both blocks after a new round:
+
+```bash
+python skills/antigraf/scripts/antigraf_registry.py --runs runs --out runs/registry.json \
+  --readme README.md --readme README.ja.md --readme README.zh.md --readme README.zh-hant.md \
+  --readme README.ko.md --readme README.es.md --readme README.fr.md --readme README.vi.md \
+  --readme README.pt.md
+```
 
 ## The line we do not cross
 
