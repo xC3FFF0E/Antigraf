@@ -273,5 +273,5 @@ it out. What you build is yours only if what you put in it is yours to put in.
 
 <p align="center">
   <img src="assets/antigraf-128.png" width="36" height="36" alt="Antigraf"><br>
-  <sub>Antigraf. Clone it, prove it, or study it.</sub>
+  <sub>Antigraf. A duplicate, clone or study skill for AI coding agents.</sub>
 </p>

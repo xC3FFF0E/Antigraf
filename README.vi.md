@@ -261,5 +261,5 @@ giấy phép chưa ai làm rõ sẽ giữ khoá đóng cho đến khi bạn làm
 
 <p align="center">
   <img src="assets/antigraf-128.png" width="36" height="36" alt="Antigraf"><br>
-  <sub>Antigraf. Sao chép nó, chứng minh nó, hoặc nghiên cứu nó.</sub>
+  <sub>Antigraf. Kỹ năng nhân bản, sao chép hoặc nghiên cứu cho các tác nhân lập trình AI.</sub>
 </p>

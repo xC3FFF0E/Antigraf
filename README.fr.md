@@ -268,5 +268,5 @@ jusqu'à ce que vous la clarifiiez ou la changiez.
 
 <p align="center">
   <img src="assets/antigraf-128.png" width="36" height="36" alt="Antigraf"><br>
-  <sub>Antigraf. Clonez-le, prouvez-le, ou étudiez-le.</sub>
+  <sub>Antigraf. Une compétence de duplication, clonage ou étude pour les agents de code IA.</sub>
 </p>

@@ -229,5 +229,5 @@ Antigraf가 복사하는 것은 페이지의 겉모습과 브라우저에서의 
 
 <p align="center">
   <img src="assets/antigraf-128.png" width="36" height="36" alt="Antigraf"><br>
-  <sub>Antigraf. 복제하고, 증명하고, 조사하세요.</sub>
+  <sub>Antigraf. AI 코딩 에이전트를 위한 복제·클론·조사 스킬.</sub>
 </p>

@@ -223,5 +223,5 @@ Antigraf が複製するのは、ページの見た目と、ブラウザ上で�
 
 <p align="center">
   <img src="assets/antigraf-128.png" width="36" height="36" alt="Antigraf"><br>
-  <sub>Antigraf。複製する、証明する、調べる。</sub>
+  <sub>Antigraf。AI コーディングエージェントのための複製・クローン・調査スキル。</sub>
 </p>

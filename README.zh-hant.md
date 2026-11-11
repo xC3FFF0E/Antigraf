@@ -234,5 +234,5 @@ Antigraf 複製的是頁面在瀏覽器裡的外觀與行為。它**不複製**�
 
 <p align="center">
   <img src="assets/antigraf-128.png" width="36" height="36" alt="Antigraf"><br>
-  <sub>Antigraf。複製它，證明它，或研究它。</sub>
+  <sub>Antigraf。給 AI 編程智能體的複製、克隆與調研技能。</sub>
 </p>

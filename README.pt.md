@@ -264,5 +264,5 @@ travado até que você a esclareça ou a troque.
 
 <p align="center">
   <img src="assets/antigraf-128.png" width="36" height="36" alt="Antigraf"><br>
-  <sub>Antigraf. Clone, prove ou estude.</sub>
+  <sub>Antigraf. Uma habilidade de duplicação, clonagem ou estudo para agentes de código com IA.</sub>
 </p>

@@ -264,5 +264,5 @@ nadie aclaró mantiene el cierre bloqueado hasta que la aclares o la cambies.
 
 <p align="center">
   <img src="assets/antigraf-128.png" width="36" height="36" alt="Antigraf"><br>
-  <sub>Antigraf. Clónalo, pruébalo o estúdialo.</sub>
+  <sub>Antigraf. Una habilidad de duplicado, clonado o estudio para agentes de código con IA.</sub>
 </p>

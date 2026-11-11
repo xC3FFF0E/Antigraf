@@ -223,5 +223,5 @@ Antigraf 复制的是页面在浏览器里的外观与行为。它**不复制**�
 
 <p align="center">
   <img src="assets/antigraf-128.png" width="36" height="36" alt="Antigraf"><br>
-  <sub>Antigraf。复制它，证明它，或研究它。</sub>
+  <sub>Antigraf。面向 AI 编程智能体的复制、克隆与调研技能。</sub>
 </p>
