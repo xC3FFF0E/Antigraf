@@ -278,8 +278,49 @@ def swap_block(text, begin, end, body):
     return text[:start] + block + text[stop:]
 
 
+def script_count():
+    """How many tools ship, counted from the folder and never typed.
+
+    A number written by hand in a badge goes stale the moment a tool is added,
+    and a page that miscounts its own tools has no business claiming to measure
+    anything else.
+    """
+    here = os.path.dirname(os.path.abspath(__file__))
+    names = [n for n in os.listdir(here) if os.path.isfile(os.path.join(here, n))]
+    tools = [n for n in names if n.endswith((".py", ".mjs", ".js")) and not n.startswith("_")]
+    return len(tools)
+
+
+SHIELDS_RE = re.compile(r'<img alt="([^"]*)" src="https://img\.shields\.io/badge/(gates|scripts)-(\d+)([^"]*)"([^>]*)>')
+
+
+def refresh_badges(text, registry):
+    """Rewrite the two counts that can be counted: gates and tools.
+
+    The alt text and the address are rewritten together, because a badge whose
+    label says 46 and whose picture says 47 is worse than no badge at all.
+    """
+    tools = registry.get("script_count")
+
+    def repl(m):
+        alt, kind, _num, rest, tail = m.groups()
+        if kind == "gates":
+            new = len(C.GATES)
+        else:
+            if not tools:
+                return m.group(0)
+            new = tools
+        # The label leads with the number in every language; only that number
+        # is rewritten, so translated words around it stay as written.
+        new_alt = re.sub(r"\d+", str(new), alt, count=1)
+        return '<img alt="{}" src="https://img.shields.io/badge/{}-{}{}"{}>'.format(
+            new_alt, kind, new, rest, tail)
+
+    return SHIELDS_RE.sub(repl, text)
+
+
 def refresh_readme(path, registry):
-    """Rewrite both generated blocks in one file: progress, then score."""
+    """Rewrite the generated blocks in one file: progress, score, then badges."""
     try:
         text = io.open(path, "r", encoding="utf-8-sig").read()
     except (IOError, OSError):
@@ -290,6 +331,7 @@ def refresh_readme(path, registry):
     newer = swap_block(fresh, SCORE_BEGIN, SCORE_END, registry.get("score_table") or "")
     if newer is not None:
         fresh = newer
+    fresh = refresh_badges(fresh, registry)
     if fresh == text:
         return "already level"
     io.open(path, "w", encoding="utf-8").write(fresh)
@@ -434,6 +476,7 @@ def main():
         "targets": targets,
     }
     registry["claims"] = claim_rows(targets)
+    registry["script_count"] = script_count()
     # A run folder can be named after the real site, so the folder name never
     # leaves this function: labels come from the run itself, addresses are cut.
     registry = scrub(registry)
