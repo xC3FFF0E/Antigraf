@@ -33,6 +33,9 @@ import antigraf_common as C
 BEGIN = "<!-- ANTIGRAF:PROGRESS (written by scripts/antigraf_registry.py - do not edit by hand) -->"
 END = "<!-- /ANTIGRAF:PROGRESS -->"
 
+SCORE_BEGIN = "<!-- ANTIGRAF:SCORE (written by scripts/antigraf_registry.py - do not edit by hand) -->"
+SCORE_END = "<!-- /ANTIGRAF:SCORE -->"
+
 # Which gates answer for which claim, in plain words. A claim reads "proven"
 # only when every gate behind it passed on a target that had a real copy.
 CLAIMS = [
@@ -150,7 +153,7 @@ def claim_rows(targets):
         proven_in = []
         measured_in = []
         for t in targets:
-            if t["kind"] != "round":
+            if t["kind"] != "round" and not t["gates_ran"]:
                 continue
             states = t["per_gate"]
             if all(states.get(g) == "pass" for g in gates):
@@ -167,20 +170,83 @@ def claim_rows(targets):
     return rows
 
 
+def swap_block(text, begin, end, body):
+    """Put `body` between `begin` and `end`, leaving the rest of the file alone."""
+    if begin not in text or end not in text:
+        return None
+    block = "\n".join([begin, "", body, "", end])
+    start = text.index(begin)
+    stop = text.index(end) + len(end)
+    return text[:start] + block + text[stop:]
+
+
 def refresh_readme(path, registry):
+    """Rewrite both generated blocks in one file: progress, then score."""
     try:
         text = io.open(path, "r", encoding="utf-8-sig").read()
     except (IOError, OSError):
-        return False
-    if BEGIN not in text or END not in text:
-        return False
-    lines = [BEGIN, "", registry["readme_table"], "", END]
-    block = "\n".join(lines)
-    start = text.index(BEGIN)
-    stop = text.index(END) + len(END)
-    fresh = text[:start] + block + text[stop:]
+        return "not found"
+    fresh = swap_block(text, BEGIN, END, registry["readme_table"])
+    if fresh is None:
+        fresh = text
+    newer = swap_block(fresh, SCORE_BEGIN, SCORE_END, registry.get("score_table") or "")
+    if newer is not None:
+        fresh = newer
+    if fresh == text:
+        return "already level"
     io.open(path, "w", encoding="utf-8").write(fresh)
-    return True
+    return "refreshed"
+
+
+def render_score(target):
+    """The same weighted table the score tool prints, as markdown.
+
+    Area names, weights and gate lists come from antigraf_score.py itself, so
+    the page and the terminal can never disagree about what an area is worth.
+    """
+    if not target:
+        return ("_No proof ledger found yet: nothing has been measured, so no score "
+                "is shown._")
+    import antigraf_score as S
+
+    state = target["per_gate"]
+    rows = []
+    weighted = 0.0
+    weights = 0
+    for name, weight, gates in S.AREAS:
+        p = sum(1 for g in gates if state.get(g) == "pass")
+        f = sum(1 for g in gates if state.get(g) == "fail")
+        u = len(gates) - p - f
+        pct = 100.0 * p / len(gates)
+        weighted += pct * weight
+        weights += weight
+        held = "-"
+        if f:
+            held = "failing: " + ", ".join(g for g in gates if state.get(g) == "fail")
+        elif u:
+            held = "not measured: " + ", ".join(g for g in gates if state.get(g) != "pass")
+        rows.append("| {} | {} | {} | {} | {} | {} |".format(
+            name, "{:.0f}%".format(pct), p, f, u, held.replace("|", "/")))
+
+    overall = weighted / weights if weights else 0.0
+    passed = sum(1 for g in C.GATES if state.get(g) == "pass")
+    failed = sum(1 for g in C.GATES if state.get(g) == "fail")
+    unknown = len(C.GATES) - passed - failed
+    open_rows = [g for g in C.GATES if state.get(g) != "pass"]
+
+    # The total is a share of what the run was measured on, never a claim that
+    # the tool is finished. Unknown rows weigh the same as failures: zero.
+    out = ["**Measured: {:.1f}% out of 100 - {} ({})**".format(
+        overall, target["target"], target["kind"]), ""]
+    out.append("| Area | Score | Passing | Failing | Not measured | What holds it down |")
+    out.append("|---|---|---|---|---|---|")
+    out.extend(rows)
+    out.append("| **Total** | **{:.1f}%** | {} | {} | {} | {} gate(s) not passing |".format(
+        overall, passed, failed, unknown, len(open_rows)))
+    out.append("")
+    out.append("The lock needs 100%: every gate passing, nothing unknown. A gate that never "
+               "ran counts as zero, not as a pass.")
+    return "\n".join(out)
 
 
 def render_table(registry):
@@ -219,10 +285,23 @@ def render_table(registry):
     return "\n".join(rows)
 
 
+def all_args(name):
+    """Every value given to one flag, so `--readme a --readme b` works."""
+    argv = sys.argv[1:]
+    out = []
+    for i, a in enumerate(argv):
+        if a == name and i + 1 < len(argv) and not argv[i + 1].startswith("--"):
+            for part in argv[i + 1].split(","):
+                part = part.strip()
+                if part:
+                    out.append(part)
+    return out
+
+
 def main():
     runs = C.arg("--runs", "runs")
     out = C.arg("--out", "registry.json")
-    readme = C.arg("--readme", "")
+    readme = all_args("--readme")
     if not os.path.isdir(runs):
         raise C.Stop("no such runs folder: {}".format(runs))
 
@@ -251,6 +330,13 @@ def main():
     registry["claims"] = claim_rows(targets)
     registry["readme_table"] = render_table(registry)
 
+    # The score block shows the best-evidenced round, so the page reports what
+    # has actually been measured rather than an average across stray runs.
+    scored = [t for t in targets if t["gates_ran"]]
+    best = max(scored, key=lambda t: (t["gates_passed"], t["gates_ran"], t["target"]), default=None)
+    registry["score_table"] = render_score(best)
+    registry["score_target"] = best["target"] + " " + best["run"] if best else ""
+
     io.open(out, "w", encoding="utf-8").write(
         json.dumps(registry, indent=1, ensure_ascii=False) + "\n")
 
@@ -263,8 +349,8 @@ def main():
         len(C.GATES), len(targets), len(proven)))
 
     if readme:
-        ok = refresh_readme(readme, registry)
-        print("README progress block: {}".format("refreshed" if ok else "not found - nothing changed"))
+        for path in readme:
+            print("README {}: {}".format(path, refresh_readme(path, registry)))
     print("registry written: {}".format(out))
     return 0
 
