@@ -12,6 +12,12 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 problems = []
 
+# Counted from the folder every time - a typed number is how 47-vs-48 happened.
+import os
+SCRIPTS = os.path.join("skills", "antigraf", "scripts")
+PY_COUNT = len(glob.glob(os.path.join(SCRIPTS, "*.py")))
+ALL_COUNT = len([f for f in os.listdir(SCRIPTS) if f.endswith((".py", ".js", ".mjs", ".json"))])
+
 def rows(text):
     tools = [l for l in text.splitlines() if "skills/antigraf/scripts" in l and "Python" in l]
     version = [l for l in text.splitlines() if "Where it runs" in l or "動く場所" in l
@@ -22,12 +28,11 @@ def rows(text):
 for p in sorted(glob.glob("README*.md")):
     text = io.open(p, encoding="utf-8-sig").read()
     tool_row, version_row = rows(text)
-    if "49" not in tool_row:
-        problems.append((p, "tools row does not say 49", tool_row.strip()[:80]))
-    if "41" not in tool_row:
-        problems.append((p, "tools row lost the Python count", tool_row.strip()[:80]))
-    if "47" in tool_row or "48" in tool_row:
-        problems.append((p, "tools row still has an old count", tool_row.strip()[:80]))
+    nums = re.findall(r"\d+", tool_row)
+    if str(ALL_COUNT) not in nums:
+        problems.append((p, "tools row does not say {}".format(ALL_COUNT), tool_row.strip()[:80]))
+    if str(PY_COUNT) not in nums:
+        problems.append((p, "tools row lost the Python count ({})".format(PY_COUNT), tool_row.strip()[:80]))
     # Japanese, Korean and both Chinese pages count Python tools as "Python 40",
     # which is a count and not a version, so the tools row is read out first.
     prose = "\n".join(l for l in text.splitlines() if l != tool_row)

@@ -123,7 +123,7 @@ Antigraf는 지시문과 작은 도구 모음으로 당신의 에이전트 안�
 | `skills/antigraf/SKILL.md` | 스킬 본체: 작업, 단계, 계층, 작업 공간, 라운드, 규칙 |
 | `skills/antigraf/README.md` | 전체 문서: 검사 항목, 허용 오차, 진행 상황, 배치 |
 | `skills/antigraf/references/` | 12가지 지침: 검사, 계획, 충실도, 장면, 인계, 근거 |
-| `skills/antigraf/scripts/` | 49가지 도구: Python 41, 브라우저 7, 기기 목록 1 |
+| `skills/antigraf/scripts/` | 50가지 도구: Python 42, 브라우저 7, 기기 목록 1 |
 | `assets/` | 아이콘, 512와 128 픽셀 |
 
 약속은 이 페이지에, 각 검사의 정확한 허용 오차는 전체 문서에 있습니다.

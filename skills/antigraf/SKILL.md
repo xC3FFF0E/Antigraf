@@ -322,6 +322,8 @@ simplify, grow then shrink, drop specks, extrude); and G25 also compares the exp
 same input on both sides with `antigraf_solid.py` - size, volume, area, holes, bad edges. "It looks
 right" is never the verdict for a solid. Full rule: `references/solid.md`.
 
+**Own code only.** When the original's source code is open to read (a public repo), run `antigraf_origin.py --original <their src> --copy app` before any share or push. Learning a method is allowed; carrying their code across is not. A failing file is rewritten in our own way, never hidden, and the check runs again.
+
 ---
 
 ## 5. Spending few tokens

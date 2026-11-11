@@ -123,7 +123,7 @@ Antigraf は、指示書と小さな道具一式としてあなたのエージ�
 | `skills/antigraf/SKILL.md` | スキル本体: 仕事、段階、階層、作業場所、ラウンド、規則 |
 | `skills/antigraf/README.md` | 完全な文書: チェック、許容差、進捗、配置 |
 | `skills/antigraf/references/` | 12 の手引き: チェック、計画、忠実度、シーン、引き継ぎ、証拠 |
-| `skills/antigraf/scripts/` | 49 の道具: Python 41、ブラウザ 7、端末一覧 1 |
+| `skills/antigraf/scripts/` | 50 の道具: Python 42、ブラウザ 7、端末一覧 1 |
 | `assets/` | アイコン（512 と 128 ピクセル） |
 
 約束はこのページに、各チェックの正確な許容差は完全な文書に書いてあります。

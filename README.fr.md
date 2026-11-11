@@ -129,7 +129,7 @@ plus faible, ou qui ne voit pas les images, ne baisse jamais la barre : il dépe
 | `skills/antigraf/SKILL.md` | la compétence elle-même : travaux, étapes, niveaux, espace de travail, tours, règles |
 | `skills/antigraf/README.md` | le document complet : contrôles, tolérances, progression, disposition |
 | `skills/antigraf/references/` | 12 guides : contrôles, planification, fidélité, scène, remise, preuves |
-| `skills/antigraf/scripts/` | 49 outils : 41 Python, 7 navigateur, une liste d'appareils |
+| `skills/antigraf/scripts/` | 50 outils : 42 Python, 7 navigateur, une liste d'appareils |
 | `assets/` | l'icône, en 512 et 128 pixels |
 
 Lisez cette page pour ce qu'elle promet. Lisez le document complet pour la tolérance exacte de chaque contrôle.

@@ -129,7 +129,7 @@ más débil, o que no puede ver imágenes, nunca baja el listón: gasta menos y 
 | `skills/antigraf/SKILL.md` | la habilidad misma: trabajos, etapas, niveles, espacio de trabajo, rondas, reglas |
 | `skills/antigraf/README.md` | el documento completo: comprobaciones, tolerancias, progreso, disposición |
 | `skills/antigraf/references/` | 12 guías: comprobaciones, planificación, fidelidad, escena, entrega, evidencia |
-| `skills/antigraf/scripts/` | 49 herramientas: 41 Python, 7 de navegador, una lista de dispositivos |
+| `skills/antigraf/scripts/` | 50 herramientas: 42 Python, 7 de navegador, una lista de dispositivos |
 | `assets/` | el icono, en 512 y 128 píxeles |
 
 Lee esta página para saber qué promete. Lee el documento completo para la tolerancia exacta de cada comprobación.

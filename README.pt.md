@@ -129,7 +129,7 @@ ou que não vê imagens, nunca baixa a régua: gasta menos e diz isso.
 | `skills/antigraf/SKILL.md` | a habilidade em si: trabalhos, etapas, níveis, espaço de trabalho, rodadas, regras |
 | `skills/antigraf/README.md` | o documento completo: checagens, tolerâncias, progresso, disposição |
 | `skills/antigraf/references/` | 12 guias: checagens, planejamento, fidelidade, cena, entrega, evidências |
-| `skills/antigraf/scripts/` | 49 ferramentas: 41 Python, 7 de navegador, uma lista de aparelhos |
+| `skills/antigraf/scripts/` | 50 ferramentas: 42 Python, 7 de navegador, uma lista de aparelhos |
 | `assets/` | o ícone, em 512 e 128 pixels |
 
 Leia esta página pelo que ela promete. Leia o documento completo para a tolerância exata de cada checagem.

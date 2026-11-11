@@ -131,7 +131,7 @@ model, or one that cannot see images, never lowers a bar. It spends less and say
 | [`skills/antigraf/SKILL.md`](skills/antigraf/SKILL.md) | the skill itself: jobs, stages, tiers, workspace, rounds, rules |
 | [`skills/antigraf/README.md`](skills/antigraf/README.md) | the full document: gates, tolerances, progress, layout |
 | [`skills/antigraf/references/`](skills/antigraf/references) | 12 guides: gates, planning, fidelity, scene, handover, evidence |
-| [`skills/antigraf/scripts/`](skills/antigraf/scripts) | 49 tools: 41 Python, 7 browser, one device list |
+| [`skills/antigraf/scripts/`](skills/antigraf/scripts) | 50 tools: 42 Python, 7 browser, one device list |
 | [`assets/`](assets) | the icon, in 512 and 128 pixels |
 
 Read this page for what it promises. Read the full document for the exact tolerance of every gate.
