@@ -153,7 +153,7 @@ cd skills/antigraf
 python scripts/antigraf_mode.py --choose 1 --target https://example.com
 ```
 
-需要：**Python 40.8 或更新**（仅标准库），浏览器工具需要 **Node 18 或更新**，走遍与点击需要 Chromium 系浏览器（Edge 或 Chrome）。每一项都是可选的：缺了就降一级，并在最后的表格中说明，而不是猜测。
+需要：**Python 3.8 或更新**（仅标准库），浏览器工具需要 **Node 18 或更新**，走遍与点击需要 Chromium 系浏览器（Edge 或 Chrome）。每一项都是可选的：缺了就降一级，并在最后的表格中说明，而不是猜测。
 
 ## 使用方法
 
@@ -209,7 +209,7 @@ Behaviour, flows           0%     0     0        5  not measured: G6, G7, G23, G
 网站与多页网页应用、手机优先的应用与 PWA 行为、带播放器的流媒体界面、商店与目录、文档站，以及包含绘制调用、着色器与运动的 3D 场景。
 
 **运行它需要什么？**
-Python 40.8 以上（只用标准库）、浏览器工具需要 Node 18 以上，以及 Chromium 系浏览器。不用安装包，不用账号，不用密钥。
+Python 3.8 以上（只用标准库）、浏览器工具需要 Node 18 以上，以及 Chromium 系浏览器。不用安装包，不用账号，不用密钥。
 
 ## 真实状态
 

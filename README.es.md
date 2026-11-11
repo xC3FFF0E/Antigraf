@@ -168,7 +168,7 @@ cd skills/antigraf
 python scripts/antigraf_mode.py --choose 1 --target https://example.com
 ```
 
-Requisitos: **Python 40.8 o superior** (solo librería estándar), **Node 18 o superior** para las
+Requisitos: **Python 3.8 o superior** (solo librería estándar), **Node 18 o superior** para las
 herramientas de navegador, y un navegador basado en Chromium (Edge o Chrome) para recorrer y pulsar.
 Cada pieza es opcional: si falta una, la habilidad baja un nivel y lo dice en la tabla final en vez de
 adivinar.
@@ -236,7 +236,7 @@ Cada comprobación deja un archivo con su propio código de salida, y la tabla f
 Sitios web y apps web de varias páginas, apps de móvil y comportamiento PWA, interfaces de streaming con reproductor, tiendas y catálogos, sitios de documentación, y escenas 3D con sus llamadas de dibujo, shaders y movimiento.
 
 **¿Qué necesita para funcionar?**
-Python 40.8 o superior solo con la librería estándar, Node 18 o superior para las herramientas de navegador, y un navegador Chromium. Sin instalar paquetes, sin cuenta, sin clave.
+Python 3.8 o superior solo con la librería estándar, Node 18 o superior para las herramientas de navegador, y un navegador Chromium. Sin instalar paquetes, sin cuenta, sin clave.
 
 ## Estado honesto
 

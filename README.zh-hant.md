@@ -159,7 +159,7 @@ cd skills/antigraf
 python scripts/antigraf_mode.py --choose 1 --target https://example.com
 ```
 
-需要：**Python 40.8 或更新**（僅標準庫），瀏覽器工具需要 **Node 18 或更新**，走遍與點擊需要 Chromium 系瀏覽器（Edge 或 Chrome）。每一項都是可選的：缺了就降一級，並在最後的表格中說明，而不是猜測。
+需要：**Python 3.8 或更新**（僅標準庫），瀏覽器工具需要 **Node 18 或更新**，走遍與點擊需要 Chromium 系瀏覽器（Edge 或 Chrome）。每一項都是可選的：缺了就降一級，並在最後的表格中說明，而不是猜測。
 
 ## 使用方法
 
@@ -220,7 +220,7 @@ Evidence, proof, pages    60%     3     1        1  failing: G12
 網站與多頁網頁應用、手機優先的應用與 PWA 行為、帶播放器的串流介面、商店與目錄、文件站，以及包含繪製呼叫、著色器與運動的 3D 場景。
 
 **執行它需要什麼？**
-Python 40.8 以上（只用標準庫）、瀏覽器工具需要 Node 18 以上，以及 Chromium 系瀏覽器。不用安裝套件，不用帳號，不用金鑰。
+Python 3.8 以上（只用標準庫）、瀏覽器工具需要 Node 18 以上，以及 Chromium 系瀏覽器。不用安裝套件，不用帳號，不用金鑰。
 
 ## 真實狀態
 

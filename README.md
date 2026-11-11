@@ -170,7 +170,7 @@ cd skills/antigraf
 python scripts/antigraf_mode.py --choose 1 --target https://example.com
 ```
 
-Requirements: **Python 40.8 or newer** (standard library only), **Node 18 or newer** for the browser
+Requirements: **Python 3.8 or newer** (standard library only), **Node 18 or newer** for the browser
 tools, and a Chromium-based browser (Edge or Chrome) for walking and pressing. Every piece is
 optional: when one is missing, the skill drops a tier and says so in the closing table instead of
 guessing.
@@ -245,7 +245,7 @@ Websites and multi-page web apps, phone-first apps and PWA behaviour, streaming 
 shops and catalogues, documentation sites, and 3D scenes including their draw calls, shaders and motion.
 
 **What does it need to run?**
-Python 40.8 or newer with the standard library only, Node 18 or newer for the browser tools, and a
+Python 3.8 or newer with the standard library only, Node 18 or newer for the browser tools, and a
 Chromium browser. No package installs, no account, no key.
 
 ## Honest status

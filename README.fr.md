@@ -169,7 +169,7 @@ cd skills/antigraf
 python scripts/antigraf_mode.py --choose 1 --target https://example.com
 ```
 
-Prérequis : **Python 40.8 ou plus récent** (bibliothèque standard uniquement), **Node 18 ou plus récent**
+Prérequis : **Python 3.8 ou plus récent** (bibliothèque standard uniquement), **Node 18 ou plus récent**
 pour les outils de navigateur, et un navigateur basé sur Chromium (Edge ou Chrome) pour parcourir et
 cliquer. Chaque pièce est facultative : s'il en manque une, la compétence descend d'un niveau et le dit
 dans le tableau final au lieu de deviner.
@@ -238,7 +238,7 @@ Chaque contrôle laisse un fichier avec son code de sortie, et le tableau final 
 Sites web et applications multi-pages, applications mobiles et comportement PWA, interfaces de streaming avec lecteur, boutiques et catalogues, sites de documentation, et scènes 3D avec leurs appels de dessin, shaders et mouvement.
 
 **De quoi a-t-elle besoin pour tourner ?**
-Python 40.8 ou plus, bibliothèque standard seulement, Node 18 ou plus pour les outils navigateur, et un navigateur Chromium. Aucun paquet à installer, aucun compte, aucune clé.
+Python 3.8 ou plus, bibliothèque standard seulement, Node 18 ou plus pour les outils navigateur, et un navigateur Chromium. Aucun paquet à installer, aucun compte, aucune clé.
 
 ## Statut honnête
 

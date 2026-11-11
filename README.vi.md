@@ -168,7 +168,7 @@ cd skills/antigraf
 python scripts/antigraf_mode.py --choose 1 --target https://example.com
 ```
 
-Yêu cầu: **Python 40.8 trở lên** (chỉ thư viện chuẩn), **Node 18 trở lên** cho công cụ trình duyệt, và
+Yêu cầu: **Python 3.8 trở lên** (chỉ thư viện chuẩn), **Node 18 trở lên** cho công cụ trình duyệt, và
 trình duyệt dựa trên Chromium (Edge hoặc Chrome) để đi và nhấp. Mọi phần đều tuỳ chọn: thiếu một
 phần, kỹ năng xuống một bậc và nói rõ trong bảng cuối thay vì phỏng đoán.
 
@@ -234,7 +234,7 @@ Mỗi bước kiểm để lại một tệp kèm mã thoát, và bảng cuối 
 Website và ứng dụng web nhiều trang, ứng dụng ưu tiên điện thoại và hành vi PWA, giao diện phát trực tuyến có trình phát, cửa hàng và danh mục, trang tài liệu, và cảnh 3D gồm lệnh vẽ, shader và chuyển động.
 
 **Chạy nó cần gì?**
-Python 40.8 trở lên chỉ với thư viện chuẩn, Node 18 trở lên cho công cụ trình duyệt, và trình duyệt Chromium. Không cần cài gói, không tài khoản, không khóa.
+Python 3.8 trở lên chỉ với thư viện chuẩn, Node 18 trở lên cho công cụ trình duyệt, và trình duyệt Chromium. Không cần cài gói, không tài khoản, không khóa.
 
 ## Tình trạng trung thực
 
