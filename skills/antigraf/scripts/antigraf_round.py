@@ -80,6 +80,13 @@ def main():
     plan = arg("--plan", "plan.json")
     waivers = arg("--waivers", "waivers.json")
     steps = arg("--steps") or os.path.join(copy, "steps.json")
+    # The explorer writes `steps-seed.json`; the round used to look only for
+    # `steps.json`, so the replay was skipped every time although the presses
+    # had been recorded. Either name is the same measurement.
+    if not arg("--steps") and not os.path.exists(steps):
+        seed = os.path.join(copy, "steps-seed.json")
+        if os.path.exists(seed):
+            steps = seed
     net = os.path.join(copy, "net.json")
     states_o = os.path.join(orig, "states.json")
     states_c = os.path.join(copy, "states.json")
@@ -151,6 +158,16 @@ def main():
         pages = os.path.join(orig, "pages.json")
         if os.path.exists(pages):
             extra += ["--pages", pages]
+        # G11 compares a build's states too, and those only exist in the
+        # explorer's sheet - they are opened, never walked.
+        copy_states = os.path.join(copy, "states.json")
+        if os.path.exists(copy_states):
+            extra += ["--copy-states", copy_states]
+        # And the original's own sheet, so the copy is not called EXTRA for
+        # opening a state the original opened first.
+        orig_states = os.path.join(orig, "states.json")
+        if os.path.exists(orig_states):
+            extra += ["--states", orig_states]
         code, cmd, out = call("antigraf_coverage.py", inv, plan, *extra)
         results["G11"] = record("G11", code, cmd, out,
                                "found, planned and shipped agree on every page")
@@ -395,13 +412,9 @@ def main():
     for gate, extra, what in (("G25", (), "the scene itself"),
                               ("G26", ("--frames",), "how the scene moves")):
         if os.path.exists(scene_o) and os.path.exists(scene_c):
-            # A page with no canvas on either side has nothing to judge, and that
-            # is an answer, not a hole: the gate says so and exits 2 (not applicable).
-            has_o = (load(scene_o, default={}) or {}).get("found")
-            has_c = (load(scene_c, default={}) or {}).get("found")
-            if has_o is False and has_c is False:
-                results[gate] = skip(gate, "no canvas on either side - nothing to compare")
-                continue
+            # Let the gate decide. A page with no canvas on either side is a
+            # recorded answer and the gate now says so with a pass; skipping it
+            # here counted a measured "nothing there" as work nobody did.
             code, cmd, out = call("antigraf_scene_gate.py", scene_o, scene_c, *extra)
             results[gate] = record(gate, code, cmd, out, what)
         else:

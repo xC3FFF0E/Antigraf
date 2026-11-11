@@ -137,6 +137,13 @@ def main():
     gate = "G26" if frames_mode else "G25"
 
     if not a.get("found") or not b.get("found"):
+        # Both sides were recorded and neither has a canvas: there is nothing to
+        # compare, and a page without a scene cannot be "missing" one. That is an
+        # answer, not a hole - the same rule G13 uses for "neither side animates".
+        if a.get("recorded") and b.get("recorded") and not a.get("found") and not b.get("found"):
+            print("{} pass  no canvas on either side, both were recorded - nothing to compare".format(gate))
+            emit(gate, 0, 0, [])
+            return PASS
         missing = [name for name, doc in (("original", a), ("copy", b)) if not doc.get("found")]
         print("{} Scene".format(gate))
         print("  no scene on the {}: {}. A canvas that was never read is not a canvas that matches.".format(

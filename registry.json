@@ -1,0 +1,303 @@
+{
+ "at": "2026-11-11T07:56:51Z",
+ "gates": [
+  "G0",
+  "G1",
+  "G2",
+  "G3",
+  "G4",
+  "G5",
+  "G6",
+  "G7",
+  "G8",
+  "G9",
+  "G10",
+  "G11",
+  "G12",
+  "G13",
+  "G14",
+  "G15",
+  "G16",
+  "G17",
+  "G18",
+  "G19",
+  "G20",
+  "G21",
+  "G22",
+  "G23",
+  "G24",
+  "G25",
+  "G26"
+ ],
+ "gate_count": 27,
+ "runs": "benchmarks",
+ "targets": [
+  {
+   "run": "round 7",
+   "target": "the three-page test pair",
+   "family": "unknown",
+   "kind": "round 7",
+   "ledger": "round 7",
+   "at": "2026-11-11T07:56:13Z",
+   "gates_ran": 27,
+   "gates_passed": 25,
+   "gates_failed": 2,
+   "gates_unknown": 0,
+   "gates_never": 0,
+   "state": "measured",
+   "per_gate": {
+    "G1": "pass",
+    "G0": "pass",
+    "G10": "pass",
+    "G11": "pass",
+    "G2": "pass",
+    "G3": "pass",
+    "G4": "pass",
+    "G5": "pass",
+    "G6": "pass",
+    "G7": "pass",
+    "G8": "pass",
+    "G9": "pass",
+    "G17": "pass",
+    "G18": "pass",
+    "G13": "pass",
+    "G14": "pass",
+    "G15": "pass",
+    "G16": "pass",
+    "G19": "pass",
+    "G20": "pass",
+    "G21": "pass",
+    "G22": "pass",
+    "G23": "pass",
+    "G24": "fail",
+    "G25": "pass",
+    "G26": "pass",
+    "G12": "fail"
+   },
+   "failed": [
+    "G12",
+    "G24"
+   ],
+   "unknown": [],
+   "never": []
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Look: sections, words, colours, spacing",
+   "gates": [
+    "G2",
+    "G3",
+    "G4",
+    "G5"
+   ],
+   "pass": 4,
+   "total": 4,
+   "proven_on": [],
+   "measured_on": [
+    "the three-page test pair round 7"
+   ],
+   "state": "measured",
+   "where": "the three-page test pair round 7"
+  },
+  {
+   "claim": "Icons and pictures, one partner each",
+   "gates": [
+    "G8",
+    "G17"
+   ],
+   "pass": 2,
+   "total": 2,
+   "proven_on": [],
+   "measured_on": [
+    "the three-page test pair round 7"
+   ],
+   "state": "measured",
+   "where": "the three-page test pair round 7"
+  },
+  {
+   "claim": "Every page walked, planned and shipped",
+   "gates": [
+    "G11"
+   ],
+   "pass": 1,
+   "total": 1,
+   "proven_on": [],
+   "measured_on": [
+    "the three-page test pair round 7"
+   ],
+   "state": "measured",
+   "where": "the three-page test pair round 7"
+  },
+  {
+   "claim": "Behaviour: pressed, and the same result",
+   "gates": [
+    "G7",
+    "G23",
+    "G24"
+   ],
+   "pass": 2,
+   "total": 3,
+   "proven_on": [],
+   "measured_on": [
+    "the three-page test pair round 7"
+   ],
+   "state": "measured",
+   "where": "the three-page test pair round 7"
+  },
+  {
+   "claim": "States: hover, focus, open, empty, error",
+   "gates": [
+    "G6"
+   ],
+   "pass": 1,
+   "total": 1,
+   "proven_on": [],
+   "measured_on": [
+    "the three-page test pair round 7"
+   ],
+   "state": "measured",
+   "where": "the three-page test pair round 7"
+  },
+  {
+   "claim": "Motion: durations, easings, scroll",
+   "gates": [
+    "G13"
+   ],
+   "pass": 1,
+   "total": 1,
+   "proven_on": [],
+   "measured_on": [
+    "the three-page test pair round 7"
+   ],
+   "state": "measured",
+   "where": "the three-page test pair round 7"
+  },
+  {
+   "claim": "Phone, install and offline (PWA)",
+   "gates": [
+    "G9",
+    "G14",
+    "G18"
+   ],
+   "pass": 3,
+   "total": 3,
+   "proven_on": [],
+   "measured_on": [
+    "the three-page test pair round 7"
+   ],
+   "state": "measured",
+   "where": "the three-page test pair round 7"
+  },
+  {
+   "claim": "Speed and weight budgets",
+   "gates": [
+    "G15"
+   ],
+   "pass": 1,
+   "total": 1,
+   "proven_on": [],
+   "measured_on": [
+    "the three-page test pair round 7"
+   ],
+   "state": "measured",
+   "where": "the three-page test pair round 7"
+  },
+  {
+   "claim": "Logic: same input, same answer, no secrets",
+   "gates": [
+    "G19"
+   ],
+   "pass": 1,
+   "total": 1,
+   "proven_on": [],
+   "measured_on": [
+    "the three-page test pair round 7"
+   ],
+   "state": "measured",
+   "where": "the three-page test pair round 7"
+  },
+  {
+   "claim": "Defects found, and the copy repaired",
+   "gates": [
+    "G20",
+    "G21"
+   ],
+   "pass": 2,
+   "total": 2,
+   "proven_on": [],
+   "measured_on": [
+    "the three-page test pair round 7"
+   ],
+   "state": "measured",
+   "where": "the three-page test pair round 7"
+  },
+  {
+   "claim": "3D scene read as numbers",
+   "gates": [
+    "G25"
+   ],
+   "pass": 1,
+   "total": 1,
+   "proven_on": [],
+   "measured_on": [
+    "the three-page test pair round 7"
+   ],
+   "state": "measured",
+   "where": "the three-page test pair round 7"
+  },
+  {
+   "claim": "3D motion compared frame by frame",
+   "gates": [
+    "G26"
+   ],
+   "pass": 1,
+   "total": 1,
+   "proven_on": [],
+   "measured_on": [
+    "the three-page test pair round 7"
+   ],
+   "state": "measured",
+   "where": "the three-page test pair round 7"
+  },
+  {
+   "claim": "Server seams listed for you to hook up",
+   "gates": [
+    "G16"
+   ],
+   "pass": 1,
+   "total": 1,
+   "proven_on": [],
+   "measured_on": [
+    "the three-page test pair round 7"
+   ],
+   "state": "measured",
+   "where": "the three-page test pair round 7"
+  },
+  {
+   "claim": "Evidence, proof and a frozen plan",
+   "gates": [
+    "G0",
+    "G1",
+    "G10",
+    "G12"
+   ],
+   "pass": 3,
+   "total": 4,
+   "proven_on": [],
+   "measured_on": [
+    "the three-page test pair round 7"
+   ],
+   "state": "measured",
+   "where": "the three-page test pair round 7"
+  }
+ ],
+ "script_count": {
+  "tools": 47,
+  "python": 40,
+  "browser": 7
+ },
+ "readme_table": "**27 gates  ·  0 proven on a real original-to-copy pair  ·  1 measured so far**\n\n| What the gates check | Gates | State | Where it was measured |\n|---|---|---|---|\n| Look: sections, words, colours, spacing | G2, G3, G4, G5 | measured | the three-page test pair round 7 |\n| Icons and pictures, one partner each | G8, G17 | measured | the three-page test pair round 7 |\n| Every page walked, planned and shipped | G11 | measured | the three-page test pair round 7 |\n| Behaviour: pressed, and the same result | G7, G23, G24 | measured | the three-page test pair round 7 |\n| States: hover, focus, open, empty, error | G6 | measured | the three-page test pair round 7 |\n| Motion: durations, easings, scroll | G13 | measured | the three-page test pair round 7 |\n| Phone, install and offline (PWA) | G9, G14, G18 | measured | the three-page test pair round 7 |\n| Speed and weight budgets | G15 | measured | the three-page test pair round 7 |\n| Logic: same input, same answer, no secrets | G19 | measured | the three-page test pair round 7 |\n| Defects found, and the copy repaired | G20, G21 | measured | the three-page test pair round 7 |\n| 3D scene read as numbers | G25 | measured | the three-page test pair round 7 |\n| 3D motion compared frame by frame | G26 | measured | the three-page test pair round 7 |\n| Server seams listed for you to hook up | G16 | measured | the three-page test pair round 7 |\n| Evidence, proof and a frozen plan | G0, G1, G10, G12 | measured | the three-page test pair round 7 |\n\n| Target | Family | Kind | Gates passed | Failed | Unknown | Verdict |\n|---|---|---|---|---|---|---|\n| the three-page test pair | unknown | round 7 | 25 of 27 | 2 | 0 | measured |\n\n`proven` means every gate ran, passed, and nothing was unknown. `measured` means the gates ran and left a real exit code. Anything else is `not proven`, and is not being claimed.",
+ "score_table": "**Measured: 94.8% out of 100 - the three-page test pair (round 7)**\n\n| Area | Score | Passing | Failing | Not measured | What holds it down |\n|---|---|---|---|---|---|\n| Words & layout | 100% | 3 | 0 | 0 | - |\n| Design, icons | 100% | 2 | 0 | 0 | - |\n| Behaviour, flows | 80% | 4 | 1 | 0 | failing: G24 |\n| Phone & PWA | 100% | 2 | 0 | 0 | - |\n| Motion & 3D | 100% | 3 | 0 | 0 | - |\n| Media & speed | 100% | 2 | 0 | 0 | - |\n| Accessibility | 100% | 1 | 0 | 0 | - |\n| Sources, repairs | 100% | 4 | 0 | 0 | - |\n| Evidence, proof, pages | 80% | 4 | 1 | 0 | failing: G12 |\n| **Total** | **94.8%** | 25 | 2 | 0 | 2 gate(s) not passing |\n\nThe lock needs 100%: every gate passing, nothing unknown. A gate that never ran counts as zero, not as a pass.",
+ "score_target": "the three-page test pair round 7"
+}

@@ -235,9 +235,24 @@ def check_steps(plan_path, steps_path):
     for uid in planned:
         if uid in tried:
             rows.append([uid, "planned", "replayed", "PASS"])
-        else:
-            rows.append([uid, "planned", "never replayed", "unknown"])
-            unknown += 1
+            continue
+        # A state is a RESULT of a press, not a press of its own. When the
+        # control that opens it was replayed, the state it opens was recorded
+        # by the explorer and compared by G6 - replaying it again by hand is
+        # not required, and demanding it read real work as "never replayed".
+        opener = ""
+        for r in units(plan):
+            if str(r.get("kind") or "") != "state":
+                continue
+            names = [str(r.get(k) or "") for k in ("state_id", "target", "label")]
+            if uid in [n.strip() for n in names]:
+                opener = str(r.get("opened_by") or r.get("target") or "").split(" ")[0]
+                break
+        if opener and opener in tried:
+            rows.append([uid, "planned", "opened by " + opener, "PASS"])
+            continue
+        rows.append([uid, "planned", "never replayed", "unknown"])
+        unknown += 1
     for uid in sorted(set(tried) - set(planned)):
         rows.append([uid, "not in plan", "replayed", "FAIL"])
         fails += 1

@@ -208,8 +208,9 @@ def main():
     pos = positional()
     if len(pos) < 2:
         raise Stop("usage: antigraf_coverage.py capture/inventory.json plan.json "
-                   "[--copy copy/inventory.json] [--pages capture/pages.json] "
-                   "[--allow-unreachable]")
+                   "[--copy copy/inventory.json] [--copy-states copy/states.json] "
+                   "[--states capture/states.json] "
+                   "[--pages capture/pages.json] [--allow-unreachable]")
     inv_path, plan_path = pos[0], pos[1]
     need([inv_path, plan_path])
 
@@ -227,6 +228,27 @@ def main():
     copy_inv = load(copy_path) if copy_path else None
     if copy_path:
         need([copy_path])
+
+    # A build's states live in the explorer's sheet, not in the page inventory:
+    # states only exist after a control is pressed. Without this merge, every
+    # planned state reads NOT SHIPPED although the copy opened all of them.
+    states_path = arg("--copy-states")
+    if states_path and copy_inv is not None:
+        need([states_path])
+        sheet = load(states_path)
+        got = sheet.get("states", []) if isinstance(sheet, dict) else []
+        if got:
+            copy_inv["states"] = got
+
+    # The same merge on the original side, or question 4 reads every opened
+    # state in the copy as EXTRA while the original opened them just as well.
+    orig_states = arg("--states")
+    if orig_states:
+        need([orig_states])
+        sheet = load(orig_states)
+        got = sheet.get("states", []) if isinstance(sheet, dict) else []
+        if got:
+            inv["states"] = got
 
     # ---- question 1: found -> planned
     refs = {}

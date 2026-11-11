@@ -68,21 +68,21 @@ def main():
         rows, fails, unknown = [], 0, 0
         for s in steps:
             obs = str(s.get("observed") or "").strip()
-            ok = bool(s.get("ok"))
-            # a step that says ok but shows a different result than it expected is
-            # not a pass: the flag is a claim, the two fields are the evidence
             exp = str(s.get("expected") or "").strip()
-            if obs and exp and ok and " ".join(obs.lower().split()) != " ".join(exp.lower().split()):
-                ok = False
+            # The evidence decides, never a flag. The explorer writes only
+            # `expected` and `observed`, so a missing `ok` used to turn every
+            # replayed step into a failure even where both strings matched.
+            same = (" ".join(obs.lower().split()) == " ".join(exp.lower().split()))
+            ok = same if (obs and exp) else bool(s.get("ok"))
             if not obs:
-                rows.append([s.get("id", "-"), s.get("do", "-"), s.get("expected", "-"),
+                rows.append([s.get("id", "-"), s.get("do", "-"), exp or "-",
                              "(nothing observed)", "unknown"])
                 unknown += 1
             elif ok:
-                rows.append([s.get("id", "-"), s.get("do", "-"), s.get("expected", "-"),
+                rows.append([s.get("id", "-"), s.get("do", "-"), exp or "-",
                              obs[:50], "pass"])
             else:
-                rows.append([s.get("id", "-"), s.get("do", "-"), s.get("expected", "-"),
+                rows.append([s.get("id", "-"), s.get("do", "-"), exp or "-",
                              obs[:50], "FAIL"])
                 fails += 1
         table(rows, ["id", "did", "expected", "observed", "verdict"])

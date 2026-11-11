@@ -255,11 +255,19 @@ const CLICK_BY_INDEX = (idx, wantLabel, wantX, wantY) => {
   const got = nameOf(el0).slice(0, 60);
   let el = el0;
   if (wantLabel && got && !sameish(got, wantLabel)) {
-    const twin = list.find((e) => sameish(nameOf(e), wantLabel));
-    if (!twin) {
-      return JSON.stringify({ ok: false, why: "label changed: '" + got + "' is not '" + wantLabel + "'" });
+    // A glyph control is recorded by what a person sees (`×`) while its
+    // accessible name says what it does (`Close menu`). Both name the same
+    // element, so the visible text is accepted before the press is refused.
+    const glyph = (el0.innerText || "").trim().slice(0, 60);
+    if (glyph && sameish(glyph, wantLabel)) {
+      el = el0;
+    } else {
+      const twin = list.find((e) => sameish(nameOf(e), wantLabel));
+      if (!twin) {
+        return JSON.stringify({ ok: false, why: "label changed: '" + got + "' is not '" + wantLabel + "'" });
+      }
+      el = twin;
     }
-    el = twin;
   }
   el.scrollIntoView({ block: "center", inline: "center" });
   const r = el.getBoundingClientRect();

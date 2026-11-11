@@ -341,6 +341,9 @@ async function main() {
       scene = scene || {};
       const out = {
         version: 1, url: URL_, at: new Date().toISOString(), found: false,
+        // `recorded` means the probe really looked. "I opened it and there is no
+        // canvas" is a measurement; "nobody looked" is the unknown.
+        recorded: true,
         lib: scene.lib || null, reason: scene.error || "no scene found on the page",
         canvas: scene.canvas || null, src: "measured",
       };
