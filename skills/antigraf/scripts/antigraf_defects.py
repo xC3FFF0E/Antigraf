@@ -147,6 +147,9 @@ def main(argv):
               "[--must-not-repeat <defects.json>]")
         return 2
     d = argv[1]
+    if not os.path.isdir(d):
+        print("ERROR: %s is not a capture folder - pass the folder the walker wrote" % d)
+        return 2
     label = "original"
     repeat_of = None
     ledger = None

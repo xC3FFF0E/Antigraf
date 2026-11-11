@@ -1,0 +1,40 @@
+name: Self-test
+
+# Every push proves the tools still load and refuse bad input without crashing.
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  selftest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Browser tools parse
+        run: |
+          for f in skills/antigraf/scripts/*.mjs skills/antigraf/scripts/*.js; do
+            node --check "$f" || exit 1
+          done
+
+      - name: Python tools parse, show usage, refuse bad input
+        run: python .github/selftest.py
+
+      - name: Nothing private in the files
+        run: python skills/antigraf/scripts/antigraf_leakscan.py --root .
+
+      - name: Counts in the pages match the folder
+        run: python .github/readme-counts.py
